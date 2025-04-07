@@ -28,7 +28,7 @@ export default buildConfig({
 	db: mongooseAdapter({
 		url: process.env.DATABASE_URI || "",
 		connectOptions: {
-			dbName: "boilerplate",
+			dbName: process.env.DATABASE_NAME || "",
 		},
 	}),
 	sharp,
