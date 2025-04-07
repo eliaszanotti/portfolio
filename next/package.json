@@ -1,0 +1,36 @@
+{
+	"name": "next",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@payloadcms/db-mongodb": "^3.31.0",
+		"@payloadcms/next": "^3.31.0",
+		"@payloadcms/richtext-lexical": "^3.31.0",
+		"graphql": "^16.10.0",
+		"next": "15.2.4",
+		"payload": "^3.31.0",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"sharp": "^0.33.5"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3",
+		"@tailwindcss/postcss": "^4",
+		"@tailwindcss/typography": "^0.5.16",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"daisyui": "^5.0.9",
+		"eslint": "^9",
+		"eslint-config-next": "15.2.4",
+		"tailwindcss": "^4",
+		"typescript": "^5"
+	}
+}

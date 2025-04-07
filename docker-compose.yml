@@ -1,0 +1,14 @@
+services:
+    next:
+        build:
+            context: ./next
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - "3000:3000"
+        networks:
+            - boilerplate
+
+networks:
+    boilerplate:
+        driver: bridge
