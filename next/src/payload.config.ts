@@ -26,8 +26,7 @@ export default buildConfig({
 		outputFile: path.resolve(dirname, "payload-types.ts"),
 	},
 	db: mongooseAdapter({
-		// url: process.env.DATABASE_URI || "",
-		url: "mongodb://admineliaszanotti:pL9%5C4p5(z%26K37dq2e9@eliaszanotti.com:27017/boilerplate?authSource=admin",
+		url: process.env.DATABASE_URI || "",
 		connectOptions: {
 			dbName: "boilerplate",
 		},
