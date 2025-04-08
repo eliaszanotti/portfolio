@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 export const revalidate = 10;
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
-
+// TODO dynamic with payload
 export const metadata: Metadata = {
-	title: "Boilerplate",
-	description: "Boilerplate",
+	title: "Elias Zanotti",
+	description: "Full Stack Developer",
 };
 
 export default function RootLayout({
@@ -26,11 +16,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
-				{children}
-			</body>
+			<body className="antialiased font-delight">{children}</body>
 		</html>
 	);
 }

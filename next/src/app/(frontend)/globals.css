@@ -2,6 +2,42 @@
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
 
+@font-face {
+	font-family: "Delight";
+	src: url("/fonts/delight-thin.otf") format("opentype");
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Delight";
+	src: url("/fonts/delight-regular.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Delight";
+	src: url("/fonts/delight-bold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Delight";
+	src: url("/fonts/delight-black.otf") format("opentype");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+.font-delight {
+	font-family: "Delight", sans-serif;
+}
+
 @plugin "daisyui/theme" {
 	name: "dark";
 	default: true;
