@@ -1,14 +1,25 @@
-import Man from "@icons/man";
+import IconFrance from "@/icons/france";
+import Man from "@/icons/man";
 
 export default function Home() {
 	return (
-		<section className="relative w-full h-full">
-			<div className="absolute z-0 w-full h-full grid place-items-center">
-				<Man />
+		<section className="relative w-full h-screen grid place-items-center">
+			<div className="absolute p-20 w-full h-full grid grid-cols-[1fr_auto]">
+				<IconFrance />
+				<p className="text-2xl">FULL STACK DEVELOPER</p>
 			</div>
-			<div className="relative z-10 flex h-screen w-full flex-col items-center justify-center gap-4">
-				<h1 className="text-9xl font-black">ELIAS</h1>
-				<h1 className="text-9xl font-black">ZANOTTI</h1>
+			<div className="p-10 grid grid-cols-[1fr_1fr] gap-10">
+				<div className="h-full w-fit">
+					<Man />
+				</div>
+				<div className="flex flex-col items-center justify-center">
+					<h1 className="text-[200px] leading-none font-black">
+						ELIAS
+					</h1>
+					<h1 className="text-[130px] leading-none font-black">
+						ZANOTTI
+					</h1>
+				</div>
 			</div>
 		</section>
 	);
