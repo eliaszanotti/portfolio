@@ -19,10 +19,10 @@ export default function Home() {
 						/>
 					</div>
 					<div className="flex flex-col items-center justify-center fixed">
-						<h1 className="text-[300px] leading-none font-black text-primary">
+						<h1 className="text-[300px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
 							ELIAS
 						</h1>
-						<h1 className="text-[200px] leading-none font-black text-primary">
+						<h1 className="text-[200px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
 							ZANOTTI
 						</h1>
 					</div>
