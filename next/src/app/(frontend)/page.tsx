@@ -62,7 +62,7 @@ export default function Home() {
 					<p className="text-2xl">Welcome to Elias&apos;s museum</p>
 				</div>
 			</section>
-			<section className="min-h-screen grid grid-cols-2 items-center justify-center bg-violet-600 z-5 p-32 gap-16 pt-48">
+			<section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-violet-600 z-5 p-32 gap-16 pt-48">
 				<div className="flex flex-col gap-4">
 					<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
 					<p className="text-2xl">
