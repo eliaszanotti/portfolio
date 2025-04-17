@@ -49,13 +49,51 @@ export default function Home() {
 							Contact
 						</Link>
 					</nav>
-					<p className="text-2xl text-primary">
-						FULL STACK DEVELOPER
-					</p>
+					<p className="text-2xl uppercase">FULL STACK DEVELOPER</p>
 				</div>
 			</section>
 			<section className="h-screen grid place-items-center z-5 bg-base-200 text-primary">
-				<p className="text-6xl font-black">Sortez du cadre</p>
+				<div className="flex flex-col gap-4">
+					<h1 className="text-6xl font-black italic">
+						&quot;Think outside the box&quot;
+					</h1>
+					<p className="text-2xl">Welcome to Elias&apos;s museum</p>
+				</div>
+			</section>
+			<section className="h-screen grid grid-cols-2 items-center justify-center bg-violet-600 z-5 p-32 gap-16">
+				<div className="flex flex-col gap-4">
+					<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
+					<p className="text-2xl">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Quisquam, quos.
+					</p>
+					<div className="w-full">
+						<Link
+							className="btn btn-primary font-normal uppercase"
+							href="/contact"
+						>
+							Visit the website
+						</Link>
+					</div>
+				</div>
+				<div className="grid place-items-center h-full">
+					<div className="w-full relative">
+						<Image
+							className="h-full w-full object-cover object-center absolute z-0 p-[12%]"
+							src="/images/atlas.png"
+							alt="elias"
+							width={2000}
+							height={2000}
+						/>
+						<Image
+							className="h-full w-full object-contain object-center relative z-10"
+							src="/images/frame-3-horizontal.png"
+							alt="elias"
+							width={2000}
+							height={2000}
+						/>
+					</div>
+				</div>
 			</section>
 		</div>
 	);
