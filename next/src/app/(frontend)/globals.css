@@ -43,8 +43,8 @@
 	default: true;
 	prefersdark: true;
 	color-scheme: "dark";
-	--color-base-100: oklch(0.96 0.0086 67.72);
-	--color-base-200: oklch(0.88 0.0283 81.46);
+	--color-base-100: oklch(0.97 0.02 78.52);
+	--color-base-200: oklch(0.94 0.02 78.52);
 	--color-base-300: oklch(0.83 0.0283 81.46);
 	--color-base-content: oklch(0.2 0.0786 64.05);
 	--color-primary: oklch(0.76 0.1081 78.52);
@@ -71,4 +71,11 @@
 	--border: 1px;
 	--depth: 0;
 	--noise: 0;
+}
+
+@layer base {
+	*::selection {
+		background-color: var(--color-secondary);
+		color: #fff;
+	}
 }
