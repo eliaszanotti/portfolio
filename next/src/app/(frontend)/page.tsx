@@ -64,14 +64,16 @@ export default function Home() {
 			</section>
 			<section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-violet-600 z-5 p-32 gap-16 pt-48">
 				<div className="flex flex-col gap-4">
-					<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
-					<p className="text-2xl">
+					<h1 className="text-6xl font-black text-white">
+						Ambassadeurs Atlas
+					</h1>
+					<p className="text-2xl text-white">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Quisquam, quos.
 					</p>
 					<div className="w-full">
 						<Link
-							className="btn btn-primary font-normal uppercase"
+							className="btn btn-ghost bg-white font-normal uppercase"
 							href="/contact"
 						>
 							Visit
