@@ -1,7 +1,9 @@
+import AppFrameContainer from "@/components/AppFrameContainer";
 import IconFrance from "@/icons/france";
 import Man from "@/icons/man";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function Home() {
 	return (
 		<div className="flex flex-col">
@@ -60,7 +62,7 @@ export default function Home() {
 					<p className="text-2xl">Welcome to Elias&apos;s museum</p>
 				</div>
 			</section>
-			<section className="h-screen grid grid-cols-2 items-center justify-center bg-violet-600 z-5 p-32 gap-16">
+			<section className="min-h-screen grid grid-cols-2 items-center justify-center bg-violet-600 z-5 p-32 gap-16 pt-48">
 				<div className="flex flex-col gap-4">
 					<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
 					<p className="text-2xl">
@@ -72,27 +74,19 @@ export default function Home() {
 							className="btn btn-primary font-normal uppercase"
 							href="/contact"
 						>
-							Visit the website
+							Visit
 						</Link>
 					</div>
 				</div>
 				<div className="grid place-items-center h-full">
-					<div className="w-full relative">
-						<Image
-							className="h-full w-full object-cover object-center absolute z-0 p-[12%]"
-							src="/images/atlas.png"
-							alt="elias"
-							width={2000}
-							height={2000}
-						/>
-						<Image
-							className="h-full w-full object-contain object-center relative z-10"
-							src="/images/frame-3-horizontal.png"
-							alt="elias"
-							width={2000}
-							height={2000}
-						/>
-					</div>
+					<AppFrameContainer
+						imageData={{
+							src: "/images/atlas.png",
+							width: 2000,
+							height: 2000,
+						}}
+						frameType="1-horizontal"
+					/>
 				</div>
 			</section>
 		</div>
