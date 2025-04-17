@@ -1,14 +1,13 @@
 services:
     next:
+        container_name: next-portfolio
         build:
             context: ./next
             dockerfile: Dockerfile
         restart: always
-        ports:
-            - "3000:3000"
         networks:
-            - boilerplate
+            - vps-server_caddy
 
 networks:
-    boilerplate:
-        driver: bridge
+    vps-server_caddy:
+        external: true
