@@ -1,11 +1,10 @@
 "use client";
 
-import AppFrameContainer from "@/components/AppFrameContainer";
 import IconFrance from "@/icons/france";
-import Man from "@/icons/man";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import SectionFirst from "@/components/SectionFirst";
 
 export default function Home() {
 	const [currentTheme, setCurrentTheme] = useState("light");
@@ -116,37 +115,7 @@ export default function Home() {
 					<p className="text-2xl">Welcome to Elias&apos;s museum</p>
 				</div>
 			</section>
-			<section
-				ref={addSectionRef}
-				data-theme="custom-first"
-				className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-secondary text-secondary-content z-5 p-32 gap-16 pt-48"
-			>
-				<div className="flex flex-col gap-4">
-					<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
-					<p className="text-2xl">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Quisquam, quos.
-					</p>
-					<div className="w-full">
-						<Link
-							className="btn btn-primary font-normal uppercase"
-							href="/contact"
-						>
-							Visit
-						</Link>
-					</div>
-				</div>
-				<div className="grid place-items-center h-full">
-					<AppFrameContainer
-						imageData={{
-							src: "/images/atlas.png",
-							width: 2000,
-							height: 2000,
-						}}
-						frameType="1-horizontal"
-					/>
-				</div>
-			</section>
+			<SectionFirst addSectionRef={addSectionRef} />
 		</div>
 	);
 }
