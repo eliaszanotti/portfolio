@@ -39,7 +39,7 @@
 }
 
 @plugin "daisyui/theme" {
-	name: "dark";
+	name: "light";
 	default: true;
 	prefersdark: true;
 	color-scheme: "dark";
@@ -74,7 +74,7 @@
 }
 
 @plugin "daisyui/theme" {
-	name: "blue-atlas";
+	name: "first-custom";
 	default: false;
 	prefersdark: true;
 	color-scheme: "dark";

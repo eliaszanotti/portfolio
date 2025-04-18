@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
 	return (
-		<div className="flex flex-col" data-theme="dark">
+		<div className="flex flex-col" data-theme="light">
 			<section className="relative w-full h-screen">
 				<div className="absolute inset-0 p-10 grid place-items-center gap-10 w-full h-full">
 					<div className="absolute inset-0 grid place-items-center w-full h-full">
@@ -63,7 +63,7 @@ export default function Home() {
 				</div>
 			</section>
 			<section
-				data-theme="blue-atlas"
+				data-theme="first-custom"
 				className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-secondary text-secondary-content z-5 p-32 gap-16 pt-48"
 			>
 				<div className="flex flex-col gap-4">
