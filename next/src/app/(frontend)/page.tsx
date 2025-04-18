@@ -33,19 +33,19 @@ export default function Home() {
 							<IconFrance />
 						</Link>
 						<Link
-							className="btn btn-neutral btn-ghost font-normal uppercase"
+							className="btn btn-ghost font-normal uppercase"
 							href="/"
 						>
 							Home
 						</Link>
 						<Link
-							className="btn btn-neutral btn-ghost font-normal uppercase"
+							className="btn btn-ghost font-normal uppercase"
 							href="/about"
 						>
 							About
 						</Link>
 						<Link
-							className="btn btn-neutral btn-ghost font-normal uppercase"
+							className="btn btn-ghost font-normal uppercase"
 							href="/contact"
 						>
 							Contact
