@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col" data-theme="dark">
 			<section className="relative w-full h-screen">
 				<div className="absolute inset-0 p-10 grid place-items-center gap-10 w-full h-full">
 					<div className="absolute inset-0 grid place-items-center w-full h-full">
@@ -62,18 +62,19 @@ export default function Home() {
 					<p className="text-2xl">Welcome to Elias&apos;s museum</p>
 				</div>
 			</section>
-			<section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-violet-600 z-5 p-32 gap-16 pt-48">
+			<section
+				data-theme="blue-atlas"
+				className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-secondary text-secondary-content z-5 p-32 gap-16 pt-48"
+			>
 				<div className="flex flex-col gap-4">
-					<h1 className="text-6xl font-black text-white">
-						Ambassadeurs Atlas
-					</h1>
-					<p className="text-2xl text-white">
+					<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
+					<p className="text-2xl">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Quisquam, quos.
 					</p>
 					<div className="w-full">
 						<Link
-							className="btn btn-ghost bg-white font-normal uppercase"
+							className="btn btn-primary font-normal uppercase"
 							href="/contact"
 						>
 							Visit

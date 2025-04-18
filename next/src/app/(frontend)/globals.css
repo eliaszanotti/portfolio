@@ -73,6 +73,18 @@
 	--noise: 0;
 }
 
+@plugin "daisyui/theme" {
+	name: "blue-atlas";
+	default: false;
+	prefersdark: true;
+	color-scheme: "dark";
+	extends: "dark";
+	--color-primary: var(--color-violet-600);
+	--color-primary-content: var(--color-zinc-50);
+	--color-secondary: var(--color-violet-950);
+	--color-secondary-content: var(--color-zinc-50);
+}
+
 @layer base {
 	*::selection {
 		background-color: var(--color-secondary);
