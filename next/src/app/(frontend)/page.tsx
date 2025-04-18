@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import SectionFirst from "@/components/SectionFirst";
+import SectionSecond from "@/components/SectionSecond";
 
 export default function Home() {
 	const [currentTheme, setCurrentTheme] = useState("light");
@@ -116,6 +117,7 @@ export default function Home() {
 				</div>
 			</section>
 			<SectionFirst addSectionRef={addSectionRef} />
+			<SectionSecond addSectionRef={addSectionRef} />
 		</div>
 	);
 }
