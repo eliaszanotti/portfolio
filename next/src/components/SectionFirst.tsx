@@ -10,9 +10,10 @@ export default function SectionFirst({ addSectionRef }: SectionFirstProps) {
 		<section
 			ref={addSectionRef}
 			data-theme="custom-first"
-			className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-secondary text-secondary-content z-5 p-32 gap-16 pt-48"
+			className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-primary text-primary-content z-5 p-32 gap-16 pt-48"
 		>
 			<div className="flex flex-col gap-4">
+				<p className="text-2xl italic">Project #001</p>
 				<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
 				<p className="text-2xl">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -20,7 +21,7 @@ export default function SectionFirst({ addSectionRef }: SectionFirstProps) {
 				</p>
 				<div className="w-full">
 					<Link
-						className="btn btn-primary font-normal uppercase"
+						className="btn btn-secondary font-normal uppercase"
 						href="/contact"
 					>
 						Visit
