@@ -39,6 +39,22 @@
 }
 
 @plugin "daisyui/theme" {
+	name: "custom-first";
+	default: false;
+	prefersdark: true;
+	color-scheme: "dark";
+	extends: "dark";
+	--color-primary: var(--color-violet-600);
+	--color-primary-content: var(--color-zinc-50);
+	--color-secondary: var(--color-violet-950);
+	--color-secondary-content: var(--color-zinc-50);
+	--color-base-100: var(--color-violet-950);
+	--color-base-200: var(--color-violet-900);
+	--color-base-300: var(--color-violet-800);
+	--color-base-content: var(--color-zinc-50);
+}
+
+@plugin "daisyui/theme" {
 	name: "light";
 	default: true;
 	prefersdark: true;
@@ -71,18 +87,6 @@
 	--border: 1px;
 	--depth: 0;
 	--noise: 0;
-}
-
-@plugin "daisyui/theme" {
-	name: "first-custom";
-	default: false;
-	prefersdark: true;
-	color-scheme: "dark";
-	extends: "dark";
-	--color-primary: var(--color-violet-600);
-	--color-primary-content: var(--color-zinc-50);
-	--color-secondary: var(--color-violet-950);
-	--color-secondary-content: var(--color-zinc-50);
 }
 
 @layer base {

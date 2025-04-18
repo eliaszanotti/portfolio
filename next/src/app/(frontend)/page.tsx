@@ -1,13 +1,60 @@
+"use client";
+
 import AppFrameContainer from "@/components/AppFrameContainer";
 import IconFrance from "@/icons/france";
 import Man from "@/icons/man";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
+	const [currentTheme, setCurrentTheme] = useState("light");
+	const sectionRefs = useRef<HTMLElement[]>([]);
+	const headerRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollPosition = window.scrollY + window.innerHeight / 2;
+			const headerHeight = headerRef.current
+				? headerRef.current.clientHeight
+				: 0;
+
+			sectionRefs.current.forEach((section) => {
+				if (!section) return;
+
+				const { top, bottom } = section.getBoundingClientRect();
+				const sectionTop = top + window.scrollY + headerHeight * 2;
+				const sectionBottom =
+					bottom + window.scrollY + headerHeight * 2;
+				if (
+					scrollPosition > sectionTop &&
+					scrollPosition < sectionBottom
+				) {
+					const theme = section.getAttribute("data-theme") || "light";
+					setCurrentTheme(theme);
+				}
+			});
+		};
+
+		setTimeout(() => {
+			handleScroll();
+		}, 0);
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	const addSectionRef = (el: HTMLElement | null) => {
+		if (el && !sectionRefs.current.includes(el)) {
+			sectionRefs.current.push(el);
+		}
+	};
+
 	return (
-		<div className="flex flex-col" data-theme="light">
-			<section className="relative w-full h-screen">
+		<div className="flex flex-col">
+			<section ref={addSectionRef} className="relative w-full h-screen">
 				<div className="absolute inset-0 p-10 grid place-items-center gap-10 w-full h-full">
 					<div className="absolute inset-0 grid place-items-center w-full h-full">
 						<Image
@@ -27,9 +74,13 @@ export default function Home() {
 						</h1>
 					</div>
 				</div>
-				<div className="w-full h-48 grid items-center grid-cols-[1fr_auto] px-16 fixed top-0 z-50">
+				<div
+					ref={headerRef}
+					className="w-full h-48 grid items-center grid-cols-[1fr_auto] px-16 fixed top-0 z-50 bg-transparent"
+					data-theme={currentTheme}
+				>
 					<nav className="flex items-center gap-4">
-						<Link href="/">
+						<Link className="btn btn-ghost h-full p-2" href="/">
 							<IconFrance />
 						</Link>
 						<Link
@@ -54,7 +105,10 @@ export default function Home() {
 					<p className="text-2xl uppercase">FULL STACK DEVELOPER</p>
 				</div>
 			</section>
-			<section className="h-screen grid place-items-center z-5 bg-base-200 text-primary">
+			<section
+				ref={addSectionRef}
+				className="h-screen grid place-items-center z-5 bg-base-200 text-primary"
+			>
 				<div className="flex flex-col gap-4">
 					<h1 className="text-6xl font-black italic">
 						&quot;Think outside the box&quot;
@@ -63,7 +117,8 @@ export default function Home() {
 				</div>
 			</section>
 			<section
-				data-theme="first-custom"
+				ref={addSectionRef}
+				data-theme="custom-first"
 				className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-secondary text-secondary-content z-5 p-32 gap-16 pt-48"
 			>
 				<div className="flex flex-col gap-4">
