@@ -6,9 +6,8 @@ const nextConfig: NextConfig = {
 	poweredByHeader: false,
 	compress: true,
 	reactStrictMode: true,
-	swcMinify: true,
 	images: {
-		unoptimized: true, // Désactive l'optimisation d'images pendant le build
+		unoptimized: true,
 	},
 	experimental: {
 		optimizeCss: true,
