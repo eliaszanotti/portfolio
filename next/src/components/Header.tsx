@@ -1,12 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import IconFrance from "@/icons/france";
+import { useThemeStore, ThemeState } from "@/store/themeStore";
+import { useRef, useEffect } from "react";
 
-interface HeaderProps {
-	currentTheme: string;
-	headerRef: React.RefObject<HTMLDivElement | null>;
-}
+export default function Header() {
+	const currentTheme = useThemeStore(
+		(state: ThemeState) => state.currentTheme
+	);
+	const setHeaderRef = useThemeStore(
+		(state: ThemeState) => state.setHeaderRef
+	);
+	const headerRef = useRef<HTMLDivElement>(null);
 
-export default function Header({ currentTheme, headerRef }: HeaderProps) {
+	useEffect(() => {
+		setHeaderRef(headerRef);
+	}, [setHeaderRef]);
+
 	return (
 		<div
 			ref={headerRef}

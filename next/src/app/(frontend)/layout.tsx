@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
 
 export const revalidate = 10;
 
@@ -17,6 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className="antialiased font-delight" data-theme="light">
+				<Header />
 				{children}
 			</body>
 		</html>

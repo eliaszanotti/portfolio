@@ -1,20 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import SectionFirst from "@/components/SectionFirst";
 import SectionSecond from "@/components/SectionSecond";
-import Header from "@/components/Header";
+import { useThemeStore, ThemeState } from "@/store/themeStore";
 
 export default function Home() {
-	const [currentTheme, setCurrentTheme] = useState("light");
+	const setCurrentTheme = useThemeStore(
+		(state: ThemeState) => state.setCurrentTheme
+	);
+	const headerRef = useThemeStore((state: ThemeState) => state.headerRef);
 	const sectionRefs = useRef<HTMLElement[]>([]);
-	const headerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY + window.innerHeight / 2;
-			const headerHeight = headerRef.current
+			const headerHeight = headerRef?.current
 				? headerRef.current.clientHeight
 				: 0;
 
@@ -43,7 +45,7 @@ export default function Home() {
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, []);
+	}, [setCurrentTheme, headerRef]);
 
 	const addSectionRef = (el: HTMLElement | null) => {
 		if (el && !sectionRefs.current.includes(el)) {
@@ -53,7 +55,6 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col">
-			<Header currentTheme={currentTheme} headerRef={headerRef} />
 			<section ref={addSectionRef} className="relative w-full h-screen">
 				<div className="absolute inset-0 p-10 grid place-items-center gap-10 w-full h-full">
 					<div className="absolute inset-0 grid place-items-center w-full h-full">
