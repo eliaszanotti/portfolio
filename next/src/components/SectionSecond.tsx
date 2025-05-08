@@ -10,7 +10,7 @@ export default function SectionSecond({ addSectionRef }: SectionSecondProps) {
 		<section
 			ref={addSectionRef}
 			data-theme="custom-second"
-			className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[1fr_2fr] items-center justify-center bg-base-100 text-primary z-5 p-32 gap-16 pt-48"
+			className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[1fr_2fr] items-center justify-center bg-base-100 z-5 p-32 gap-16 pt-48"
 		>
 			<div className="grid place-items-center h-full">
 				<AppFrameContainer
@@ -23,9 +23,9 @@ export default function SectionSecond({ addSectionRef }: SectionSecondProps) {
 				/>
 			</div>
 			<div className="flex flex-col gap-4">
-				<p className="text-2xl italic">Project #002</p>
+				<p className="italic">Project #002</p>
 				<h1 className="text-6xl font-black">CV Mania</h1>
-				<p className="text-2xl">
+				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Quisquam, quos.
 				</p>

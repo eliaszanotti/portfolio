@@ -1,11 +1,10 @@
 "use client";
 
-import IconFrance from "@/icons/france";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import SectionFirst from "@/components/SectionFirst";
 import SectionSecond from "@/components/SectionSecond";
+import Header from "@/components/Header";
 
 export default function Home() {
 	const [currentTheme, setCurrentTheme] = useState("light");
@@ -54,6 +53,7 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col">
+			<Header currentTheme={currentTheme} headerRef={headerRef} />
 			<section ref={addSectionRef} className="relative w-full h-screen">
 				<div className="absolute inset-0 p-10 grid place-items-center gap-10 w-full h-full">
 					<div className="absolute inset-0 grid place-items-center w-full h-full">
@@ -66,43 +66,13 @@ export default function Home() {
 						/>
 					</div>
 					<div className="flex flex-col items-center justify-center fixed">
-						<h1 className="text-[300px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
+						<h1 className="text-[230px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
 							ELIAS
 						</h1>
-						<h1 className="text-[200px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
+						<h1 className="text-[140px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
 							ZANOTTI
 						</h1>
 					</div>
-				</div>
-				<div
-					ref={headerRef}
-					className="w-full h-48 grid items-center grid-cols-[1fr_auto] px-16 fixed top-0 z-50 bg-transparent"
-					data-theme={currentTheme}
-				>
-					<nav className="flex items-center gap-4">
-						<Link className="btn btn-ghost h-full p-2" href="/">
-							<IconFrance />
-						</Link>
-						<Link
-							className="btn btn-ghost font-normal uppercase"
-							href="/"
-						>
-							Home
-						</Link>
-						<Link
-							className="btn btn-ghost font-normal uppercase"
-							href="/about"
-						>
-							About
-						</Link>
-						<Link
-							className="btn btn-ghost font-normal uppercase"
-							href="/contact"
-						>
-							Contact
-						</Link>
-					</nav>
-					<p className="text-2xl uppercase">FULL STACK DEVELOPER</p>
 				</div>
 			</section>
 			<section
@@ -113,7 +83,7 @@ export default function Home() {
 					<h1 className="text-6xl font-black italic">
 						&quot;Think outside the box&quot;
 					</h1>
-					<p className="text-2xl">Welcome to Elias&apos;s museum</p>
+					<p className="font-bold">Welcome to Elias&apos;s museum</p>
 				</div>
 			</section>
 			<SectionFirst addSectionRef={addSectionRef} />

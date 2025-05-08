@@ -13,9 +13,9 @@ export default function SectionFirst({ addSectionRef }: SectionFirstProps) {
 			className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-center justify-center bg-primary text-primary-content z-5 p-32 gap-16 pt-48"
 		>
 			<div className="flex flex-col gap-4">
-				<p className="text-2xl italic">Project #001</p>
+				<p className="italic">Project #001</p>
 				<h1 className="text-6xl font-black">Ambassadeurs Atlas</h1>
-				<p className="text-2xl">
+				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Quisquam, quos.
 				</p>
