@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
 		unoptimized: true,
 	},
 	experimental: {
-		optimizeCss: true,
 		optimizePackageImports: ["@payloadcms/next", "payload"],
 	},
 };
