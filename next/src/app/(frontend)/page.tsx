@@ -54,7 +54,7 @@ export default function Home() {
 	};
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col bg-base-100">
 			<section ref={addSectionRef} className="relative w-full h-screen">
 				<div className="absolute inset-0 p-10 grid place-items-center gap-10 w-full h-full">
 					<div className="absolute inset-0 grid place-items-center w-full h-full">
