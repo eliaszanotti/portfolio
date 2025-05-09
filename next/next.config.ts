@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
 	poweredByHeader: false,
 	compress: true,
 	reactStrictMode: true,
-	images: {
-		unoptimized: true,
-	},
 	experimental: {
 		optimizePackageImports: ["@payloadcms/next", "payload"],
 	},
