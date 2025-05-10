@@ -60,7 +60,7 @@ export default function Home() {
 				<div className="relative p-10 grid place-items-center gap-10 w-full h-full">
 					<div className="absolute grid place-items-center w-full h-full">
 						<Image
-							className="h-2/3 w-full object-contain hue-rotate-200 opacity-50"
+							className="h-2/3 w-full object-contain grayscale opacity-50"
 							src="/images/frame-1.png"
 							alt="elias"
 							width={1000}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import IconFrance from "@/icons/france";
 import { useThemeStore, ThemeState } from "@/store/themeStore";
 import { useRef, useEffect } from "react";
+import IconGithub from "@/icons/github";
 
 export default function Header() {
 	const currentTheme = useThemeStore(
@@ -44,7 +45,15 @@ export default function Header() {
 					Contact
 				</Link>
 			</nav>
-			<p className="uppercase">FULL STACK DEVELOPER</p>
+			<nav className="flex items-center gap-4">
+				<p className="uppercase px-4">FULL STACK DEVELOPER</p>
+				<Link
+					className="btn btn-ghost h-full p-2"
+					href="https://github.com/eliaszanotti"
+				>
+					<IconGithub />
+				</Link>
+			</nav>
 		</div>
 	);
 }
