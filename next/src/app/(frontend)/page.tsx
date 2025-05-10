@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import SectionFirst from "@/components/SectionFirst";
 import SectionSecond from "@/components/SectionSecond";
 import { useThemeStore, ThemeState } from "@/store/themeStore";
+import Link from "next/link";
 
 export default function Home() {
 	const setCurrentTheme = useThemeStore(
@@ -54,25 +55,28 @@ export default function Home() {
 	};
 
 	return (
-		<div className="flex flex-col bg-base-100">
+		<div className="flex flex-col">
 			<section ref={addSectionRef} className="relative w-full h-screen">
-				<div className="absolute inset-0 p-10 grid place-items-center gap-10 w-full h-full">
-					<div className="absolute inset-0 grid place-items-center w-full h-full">
+				<div className="relative p-10 grid place-items-center gap-10 w-full h-full">
+					<div className="absolute grid place-items-center w-full h-full">
 						<Image
-							className="h-2/3 w-full object-contain relative"
+							className="h-2/3 w-full object-contain hue-rotate-200 opacity-50"
 							src="/images/frame-1.png"
 							alt="elias"
-							width={300}
-							height={300}
+							width={1000}
+							height={1000}
 						/>
 					</div>
-					<div className="flex flex-col items-center justify-center fixed">
-						<h1 className="text-[230px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
+					<div className="absolute flex flex-col items-center justify-center">
+						<h1 className="text-[230px] leading-none font-black text-primary">
 							ELIAS
 						</h1>
-						<h1 className="text-[140px] leading-none font-black text-primary text-shadow-[0.4rem_0.4rem_var(--color-primary-content)]">
+						<h1 className="text-[140px] leading-none font-black text-primary">
 							ZANOTTI
 						</h1>
+						<Link href="/" className="btn btn-primary">
+							Exposez votre projet
+						</Link>
 					</div>
 				</div>
 			</section>
