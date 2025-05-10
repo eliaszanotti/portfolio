@@ -1,5 +1,4 @@
 import type { CollectionConfig } from "payload";
-import { imageSizes } from "@constants/imageSizes";
 
 export const Media: CollectionConfig = {
 	slug: "media",
@@ -14,8 +13,6 @@ export const Media: CollectionConfig = {
 		},
 	],
 	upload: {
-		staticDir: "media",
-		imageSizes,
 		adminThumbnail: "small",
 		mimeTypes: ["image/*"],
 		filesRequiredOnCreate: false,
