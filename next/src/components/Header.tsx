@@ -5,6 +5,7 @@ import IconFrance from "@/icons/france";
 import { useThemeStore, ThemeState } from "@/store/themeStore";
 import { useRef, useEffect } from "react";
 import IconGithub from "@/icons/github";
+import IconInstagram from "@/icons/instagram";
 
 export default function Header() {
 	const currentTheme = useThemeStore(
@@ -49,7 +50,17 @@ export default function Header() {
 				<p className="uppercase px-4">FULL STACK DEVELOPER</p>
 				<Link
 					className="btn btn-ghost h-full p-2"
+					href="https://www.instagram.com/eliaszanottiweb"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<IconInstagram />
+				</Link>
+				<Link
+					className="btn btn-ghost h-full p-2"
 					href="https://github.com/eliaszanotti"
+					target="_blank"
+					rel="noopener noreferrer"
 				>
 					<IconGithub />
 				</Link>
