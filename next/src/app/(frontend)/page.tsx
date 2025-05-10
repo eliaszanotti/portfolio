@@ -75,7 +75,7 @@ export default function Home() {
 							ZANOTTI
 						</h1>
 						<Link href="/" className="btn btn-primary">
-							Exposez votre projet
+							Expose your project
 						</Link>
 					</div>
 				</div>

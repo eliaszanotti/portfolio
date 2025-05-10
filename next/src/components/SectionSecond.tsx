@@ -10,7 +10,7 @@ export default function SectionSecond({ addSectionRef }: SectionSecondProps) {
 		<section
 			ref={addSectionRef}
 			data-theme="custom-second"
-			className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[1fr_2fr] items-center justify-center bg-base-100 z-5 p-32 gap-16 pt-48"
+			className="min-h-screen grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[1fr_2fr] items-center justify-center bg-base-100 p-32 gap-16 pt-48"
 		>
 			<div className="grid place-items-center h-full">
 				<AppFrameContainer
