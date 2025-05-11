@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import Matter from "matter-js";
 import "matter-attractors";
 import IconRefresh from "@/icons/refresh";
@@ -8,12 +9,6 @@ import type { Skill } from "@/payload-types";
 
 interface SectionSkillsProps {
 	addSectionRef: (el: HTMLElement | null) => void;
-}
-
-interface BallConfig {
-	color: string;
-	size: 1 | 2 | 3;
-	letter: string;
 }
 
 interface BallPosition {
@@ -24,15 +19,16 @@ interface BallPosition {
 }
 
 interface BallProps {
-	config: BallConfig;
+	skill: Skill;
 	position: BallPosition;
 }
 
-const Ball = ({ config, position }: BallProps) => {
-	const size = config.size * 20 + 60;
+const Ball = ({ skill, position }: BallProps) => {
+	const size = (Number(skill.size) || 1) * 20 + 50;
+
 	return (
 		<div
-			className={`absolute ${config.color} rounded-full flex items-center justify-center text-white font-bold transition-transform shadow-lg hover:scale-110`}
+			className={`absolute ${skill.color} rounded-full flex items-center justify-center font-bold transition-transform hover:scale-110`}
 			style={{
 				width: size,
 				height: size,
@@ -41,7 +37,13 @@ const Ball = ({ config, position }: BallProps) => {
 			}}
 		>
 			<div className="flex items-center justify-center w-full h-full">
-				<span className="text-2xl">{config.letter}</span>
+				<Image
+					src={skill.url || ""}
+					alt={skill.name || "Skill"}
+					width={size}
+					height={size}
+					className="w-10 h-10"
+				/>
 			</div>
 		</div>
 	);
@@ -68,12 +70,6 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 
 		fetchSkills();
 	}, []);
-
-	const ballsConfig: BallConfig[] = skills.map((skill) => ({
-		color: skill.color || "bg-blue-500",
-		size: Number(skill.size) as 1 | 2 | 3,
-		letter: skill.name?.[0]?.toUpperCase() || "S",
-	}));
 
 	const resetAnimation = () => {
 		if (runnerRef.current) {
@@ -114,12 +110,12 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 			},
 		});
 
-		const balls = ballsConfig.map((config, index) => {
+		const balls = skills.map((skill, index) => {
 			const angle = Math.random() * Math.PI * 2;
 			const distance = Math.random() * 1000;
 			const x = centerX + Math.cos(angle) * distance;
 			const y = centerY + Math.sin(angle) * distance;
-			const radius = (config.size * 20 + 60) / 2;
+			const radius = ((Number(skill.size) || 1) * 20 + 60) / 2;
 
 			return Matter.Bodies.circle(x, y, radius, {
 				friction: 0.1,
@@ -207,7 +203,7 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 						{ballPositions.map((position, index) => (
 							<Ball
 								key={position.id}
-								config={ballsConfig[index]}
+								skill={skills[index]}
 								position={position}
 							/>
 						))}
