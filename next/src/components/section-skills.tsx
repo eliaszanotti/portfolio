@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Matter from "matter-js";
 import "matter-attractors";
 import IconRefresh from "@/icons/refresh";
+import type { Skill } from "@/payload-types";
 
 interface SectionSkillsProps {
 	addSectionRef: (el: HTMLElement | null) => void;
@@ -46,25 +47,33 @@ const Ball = ({ config, position }: BallProps) => {
 	);
 };
 
-const ballsConfig: BallConfig[] = [
-	{ color: "bg-blue-500", size: 1, letter: "w" },
-	{ color: "bg-red-500", size: 2, letter: "p" },
-	{ color: "bg-green-500", size: 3, letter: "p" },
-	{ color: "bg-yellow-500", size: 1, letter: "p" },
-	{ color: "bg-purple-500", size: 2, letter: "p" },
-	{ color: "bg-pink-500", size: 3, letter: "p" },
-	{ color: "bg-indigo-500", size: 1, letter: "p" },
-	{ color: "bg-orange-500", size: 2, letter: "p" },
-	{ color: "bg-teal-500", size: 3, letter: "p" },
-	{ color: "bg-cyan-500", size: 1, letter: "p" },
-];
-
 export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const engineRef = useRef<Matter.Engine | null>(null);
 	const runnerRef = useRef<Matter.Runner | null>(null);
 	const [ballPositions, setBallPositions] = useState<BallPosition[]>([]);
 	const [center, setCenter] = useState({ x: 0, y: 0 });
+	const [skills, setSkills] = useState<Skill[]>([]);
+
+	useEffect(() => {
+		const fetchSkills = async () => {
+			try {
+				const response = await fetch("/api/skill");
+				const data = await response.json();
+				setSkills(data.docs);
+			} catch (error) {
+				console.error("Error fetching skills:", error);
+			}
+		};
+
+		fetchSkills();
+	}, []);
+
+	const ballsConfig: BallConfig[] = skills.map((skill) => ({
+		color: skill.color || "bg-blue-500",
+		size: Number(skill.size) as 1 | 2 | 3,
+		letter: skill.name?.[0]?.toUpperCase() || "S",
+	}));
 
 	const resetAnimation = () => {
 		if (runnerRef.current) {
