@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Matter from "matter-js";
 import "matter-attractors";
 
@@ -8,38 +8,73 @@ interface SectionSkillsProps {
 	addSectionRef: (el: HTMLElement | null) => void;
 }
 
+interface BallConfig {
+	color: string;
+	size: 1 | 2 | 3;
+	letter: string;
+}
+
+interface BallPosition {
+	id: number;
+	x: number;
+	y: number;
+	angle: number;
+}
+
+interface BallProps {
+	config: BallConfig;
+	position: BallPosition;
+}
+
+const Ball = ({ config, position }: BallProps) => {
+	const size = config.size * 20 + 60;
+	return (
+		<div
+			className={`absolute ${config.color} rounded-full flex items-center justify-center text-white font-bold transition-transform shadow-lg hover:scale-110`}
+			style={{
+				width: size,
+				height: size,
+				left: position.x - size / 2,
+				top: position.y - size / 2,
+			}}
+		>
+			<div className="flex items-center justify-center w-full h-full">
+				<span className="text-2xl">{config.letter}</span>
+			</div>
+		</div>
+	);
+};
+
+const ballsConfig: BallConfig[] = [
+	{ color: "bg-blue-500", size: 1, letter: "w" },
+	{ color: "bg-red-500", size: 2, letter: "p" },
+	{ color: "bg-green-500", size: 3, letter: "p" },
+	{ color: "bg-yellow-500", size: 1, letter: "p" },
+	{ color: "bg-purple-500", size: 2, letter: "p" },
+	{ color: "bg-pink-500", size: 3, letter: "p" },
+	{ color: "bg-indigo-500", size: 1, letter: "p" },
+	{ color: "bg-orange-500", size: 2, letter: "p" },
+	{ color: "bg-teal-500", size: 3, letter: "p" },
+	{ color: "bg-cyan-500", size: 1, letter: "p" },
+];
+
 export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const engineRef = useRef<Matter.Engine | null>(null);
-	const renderRef = useRef<Matter.Render | null>(null);
 	const runnerRef = useRef<Matter.Runner | null>(null);
+	const [ballPositions, setBallPositions] = useState<BallPosition[]>([]);
+	const [isFrozen, setIsFrozen] = useState(false);
 
 	const initializeMatter = () => {
 		if (!containerRef.current) return;
 
-		// Créer le moteur physique
 		const engine = Matter.Engine.create();
 		engineRef.current = engine;
 
-		// Désactiver la gravité normale
 		engine.world.gravity.y = 0;
 		engine.world.gravity.x = 0;
 		engine.world.gravity.scale = 0;
 
-		// Créer le rendu
-		const render = Matter.Render.create({
-			element: containerRef.current,
-			engine: engine,
-			options: {
-				width: 500,
-				height: 500,
-				wireframes: false,
-				background: "transparent",
-			},
-		});
-		renderRef.current = render;
-
-		// Créer un corps attracteur au centre
 		const attractiveBody = Matter.Bodies.circle(250, 250, 0, {
 			isStatic: true,
 			render: {
@@ -47,11 +82,12 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 			},
 		});
 
-		// Créer plus de balles avec des tailles variées
-		const balls = Array.from({ length: 30 }, () => {
-			const x = Math.random() * 400 + 50;
-			const y = Math.random() * 400 + 50;
-			const radius = Math.random() * 20 + 15;
+		const balls = ballsConfig.map((config, index) => {
+			const angle = Math.random() * Math.PI * 2;
+			const distance = Math.random() * 200;
+			const x = 250 + Math.cos(angle) * distance;
+			const y = 250 + Math.sin(angle) * distance;
+			const radius = (config.size * 20 + 60) / 2;
 
 			return Matter.Bodies.circle(x, y, radius, {
 				friction: 0.1,
@@ -59,37 +95,52 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 				restitution: 0.8,
 				density: 0.001,
 				render: {
-					fillStyle: "#61DAFB",
-					strokeStyle: "#4FA8D1",
-					lineWidth: 2,
+					visible: false,
 				},
 			});
 		});
 
-		// Ajouter tous les corps au monde
 		Matter.World.add(engine.world, [attractiveBody, ...balls]);
 
-		// Appliquer une force constante vers le centre
 		Matter.Events.on(engine, "beforeUpdate", () => {
+			if (isFrozen) return;
+
 			const center = { x: 250, y: 250 };
 			balls.forEach((ball) => {
 				const dx = center.x - ball.position.x;
 				const dy = center.y - ball.position.y;
 				const distance = Math.sqrt(dx * dx + dy * dy);
-				const force = 0.0005;
+				const force = 0.005;
 
 				Matter.Body.applyForce(ball, ball.position, {
 					x: (dx / distance) * force,
 					y: (dy / distance) * force,
 				});
 			});
+
+			setBallPositions(
+				balls.map((ball, index) => ({
+					id: index,
+					x: ball.position.x,
+					y: ball.position.y,
+					angle: ball.angle,
+				}))
+			);
 		});
 
-		// Créer et démarrer le runner
 		const runner = Matter.Runner.create();
 		runnerRef.current = runner;
 		Matter.Runner.run(runner, engine);
-		Matter.Render.run(render);
+
+		setTimeout(() => {
+			setIsFrozen(true);
+			balls.forEach((ball) => {
+				Matter.Body.setStatic(ball, true);
+				if (runnerRef.current) {
+					Matter.Runner.stop(runnerRef.current);
+				}
+			});
+		}, 5000);
 	};
 
 	useEffect(() => {
@@ -101,11 +152,6 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 			}
 			if (engineRef.current) {
 				Matter.Engine.clear(engineRef.current);
-			}
-			if (renderRef.current) {
-				Matter.Render.stop(renderRef.current);
-				renderRef.current.canvas.remove();
-				renderRef.current.textures = {};
 			}
 		};
 	}, []);
@@ -124,11 +170,19 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 						Modern tech stack for exceptional web experiences
 					</p>
 				</div>
-				<div className="relative h-full w-full bg-red-200">
+				<div className="relative h-full w-full">
 					<div
 						ref={containerRef}
 						className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]"
-					/>
+					>
+						{ballPositions.map((position, index) => (
+							<Ball
+								key={position.id}
+								config={ballsConfig[index]}
+								position={position}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
