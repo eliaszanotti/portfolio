@@ -63,10 +63,32 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 	const engineRef = useRef<Matter.Engine | null>(null);
 	const runnerRef = useRef<Matter.Runner | null>(null);
 	const [ballPositions, setBallPositions] = useState<BallPosition[]>([]);
-	const [isFrozen, setIsFrozen] = useState(false);
+	const [center, setCenter] = useState({ x: 0, y: 0 });
+
+	const resetAnimation = () => {
+		if (runnerRef.current) {
+			Matter.Runner.stop(runnerRef.current);
+			runnerRef.current = null;
+		}
+
+		if (engineRef.current) {
+			Matter.Events.off(engineRef.current, "beforeUpdate");
+			Matter.World.clear(engineRef.current.world, false);
+			Matter.Engine.clear(engineRef.current);
+			engineRef.current = null;
+		}
+
+		setBallPositions([]);
+		initializeMatter();
+	};
 
 	const initializeMatter = () => {
 		if (!containerRef.current) return;
+
+		const rect = containerRef.current.getBoundingClientRect();
+		const centerX = rect.width / 2;
+		const centerY = rect.height / 2;
+		setCenter({ x: centerX, y: centerY });
 
 		const engine = Matter.Engine.create();
 		engineRef.current = engine;
@@ -75,7 +97,7 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 		engine.world.gravity.x = 0;
 		engine.world.gravity.scale = 0;
 
-		const attractiveBody = Matter.Bodies.circle(250, 250, 0, {
+		const attractiveBody = Matter.Bodies.circle(centerX, centerY, 0, {
 			isStatic: true,
 			render: {
 				visible: false,
@@ -84,9 +106,9 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 
 		const balls = ballsConfig.map((config, index) => {
 			const angle = Math.random() * Math.PI * 2;
-			const distance = Math.random() * 200;
-			const x = 250 + Math.cos(angle) * distance;
-			const y = 250 + Math.sin(angle) * distance;
+			const distance = Math.random() * 1000;
+			const x = centerX + Math.cos(angle) * distance;
+			const y = centerY + Math.sin(angle) * distance;
 			const radius = (config.size * 20 + 60) / 2;
 
 			return Matter.Bodies.circle(x, y, radius, {
@@ -103,12 +125,9 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 		Matter.World.add(engine.world, [attractiveBody, ...balls]);
 
 		Matter.Events.on(engine, "beforeUpdate", () => {
-			if (isFrozen) return;
-
-			const center = { x: 250, y: 250 };
 			balls.forEach((ball) => {
-				const dx = center.x - ball.position.x;
-				const dy = center.y - ball.position.y;
+				const dx = centerX - ball.position.x;
+				const dy = centerY - ball.position.y;
 				const distance = Math.sqrt(dx * dx + dy * dy);
 				const force = 0.005;
 
@@ -131,16 +150,6 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 		const runner = Matter.Runner.create();
 		runnerRef.current = runner;
 		Matter.Runner.run(runner, engine);
-
-		setTimeout(() => {
-			setIsFrozen(true);
-			balls.forEach((ball) => {
-				Matter.Body.setStatic(ball, true);
-				if (runnerRef.current) {
-					Matter.Runner.stop(runnerRef.current);
-				}
-			});
-		}, 5000);
 	};
 
 	useEffect(() => {
@@ -159,9 +168,9 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 	return (
 		<section
 			ref={addSectionRef}
-			className="min-h-screen grid place-items-center p-16"
+			className="min-h-screen grid place-items-center p-16 py-32 overflow-hidden"
 		>
-			<div className="max-w-6xl grid grid-cols-2 gap-8 h-full">
+			<div className="max-w-6xl flex flex-col gap-4 justify-center h-full w-full">
 				<div className="flex flex-col gap-4 justify-center">
 					<h1 className="text-6xl font-black italic">
 						&quot;Crafting digital excellence&quot;
@@ -169,11 +178,19 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 					<p className="font-bold">
 						Modern tech stack for exceptional web experiences
 					</p>
+					<div className="flex items-center gap-4">
+						<button
+							onClick={resetAnimation}
+							className="btn btn-primary"
+						>
+							Relancer
+						</button>
+					</div>
 				</div>
 				<div className="relative h-full w-full">
 					<div
 						ref={containerRef}
-						className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]"
+						className="absolute inset-0 w-full h-full"
 					>
 						{ballPositions.map((position, index) => (
 							<Ball
