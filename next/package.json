@@ -15,7 +15,6 @@
 		"@payloadcms/next": "^3.37.0",
 		"@payloadcms/richtext-lexical": "^3.37.0",
 		"@types/matter-js": "^0.19.8",
-		"framer-motion": "^12.10.5",
 		"graphql": "^16.11.0",
 		"matter-attractors": "^0.1.6",
 		"matter-js": "^0.20.0",
