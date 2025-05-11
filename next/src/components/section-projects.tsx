@@ -15,7 +15,7 @@ export default function SectionProjects({
 			<div className="max-w-6xl grid grid-cols-2 gap-8 h-full">
 				<div className="flex flex-col gap-4 justify-center">
 					<h1 className="text-6xl font-black italic">
-						&quot;Think outside the box&quot;
+						&quot;Break out of the frame&quot;
 					</h1>
 					<p className="font-bold">Welcome to Elias&apos;s museum</p>
 				</div>

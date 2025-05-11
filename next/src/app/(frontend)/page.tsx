@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import SectionFirst from "@/components/SectionFirst";
 import SectionSecond from "@/components/SectionSecond";
 import SectionProjects from "@/components/section-projects";
+import SectionSkills from "@/components/section-skills";
 import { useThemeStore, ThemeState } from "@/store/themeStore";
 import Link from "next/link";
 
@@ -82,6 +83,7 @@ export default function Home() {
 				</div>
 			</section>
 			<SectionProjects addSectionRef={addSectionRef} />
+			<SectionSkills addSectionRef={addSectionRef} />
 			<SectionFirst addSectionRef={addSectionRef} />
 			<SectionSecond addSectionRef={addSectionRef} />
 		</div>
