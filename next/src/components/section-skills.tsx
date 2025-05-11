@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import Matter from "matter-js";
 import "matter-attractors";
 
@@ -13,10 +13,9 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 	const engineRef = useRef<Matter.Engine | null>(null);
 	const renderRef = useRef<Matter.Render | null>(null);
 	const runnerRef = useRef<Matter.Runner | null>(null);
-	const [isInitialized, setIsInitialized] = useState(false);
 
 	const initializeMatter = () => {
-		if (!containerRef.current || isInitialized) return;
+		if (!containerRef.current) return;
 
 		// Créer le moteur physique
 		const engine = Matter.Engine.create();
@@ -91,31 +90,23 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 		runnerRef.current = runner;
 		Matter.Runner.run(runner, engine);
 		Matter.Render.run(render);
-
-		setIsInitialized(true);
-	};
-
-	const cleanupMatter = () => {
-		if (!isInitialized) return;
-
-		if (runnerRef.current) {
-			Matter.Runner.stop(runnerRef.current);
-		}
-		if (engineRef.current) {
-			Matter.Engine.clear(engineRef.current);
-		}
-		if (renderRef.current) {
-			Matter.Render.stop(renderRef.current);
-			renderRef.current.canvas.remove();
-			renderRef.current.textures = {};
-		}
-
-		setIsInitialized(false);
 	};
 
 	useEffect(() => {
+		initializeMatter();
+
 		return () => {
-			cleanupMatter();
+			if (runnerRef.current) {
+				Matter.Runner.stop(runnerRef.current);
+			}
+			if (engineRef.current) {
+				Matter.Engine.clear(engineRef.current);
+			}
+			if (renderRef.current) {
+				Matter.Render.stop(renderRef.current);
+				renderRef.current.canvas.remove();
+				renderRef.current.textures = {};
+			}
 		};
 	}, []);
 
@@ -132,14 +123,6 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 					<p className="font-bold">
 						Modern tech stack for exceptional web experiences
 					</p>
-					<button
-						onClick={
-							isInitialized ? cleanupMatter : initializeMatter
-						}
-						className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-					>
-						{isInitialized ? "Stop Animation" : "Start Animation"}
-					</button>
 				</div>
 				<div className="relative h-full w-full bg-red-200">
 					<div
