@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import Matter from "matter-js";
 import "matter-attractors";
+import IconRefresh from "@/icons/refresh";
 
 interface SectionSkillsProps {
 	addSectionRef: (el: HTMLElement | null) => void;
@@ -172,20 +173,22 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 		>
 			<div className="max-w-6xl flex flex-col gap-4 justify-center h-full w-full">
 				<div className="flex flex-col gap-4 justify-center">
-					<h1 className="text-6xl font-black italic">
-						&quot;Crafting digital excellence&quot;
-					</h1>
-					<p className="font-bold">
+					<div className="grid grid-cols-[auto_1fr]">
+						<h1 className="text-6xl font-black italic">
+							&quot;Crafting digital excellence&quot;
+						</h1>
+						<div className="flex justify-end">
+							<button
+								onClick={resetAnimation}
+								className="btn btn-square btn-primary"
+							>
+								<IconRefresh />
+							</button>
+						</div>
+					</div>
+					<p className="font-bold max-w-prose">
 						Modern tech stack for exceptional web experiences
 					</p>
-					<div className="flex items-center gap-4">
-						<button
-							onClick={resetAnimation}
-							className="btn btn-primary"
-						>
-							Relancer
-						</button>
-					</div>
 				</div>
 				<div className="relative h-full w-full">
 					<div

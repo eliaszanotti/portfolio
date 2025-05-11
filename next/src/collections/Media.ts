@@ -13,7 +13,6 @@ export const Media: CollectionConfig = {
 		},
 	],
 	upload: {
-		adminThumbnail: "small",
 		mimeTypes: ["image/*"],
 		filesRequiredOnCreate: false,
 	},
