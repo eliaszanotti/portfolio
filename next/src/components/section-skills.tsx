@@ -160,8 +160,9 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 	};
 
 	useEffect(() => {
-		initializeMatter();
-
+		if (skills.length > 0) {
+			initializeMatter();
+		}
 		return () => {
 			if (runnerRef.current) {
 				Matter.Runner.stop(runnerRef.current);
@@ -170,7 +171,7 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 				Matter.Engine.clear(engineRef.current);
 			}
 		};
-	}, []);
+	}, [skills]);
 
 	return (
 		<section
@@ -181,7 +182,7 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 				<div className="flex flex-col gap-4 justify-center">
 					<div className="grid grid-cols-[auto_1fr]">
 						<h1 className="text-6xl font-black italic">
-							&quot;Crafting digital excellence&quot;
+							My brushes and pencils
 						</h1>
 						<div className="flex justify-end">
 							<button
