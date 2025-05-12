@@ -8,6 +8,8 @@ Ajouter une collection : Formation - nom, date de début, date de fin, descripti
 Ajouter une collection : Projet - nom, date de début, date de fin, description, lien vers le site web.
 
 Ajouter dans les pages de projet une date de creation
-Voir pour faire changer tout le theme daisyui quand on scroll pour matcher le design du site actuel
 
-rendre le header cliquable pour quon puisse cliquer a travers
+Ajouter linkedin dans le header
+
+Ajouter un lien vers le site web dans les pages de Skill
+Ajouter un lien vers le site web dans les pages de Projet
