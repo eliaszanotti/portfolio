@@ -6,6 +6,7 @@ import Matter from "matter-js";
 import "matter-attractors";
 import IconRefresh from "@/icons/refresh";
 import type { Skill } from "@/payload-types";
+import Link from "next/link";
 
 interface SectionSkillsProps {
 	addSectionRef: (el: HTMLElement | null) => void;
@@ -27,7 +28,10 @@ const Ball = ({ skill, position }: BallProps) => {
 	const size = (Number(skill.size) || 1) * 20 + 50;
 
 	return (
-		<div
+		<Link
+			href={skill.link || ""}
+			target="_blank"
+			rel="noopener noreferrer"
 			className="absolute rounded-full flex items-center justify-center transition-transform hover:scale-110"
 			style={{
 				width: size,
@@ -46,7 +50,7 @@ const Ball = ({ skill, position }: BallProps) => {
 					className={`w-10 h-10 ${skill.invert ? "invert" : ""}`}
 				/>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
