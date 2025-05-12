@@ -159,6 +159,7 @@ export interface Skill {
   id: string;
   name?: string | null;
   color?: string | null;
+  invert?: boolean | null;
   size?: ('1' | '2' | '3') | null;
   updatedAt: string;
   createdAt: string;
@@ -273,6 +274,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface SkillSelect<T extends boolean = true> {
   name?: T;
   color?: T;
+  invert?: T;
   size?: T;
   updatedAt?: T;
   createdAt?: T;

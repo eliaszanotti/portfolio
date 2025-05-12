@@ -28,12 +28,13 @@ const Ball = ({ skill, position }: BallProps) => {
 
 	return (
 		<div
-			className={`absolute ${skill.color} rounded-full flex items-center justify-center font-bold transition-transform hover:scale-110`}
+			className="absolute rounded-full flex items-center justify-center transition-transform hover:scale-110"
 			style={{
 				width: size,
 				height: size,
 				left: position.x - size / 2,
 				top: position.y - size / 2,
+				backgroundColor: skill.color || "var(--color-orange-500)",
 			}}
 		>
 			<div className="flex items-center justify-center w-full h-full">
@@ -42,7 +43,7 @@ const Ball = ({ skill, position }: BallProps) => {
 					alt={skill.name || "Skill"}
 					width={size}
 					height={size}
-					className="w-10 h-10"
+					className={`w-10 h-10 ${skill.invert ? "invert" : ""}`}
 				/>
 			</div>
 		</div>
@@ -60,7 +61,7 @@ export default function SectionSkills({ addSectionRef }: SectionSkillsProps) {
 	useEffect(() => {
 		const fetchSkills = async () => {
 			try {
-				const response = await fetch("/api/skill");
+				const response = await fetch("/api/skill?limit=0");
 				const data = await response.json();
 				setSkills(data.docs);
 			} catch (error) {

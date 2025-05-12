@@ -8,8 +8,18 @@ export const Skill: CollectionConfig = {
 			type: "text",
 		},
 		{
-			name: "color",
-			type: "text",
+			type: "row",
+			fields: [
+				{
+					name: "color",
+					type: "text",
+				},
+				{
+					name: "invert",
+					type: "checkbox",
+					defaultValue: false,
+				},
+			],
 		},
 		{
 			name: "size",

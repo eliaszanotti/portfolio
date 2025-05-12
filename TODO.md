@@ -9,3 +9,5 @@ Ajouter une collection : Projet - nom, date de début, date de fin, description,
 
 Ajouter dans les pages de projet une date de creation
 Voir pour faire changer tout le theme daisyui quand on scroll pour matcher le design du site actuel
+
+rendre le header cliquable pour quon puisse cliquer a travers
