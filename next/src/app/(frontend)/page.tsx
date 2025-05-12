@@ -59,8 +59,8 @@ export default function Home() {
 	return (
 		<div className="flex flex-col">
 			<section ref={addSectionRef} className="relative w-full h-screen">
-				<div className="relative p-10 grid place-items-center gap-10 w-full h-full">
-					<div className="absolute grid place-items-center w-full h-full">
+				<div className="relative p-10 grid place-items-center gap-10 size-full">
+					<div className="absolute grid place-items-center size-full">
 						<Image
 							className="h-2/3 w-full object-contain grayscale opacity-50"
 							src="/images/frame-1.png"

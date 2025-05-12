@@ -12,5 +12,3 @@ Ajouter dans les pages de projet une date de creation
 Ajouter linkedin dans le header
 
 Ajouter un lien vers le site web dans les pages de Projet
-
-Faire le responsive
