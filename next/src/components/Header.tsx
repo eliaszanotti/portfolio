@@ -23,24 +23,30 @@ export default function Header() {
 	return (
 		<div
 			ref={headerRef}
-			className="w-full h-48 grid items-center grid-cols-[1fr_auto] px-16 fixed top-0 z-50 bg-transparent"
+			className="w-full h-48 grid items-center grid-cols-[1fr_auto] px-16 fixed top-0 z-50 bg-transparent pointer-events-none"
 			data-theme={currentTheme}
 		>
 			<nav className="flex items-center gap-4">
-				<Link className="btn btn-ghost h-full p-2" href="/">
+				<Link
+					className="btn btn-ghost h-full p-2 pointer-events-auto"
+					href="/"
+				>
 					<IconFrance />
 				</Link>
-				<Link className="btn btn-ghost font-normal uppercase" href="/">
+				<Link
+					className="btn btn-ghost font-normal uppercase pointer-events-auto"
+					href="/"
+				>
 					Home
 				</Link>
 				<Link
-					className="btn btn-ghost font-normal uppercase"
+					className="btn btn-ghost font-normal uppercase pointer-events-auto"
 					href="/about"
 				>
 					About
 				</Link>
 				<Link
-					className="btn btn-ghost font-normal uppercase"
+					className="btn btn-ghost font-normal uppercase pointer-events-auto"
 					href="/contact"
 				>
 					Contact
@@ -49,7 +55,7 @@ export default function Header() {
 			<nav className="flex items-center gap-4">
 				<p className="uppercase px-4">FULL STACK DEVELOPER</p>
 				<Link
-					className="btn btn-ghost h-full p-2"
+					className="btn btn-ghost h-full p-2 pointer-events-auto"
 					href="https://www.instagram.com/eliaszanottiweb"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -57,7 +63,7 @@ export default function Header() {
 					<IconInstagram />
 				</Link>
 				<Link
-					className="btn btn-ghost h-full p-2"
+					className="btn btn-ghost h-full p-2 pointer-events-auto"
 					href="https://github.com/eliaszanotti"
 					target="_blank"
 					rel="noopener noreferrer"
