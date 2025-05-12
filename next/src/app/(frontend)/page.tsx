@@ -70,10 +70,20 @@ export default function Home() {
 						/>
 					</div>
 					<div className="absolute flex flex-col items-center justify-center">
-						<h1 className="text-[230px] leading-none font-black text-primary">
+						<h1
+							className="leading-none font-black text-primary"
+							style={{
+								fontSize: "calc(var(--spacing) * 60)",
+							}}
+						>
 							ELIAS
 						</h1>
-						<h1 className="text-[140px] leading-none font-black text-primary">
+						<h1
+							className="leading-none font-black text-primary"
+							style={{
+								fontSize: "calc(var(--spacing) * 38)",
+							}}
+						>
 							ZANOTTI
 						</h1>
 						<Link href="/" className="btn btn-primary">

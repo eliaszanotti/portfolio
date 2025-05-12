@@ -158,6 +158,7 @@ export interface Media {
 export interface Skill {
   id: string;
   name?: string | null;
+  link?: string | null;
   color?: string | null;
   invert?: boolean | null;
   size?: ('1' | '2' | '3') | null;
@@ -273,6 +274,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface SkillSelect<T extends boolean = true> {
   name?: T;
+  link?: T;
   color?: T;
   invert?: T;
   size?: T;
