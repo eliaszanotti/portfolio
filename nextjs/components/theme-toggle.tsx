@@ -31,12 +31,14 @@ export function ThemeToggle() {
 			<Button
 				variant={theme === "light" ? "default" : "ghost"}
 				onClick={() => setTheme("light")}
+				className="font-bold"
 			>
 				E
 			</Button>
 			<Button
 				variant={theme === "dark" ? "default" : "ghost"}
 				onClick={() => setTheme("dark")}
+				className="font-bold"
 			>
 				Z
 			</Button>
