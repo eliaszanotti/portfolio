@@ -17,9 +17,8 @@ export function NavContainer() {
 						style={{
 							top: item.position.top,
 							left: item.position.left,
-							right: item.position.right,
-							bottom: item.position.bottom,
 						}}
+						nativeButton={false}
 						render={
 							<Link href={item.href}>
 								<Icon className="size-6" />

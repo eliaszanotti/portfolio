@@ -6,6 +6,8 @@ import {
 	GraduationCap,
 	User,
 	Phone,
+	Github,
+	Instagram,
 } from "lucide-react";
 
 export type NavLink = {
@@ -15,25 +17,17 @@ export type NavLink = {
 	description: string;
 	buttonSize: string;
 	buttonVariant?: "default" | "outline" | "ghost" | "secondary";
-	position: Partial<Record<"top" | "right" | "left" | "bottom", string>>;
+	position: Partial<Record<"top" | "left", string>>;
 };
 
 export const navLinks: NavLink[] = [
-	{
-		title: "Contact",
-		href: "/contact",
-		icon: User,
-		description: "More about me",
-		buttonSize: "size-48",
-		position: { top: "10%", left: "20%" },
-	},
 	{
 		title: "Skills",
 		href: "/skills",
 		icon: Code,
 		description: "My tech stack",
 		buttonSize: "size-48",
-		position: { top: "45%", left: "30%" },
+		position: { top: "20%", left: "20%" },
 	},
 	{
 		title: "School",
@@ -53,12 +47,12 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		title: "Phone",
-		href: "tel:+33612345678",
+		href: "tel:+33698105784",
 		icon: Phone,
 		description: "Call me",
 		buttonSize: "size-36",
 		position: { top: "70%", left: "10%" },
-		buttonVariant: "secondary",
+		buttonVariant: "default",
 	},
 	{
 		title: "Email",
@@ -67,6 +61,7 @@ export const navLinks: NavLink[] = [
 		description: "Send me an email",
 		buttonSize: "size-36",
 		position: { top: "10%", left: "90%" },
+		buttonVariant: "default",
 	},
 	{
 		title: "Projects",
@@ -75,6 +70,21 @@ export const navLinks: NavLink[] = [
 		description: "My work",
 		buttonSize: "size-70",
 		position: { top: "0%", left: "50%" },
-		buttonVariant: "default",
+	},
+	{
+		title: "Instagram",
+		href: "https://www.instagram.com/eliaszanottiweb",
+		icon: Instagram,
+		description: "Follow me on Instagram",
+		buttonSize: "size-32",
+		position: { top: "65%", left: "30%" },
+	},
+	{
+		title: "Github",
+		href: "https://github.com/eliaszanotti",
+		icon: Github,
+		description: "Check my Github",
+		buttonSize: "size-32",
+		position: { top: "80%", left: "80%" },
 	},
 ];
