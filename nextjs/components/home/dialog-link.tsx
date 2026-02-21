@@ -9,8 +9,8 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ButtonLink } from "@/components/button-link";
-import { DialogContentInner } from "@/components/dialog-content-inner";
+import { ButtonLink } from "@/components/home/button-link";
+import { DialogContentInner } from "@/components/home/dialog-content-inner";
 import type { NavLink } from "@/data/nav-links";
 
 type DialogLinkProps = {

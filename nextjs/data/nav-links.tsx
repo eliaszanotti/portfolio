@@ -24,7 +24,7 @@ export type NavLink = {
 export const navLinks: NavLink[] = [
 	{
 		title: "Skills",
-		href: "/skills",
+		href: "#skills",
 		icon: Code,
 		description: "My tech stack",
 		buttonSize: "size-48",
@@ -32,7 +32,7 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		title: "School",
-		href: "/school",
+		href: "#school",
 		icon: GraduationCap,
 		description: "My education",
 		buttonSize: "size-40",
@@ -40,7 +40,7 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		title: "About",
-		href: "/about",
+		href: "#about",
 		icon: Mail,
 		description: "More about me",
 		buttonSize: "size-44",
@@ -66,7 +66,7 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		title: "Projects",
-		href: "/projects",
+		href: "#projects",
 		icon: FolderOpen,
 		description: "My work",
 		buttonSize: "size-70",

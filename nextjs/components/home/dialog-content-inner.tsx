@@ -8,7 +8,7 @@ import {
 	InputGroupButton,
 	InputGroupInput,
 } from "@/components/ui/input-group";
-import { Field, FieldLabel, FieldSet } from "./ui/field";
+import { Field, FieldLabel, FieldSet } from "../ui/field";
 
 export function DialogContentInner() {
 	const [copied, setCopied] = useState<"email" | "phone" | null>(null);

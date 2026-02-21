@@ -34,17 +34,17 @@ const contactChannels = [
     },
 ];
 
-export default function ContactPage() {
+export function ContactSection() {
     return (
-        <div className="flex flex-col items-center gap-12 px-8">
-            <section className="flex flex-col items-center gap-4 text-center">
+        <section id="contact" className="flex flex-col items-center gap-12 px-8 scroll-mt-8">
+            <div className="flex flex-col items-center gap-4 text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Get in Touch</h1>
                 <p className="text-xl text-muted-foreground max-w-md">
                     Feel free to reach out through any of these channels
                 </p>
-            </section>
+            </div>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
                 {contactChannels.map((channel) => {
                     const Icon = channel.icon;
                     return (
@@ -66,7 +66,7 @@ export default function ContactPage() {
                             </Button>
                     );
                 })}
-            </section>
-        </div>
+            </div>
+        </section>
     );
 }

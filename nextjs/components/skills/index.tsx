@@ -28,17 +28,17 @@ const levelColors = {
     Intermediate: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
 };
 
-export default function SkillsPage() {
+export function SkillsSection() {
     return (
-        <div className="flex flex-col items-center gap-12 px-8 max-w-4xl mx-auto">
-            <section className="flex flex-col items-center gap-4 text-center">
+        <section id="skills" className="flex flex-col items-center gap-12 px-8 max-w-4xl mx-auto scroll-mt-8">
+            <div className="flex flex-col items-center gap-4 text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Skills & Stack</h1>
                 <p className="text-xl text-muted-foreground">
                     Technologies and tools I work with
                 </p>
-            </section>
+            </div>
 
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {Object.entries(skills).map(([category, items]) => (
                     <div key={category} className="flex flex-col gap-4">
                         <h2 className="text-2xl font-semibold capitalize">{category}</h2>
@@ -60,7 +60,7 @@ export default function SkillsPage() {
                         </div>
                     </div>
                 ))}
-            </section>
-        </div>
+            </div>
+        </section>
     );
 }

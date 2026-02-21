@@ -26,15 +26,15 @@ const certifications = [
     { name: "TypeScript Masterclass", year: "2022" },
 ];
 
-export default function SchoolPage() {
+export function SchoolSection() {
     return (
-        <div className="flex flex-col items-center gap-12 px-8 max-w-3xl mx-auto">
-            <section className="flex flex-col items-center gap-4 text-center">
+        <section id="school" className="flex flex-col items-center gap-12 px-8 max-w-3xl mx-auto scroll-mt-8">
+            <div className="flex flex-col items-center gap-4 text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Education</h1>
                 <p className="text-xl text-muted-foreground">My academic journey</p>
-            </section>
+            </div>
 
-            <section className="flex flex-col gap-6 w-full">
+            <div className="flex flex-col gap-6 w-full">
                 {education.map((edu) => (
                     <Card key={edu.school}>
                         <CardHeader>
@@ -57,9 +57,9 @@ export default function SchoolPage() {
                         </CardContent>
                     </Card>
                 ))}
-            </section>
+            </div>
 
-            <section className="w-full">
+            <div className="w-full">
                 <h2 className="text-2xl font-semibold mb-4">Certifications</h2>
                 <div className="flex flex-wrap gap-2">
                     {certifications.map((cert) => (
@@ -68,7 +68,7 @@ export default function SchoolPage() {
                         </Badge>
                     ))}
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     );
 }

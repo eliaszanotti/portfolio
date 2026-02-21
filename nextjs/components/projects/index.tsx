@@ -36,17 +36,17 @@ const projects = [
     },
 ];
 
-export default function ProjectsPage() {
+export function ProjectsSection() {
     return (
-        <div className="flex flex-col items-center gap-12 px-8 max-w-5xl mx-auto">
-            <section className="flex flex-col items-center gap-4 text-center">
+        <section id="projects" className="flex flex-col items-center gap-12 px-8 max-w-5xl mx-auto scroll-mt-8">
+            <div className="flex flex-col items-center gap-4 text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Projects</h1>
                 <p className="text-xl text-muted-foreground">
                     A selection of my recent work
                 </p>
-            </section>
+            </div>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                 {projects.map((project) => (
                     <Card key={project.title} className="flex flex-col">
                         <CardHeader>
@@ -87,7 +87,7 @@ export default function ProjectsPage() {
                         </CardFooter>
                     </Card>
                 ))}
-            </section>
-        </div>
+            </div>
+        </section>
     );
 }

@@ -3,15 +3,15 @@ import { User } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-export default function AboutPage() {
+export function AboutSection() {
     return (
-        <div className="flex flex-col items-center gap-12 px-8 max-w-3xl mx-auto">
-            <section className="flex flex-col items-center gap-4 text-center">
+        <section id="about" className="flex flex-col items-center gap-12 px-8 max-w-3xl mx-auto scroll-mt-8">
+            <div className="flex flex-col items-center gap-4 text-center">
                 <h1 className="text-5xl font-bold tracking-tight">About Me</h1>
                 <p className="text-xl text-muted-foreground">Get to know me better</p>
-            </section>
+            </div>
 
-            <section className="flex flex-col gap-6 w-full">
+            <div className="flex flex-col gap-6 w-full">
                 <Card>
                     <CardContent className="pt-6">
                         <div className="flex items-start gap-4">
@@ -49,7 +49,7 @@ export default function AboutPage() {
                         </div>
                     </CardContent>
                 </Card>
-            </section>
-        </div>
+            </div>
+        </section>
     );
 }
