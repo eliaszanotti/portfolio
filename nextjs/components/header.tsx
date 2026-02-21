@@ -8,7 +8,7 @@ import { Github, Instagram } from "lucide-react";
 
 export default function Header() {
 	return (
-		<div className="w-full h-48 grid items-center grid-cols-[1fr_auto] px-16 fixed top-0 z-50">
+		<div className="w-full h-48 grid items-center grid-cols-[1fr_auto_1fr] px-16 fixed top-0 z-50">
 			<nav className="flex items-center gap-4">
 				<Button
 					variant="ghost"
@@ -20,9 +20,9 @@ export default function Header() {
 					}
 				/>
 			</nav>
+
 			<nav className="flex items-center gap-4">
 				<p className="uppercase text-sm">Full-stack developer</p>
-				<ThemeToggle />
 				<Button
 					variant="ghost"
 					render={
@@ -47,6 +47,9 @@ export default function Header() {
 						</Link>
 					}
 				/>
+			</nav>
+			<nav className="flex items-center justify-end gap-4">
+				<ThemeToggle />
 			</nav>
 		</div>
 	);
