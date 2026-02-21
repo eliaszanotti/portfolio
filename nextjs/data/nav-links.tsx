@@ -12,12 +12,13 @@ import {
 
 export type NavLink = {
 	title: string;
-	href: string;
+	href?: string;
 	icon: LucideIcon;
 	description: string;
 	buttonSize: string;
 	buttonVariant?: "default" | "outline" | "ghost" | "secondary";
 	position: Partial<Record<"top" | "left", string>>;
+	isContactDialog?: boolean;
 };
 
 export const navLinks: NavLink[] = [
@@ -47,21 +48,21 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		title: "Phone",
-		href: "tel:+33698105784",
 		icon: Phone,
 		description: "Call me",
 		buttonSize: "size-36",
 		position: { top: "70%", left: "10%" },
 		buttonVariant: "default",
+		isContactDialog: true,
 	},
 	{
 		title: "Email",
-		href: "mailto:contact@eliaszanotti.com",
 		icon: Mail,
 		description: "Send me an email",
 		buttonSize: "size-36",
 		position: { top: "10%", left: "90%" },
 		buttonVariant: "default",
+		isContactDialog: true,
 	},
 	{
 		title: "Projects",
