@@ -7,7 +7,11 @@ export function NavContainer() {
 		<div className="relative w-full max-w-3xl h-100">
 			{navLinks.map((item) => {
 				if (item.isContactDialog) {
-					return <DialogLink key={item.title} link={item} />;
+					return (
+						<DialogLink key={item.title}>
+							<ButtonLink link={item} />
+						</DialogLink>
+					);
 				}
 				return <ButtonLink key={item.href} link={item} />;
 			})}

@@ -9,18 +9,16 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ButtonLink } from "@/components/home/button-link";
 import { DialogContentInner } from "@/components/home/dialog-content-inner";
-import type { NavLink } from "@/data/nav-links";
 
 type DialogLinkProps = {
-	link: NavLink;
+	children: React.ReactElement;
 };
 
-export function DialogLink({ link }: DialogLinkProps) {
+export function DialogLink({ children }: DialogLinkProps) {
 	return (
 		<Dialog>
-			<DialogTrigger render={<ButtonLink link={link} />} />
+			<DialogTrigger render={children} />
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Contact Me</DialogTitle>
@@ -30,7 +28,9 @@ export function DialogLink({ link }: DialogLinkProps) {
 				</DialogHeader>
 				<DialogContentInner />
 				<DialogFooter>
-					<DialogClose render={<Button variant="outline">Close</Button>} />
+					<DialogClose
+						render={<Button variant="outline">Close</Button>}
+					/>
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>

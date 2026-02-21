@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { DialogLink } from "./dialog-link";
 import { NavContainer } from "./nav-container";
 
 export function HomeSection() {
@@ -14,11 +16,9 @@ export function HomeSection() {
 					Passionate full-stack developer crafting modern web
 					experiences
 				</p>
-				<div className="flex items-center gap-2">
-					<span className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium">
-						Full-stack Developer
-					</span>
-				</div>
+				<DialogLink>
+					<Button variant="default">Contact Me!</Button>
+				</DialogLink>
 			</section>
 
 			<NavContainer />

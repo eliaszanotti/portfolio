@@ -25,7 +25,7 @@ export function DialogContentInner() {
 	return (
 		<FieldSet>
 			<Field>
-				<FieldLabel htmlFor="email">Email</FieldLabel>
+				<FieldLabel htmlFor="email">My Email</FieldLabel>
 				<InputGroup>
 					<InputGroupInput
 						id="email"
@@ -35,7 +35,6 @@ export function DialogContentInner() {
 					/>
 					<InputGroupAddon align="inline-end">
 						<InputGroupButton
-							size="icon-xs"
 							onClick={() => copyToClipboard(email, "email")}
 						>
 							{copied === "email" ? <Check /> : <Copy />}
@@ -44,7 +43,7 @@ export function DialogContentInner() {
 				</InputGroup>
 			</Field>
 			<Field>
-				<FieldLabel htmlFor="phone">Phone</FieldLabel>
+				<FieldLabel htmlFor="phone">My Phone</FieldLabel>
 				<InputGroup>
 					<InputGroupInput
 						id="phone"
@@ -54,7 +53,6 @@ export function DialogContentInner() {
 					/>
 					<InputGroupAddon align="inline-end">
 						<InputGroupButton
-							size="icon-xs"
 							onClick={() => copyToClipboard(phone, "phone")}
 						>
 							{copied === "phone" ? <Check /> : <Copy />}
