@@ -19,6 +19,9 @@ export function DialogContentInner() {
 		setTimeout(() => setCopied(null), 2000);
 	};
 
+	const email = "zanotti.elias@gmail.com";
+	const phone = "+33 6 98 10 57 84";
+
 	return (
 		<FieldSet>
 			<Field>
@@ -27,18 +30,13 @@ export function DialogContentInner() {
 					<InputGroupInput
 						id="email"
 						type="email"
-						value="contact@eliaszanotti.com"
+						value={email}
 						readOnly
 					/>
 					<InputGroupAddon align="inline-end">
 						<InputGroupButton
 							size="icon-xs"
-							onClick={() =>
-								copyToClipboard(
-									"contact@eliaszanotti.com",
-									"email",
-								)
-							}
+							onClick={() => copyToClipboard(email, "email")}
 						>
 							{copied === "email" ? <Check /> : <Copy />}
 						</InputGroupButton>
@@ -51,15 +49,13 @@ export function DialogContentInner() {
 					<InputGroupInput
 						id="phone"
 						type="tel"
-						value="+33 6 98 10 57 84"
+						value={phone}
 						readOnly
 					/>
 					<InputGroupAddon align="inline-end">
 						<InputGroupButton
 							size="icon-xs"
-							onClick={() =>
-								copyToClipboard("+33 6 98 10 57 84", "phone")
-							}
+							onClick={() => copyToClipboard(phone, "phone")}
 						>
 							{copied === "phone" ? <Check /> : <Copy />}
 						</InputGroupButton>
