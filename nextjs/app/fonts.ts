@@ -1,10 +1,10 @@
 import localFont from "next/font/local";
 
 /**
- * Recia - Font for body text (font-sans)
+ * Recia - Font for serif/headings (font-serif)
  * Weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
  */
-export const bodyFont = localFont({
+export const serifFont = localFont({
 	src: [
 		{
 			path: "./fonts/recia/Recia-Light.woff2",
@@ -57,15 +57,15 @@ export const bodyFont = localFont({
 			style: "italic",
 		},
 	],
-	variable: "--font-sans",
+	variable: "--font-serif",
 	display: "swap",
 });
 
 /**
- * Fira - Font for headings/titles (font-serif)
+ * Fira Mono - Font for monospace (font-mono)
  * Weights: 400 (Regular), 500 (Medium), 700 (Bold)
  */
-export const headingFont = localFont({
+export const monoFont = localFont({
 	src: [
 		{
 			path: "./fonts/fira/FiraMono-Regular.woff2",
@@ -83,6 +83,6 @@ export const headingFont = localFont({
 			style: "normal",
 		},
 	],
-	variable: "--font-serif",
+	variable: "--font-mono",
 	display: "swap",
 });
