@@ -38,15 +38,15 @@ const projects = [
 
 export function ProjectsSection() {
     return (
-        <section id="projects" className="flex flex-col items-center gap-12 px-8 max-w-5xl mx-auto scroll-mt-8">
-            <div className="flex flex-col items-center gap-4 text-center">
+        <div id="projects" className="min-h-screen flex flex-col gap-16 items-center pt-48">
+            <section className="space-y-8 px-8 max-w-5xl mx-auto text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Projects</h1>
                 <p className="text-xl text-muted-foreground">
                     A selection of my recent work
                 </p>
-            </div>
+            </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-5xl mx-auto w-full">
                 {projects.map((project) => (
                     <Card key={project.title} className="flex flex-col">
                         <CardHeader>
@@ -87,7 +87,7 @@ export function ProjectsSection() {
                         </CardFooter>
                     </Card>
                 ))}
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }

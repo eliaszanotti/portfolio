@@ -5,13 +5,13 @@ import { Separator } from "@/components/ui/separator";
 
 export function AboutSection() {
     return (
-        <section id="about" className="flex flex-col items-center gap-12 px-8 max-w-3xl mx-auto scroll-mt-8">
-            <div className="flex flex-col items-center gap-4 text-center">
+        <div id="about" className="min-h-screen flex flex-col gap-16 items-center pt-48">
+            <section className="space-y-8 px-8 max-w-3xl mx-auto text-center">
                 <h1 className="text-5xl font-bold tracking-tight">About Me</h1>
                 <p className="text-xl text-muted-foreground">Get to know me better</p>
-            </div>
+            </section>
 
-            <div className="flex flex-col gap-6 w-full">
+            <section className="px-8 max-w-3xl mx-auto w-full">
                 <Card>
                     <CardContent className="pt-6">
                         <div className="flex items-start gap-4">
@@ -49,7 +49,7 @@ export function AboutSection() {
                         </div>
                     </CardContent>
                 </Card>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }

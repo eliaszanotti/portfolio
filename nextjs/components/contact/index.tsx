@@ -36,15 +36,15 @@ const contactChannels = [
 
 export function ContactSection() {
     return (
-        <section id="contact" className="flex flex-col items-center gap-12 px-8 scroll-mt-8">
-            <div className="flex flex-col items-center gap-4 text-center">
+        <div id="contact" className="min-h-screen flex flex-col gap-16 items-center pt-48">
+            <section className="space-y-8 px-8 max-w-2xl mx-auto text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Get in Touch</h1>
-                <p className="text-xl text-muted-foreground max-w-md">
+                <p className="text-xl text-muted-foreground">
                     Feel free to reach out through any of these channels
                 </p>
-            </div>
+            </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-2xl mx-auto w-full">
                 {contactChannels.map((channel) => {
                     const Icon = channel.icon;
                     return (
@@ -66,7 +66,7 @@ export function ContactSection() {
                             </Button>
                     );
                 })}
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }

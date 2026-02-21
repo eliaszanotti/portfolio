@@ -30,15 +30,15 @@ const levelColors = {
 
 export function SkillsSection() {
     return (
-        <section id="skills" className="flex flex-col items-center gap-12 px-8 max-w-4xl mx-auto scroll-mt-8">
-            <div className="flex flex-col items-center gap-4 text-center">
+        <div id="skills" className="min-h-screen flex flex-col gap-16 items-center pt-48">
+            <section className="space-y-8 px-8 max-w-4xl mx-auto text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Skills & Stack</h1>
                 <p className="text-xl text-muted-foreground">
                     Technologies and tools I work with
                 </p>
-            </div>
+            </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 max-w-4xl mx-auto w-full">
                 {Object.entries(skills).map(([category, items]) => (
                     <div key={category} className="flex flex-col gap-4">
                         <h2 className="text-2xl font-semibold capitalize">{category}</h2>
@@ -60,7 +60,7 @@ export function SkillsSection() {
                         </div>
                     </div>
                 ))}
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }

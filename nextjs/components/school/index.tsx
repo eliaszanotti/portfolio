@@ -28,13 +28,13 @@ const certifications = [
 
 export function SchoolSection() {
     return (
-        <section id="school" className="flex flex-col items-center gap-12 px-8 max-w-3xl mx-auto scroll-mt-8">
-            <div className="flex flex-col items-center gap-4 text-center">
+        <div id="school" className="min-h-screen flex flex-col gap-16 items-center pt-48">
+            <section className="space-y-8 px-8 max-w-3xl mx-auto text-center">
                 <h1 className="text-5xl font-bold tracking-tight">Education</h1>
                 <p className="text-xl text-muted-foreground">My academic journey</p>
-            </div>
+            </section>
 
-            <div className="flex flex-col gap-6 w-full">
+            <section className="flex flex-col gap-6 px-8 max-w-3xl mx-auto w-full">
                 {education.map((edu) => (
                     <Card key={edu.school}>
                         <CardHeader>
@@ -57,9 +57,9 @@ export function SchoolSection() {
                         </CardContent>
                     </Card>
                 ))}
-            </div>
+            </section>
 
-            <div className="w-full">
+            <section className="px-8 max-w-3xl mx-auto w-full">
                 <h2 className="text-2xl font-semibold mb-4">Certifications</h2>
                 <div className="flex flex-wrap gap-2">
                     {certifications.map((cert) => (
@@ -68,7 +68,7 @@ export function SchoolSection() {
                         </Badge>
                     ))}
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }

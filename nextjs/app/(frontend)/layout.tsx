@@ -13,12 +13,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	const { children } = props;
 
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en">
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="dark">
 					<main>
 						<Header />
-						<div className="min-h-screen pt-48">{children}</div>
+						<div className="min-h-screen">{children}</div>
 					</main>
 				</ThemeProvider>
 			</body>
