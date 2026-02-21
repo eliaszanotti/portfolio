@@ -1,6 +1,7 @@
 import React from "react";
 import "../globals.css";
 import Header from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = {
 	description:
@@ -12,12 +13,18 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	const { children } = props;
 
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body>
-				<main>
-					<Header />
-					<div className="min-h-screen pt-48">{children}</div>
-				</main>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+				>
+					<main>
+						<Header />
+						<div className="min-h-screen pt-48">{children}</div>
+					</main>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

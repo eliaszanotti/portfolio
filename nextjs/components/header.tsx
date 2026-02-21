@@ -3,6 +3,7 @@
 import Link from "next/link";
 import IconFrance from "@/components/icon/france";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Github, Instagram } from "lucide-react";
 
 export default function Header() {
@@ -21,6 +22,7 @@ export default function Header() {
 			</nav>
 			<nav className="flex items-center gap-4">
 				<p className="uppercase text-sm">Full-stack developer</p>
+				<ThemeToggle />
 				<Button
 					variant="ghost"
 					render={
