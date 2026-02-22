@@ -16,7 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	return (
 		<html
 			lang="en"
-			className={`font-serif ${serifFont.variable} ${monoFont.variable}`}
+			className={`font-mono ${serifFont.variable} ${monoFont.variable}`}
 		>
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="dark">
