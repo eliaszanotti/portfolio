@@ -1,14 +1,13 @@
+import { Section } from "@/components/layout/section";
+import { SubSection } from "@/components/layout/sub-section";
 import { Button } from "@/components/ui/button";
 import { DialogLink } from "./dialog-link";
 import { NavContainer } from "./nav-container";
 
 export function HomeSection() {
 	return (
-		<div
-			id="home"
-			className="min-h-screen flex flex-col gap-16 items-center pt-48"
-		>
-			<section className="flex flex-col gap-8 items-center text-center max-w-2xl">
+		<Section id="home">
+			<SubSection className="flex flex-col gap-8 items-center text-center max-w-2xl">
 				<h1 className="text-7xl font-black tracking-tight">
 					Elias <span className="text-primary">Zanotti</span>
 				</h1>
@@ -19,9 +18,9 @@ export function HomeSection() {
 				<DialogLink>
 					<Button variant="default">Contact Me!</Button>
 				</DialogLink>
-			</section>
+			</SubSection>
 
 			<NavContainer />
-		</div>
+		</Section>
 	);
 }

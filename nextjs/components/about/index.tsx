@@ -1,3 +1,6 @@
+import { Section } from "@/components/layout/section";
+import { SubSection } from "@/components/layout/sub-section";
+import { SectionTitle } from "@/components/section-title";
 import { User } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,13 +8,13 @@ import { Separator } from "@/components/ui/separator";
 
 export function AboutSection() {
     return (
-        <div id="about" className="min-h-screen flex flex-col gap-16 items-center pt-48">
-            <section className="space-y-8 px-8 max-w-3xl mx-auto text-center">
-                <h1 className="text-5xl font-bold tracking-tight">About Me</h1>
+        <Section id="about">
+            <SubSection className="space-y-8 px-8 max-w-3xl mx-auto text-center">
+                <SectionTitle>About Me</SectionTitle>
                 <p className="text-xl text-muted-foreground">Get to know me better</p>
-            </section>
+            </SubSection>
 
-            <section className="px-8 max-w-3xl mx-auto w-full">
+            <SubSection className="px-8 max-w-3xl mx-auto w-full">
                 <Card>
                     <CardContent className="pt-6">
                         <div className="flex items-start gap-4">
@@ -49,7 +52,7 @@ export function AboutSection() {
                         </div>
                     </CardContent>
                 </Card>
-            </section>
-        </div>
+            </SubSection>
+        </Section>
     );
 }

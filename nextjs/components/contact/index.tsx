@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+import { Section } from "@/components/layout/section";
+import { SubSection } from "@/components/layout/sub-section";
+import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Mail, Github, Instagram, Linkedin } from "lucide-react";
 
@@ -36,15 +39,15 @@ const contactChannels = [
 
 export function ContactSection() {
     return (
-        <div id="contact" className="min-h-screen flex flex-col gap-16 items-center pt-48">
-            <section className="space-y-8 px-8 max-w-2xl mx-auto text-center">
-                <h1 className="text-5xl font-bold tracking-tight">Get in Touch</h1>
+        <Section id="contact">
+            <SubSection className="space-y-8 px-8 max-w-2xl mx-auto text-center">
+                <SectionTitle>Get in Touch</SectionTitle>
                 <p className="text-xl text-muted-foreground">
                     Feel free to reach out through any of these channels
                 </p>
-            </section>
+            </SubSection>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-2xl mx-auto w-full">
+            <SubSection className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-2xl mx-auto w-full">
                 {contactChannels.map((channel) => {
                     const Icon = channel.icon;
                     return (
@@ -66,7 +69,7 @@ export function ContactSection() {
                             </Button>
                     );
                 })}
-            </section>
-        </div>
+            </SubSection>
+        </Section>
     );
 }

@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+import { Section } from "@/components/layout/section";
+import { SubSection } from "@/components/layout/sub-section";
+import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -38,15 +41,15 @@ const projects = [
 
 export function ProjectsSection() {
     return (
-        <div id="projects" className="min-h-screen flex flex-col gap-16 items-center pt-48">
-            <section className="space-y-8 px-8 max-w-5xl mx-auto text-center">
-                <h1 className="text-5xl font-bold tracking-tight">Projects</h1>
+        <Section id="projects">
+            <SubSection className="space-y-8 px-8 max-w-5xl mx-auto text-center">
+                <SectionTitle>Projects</SectionTitle>
                 <p className="text-xl text-muted-foreground">
                     A selection of my recent work
                 </p>
-            </section>
+            </SubSection>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-5xl mx-auto w-full">
+            <SubSection className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-5xl mx-auto w-full">
                 {projects.map((project) => (
                     <Card key={project.title} className="flex flex-col">
                         <CardHeader>
@@ -87,7 +90,7 @@ export function ProjectsSection() {
                         </CardFooter>
                     </Card>
                 ))}
-            </section>
-        </div>
+            </SubSection>
+        </Section>
     );
 }
