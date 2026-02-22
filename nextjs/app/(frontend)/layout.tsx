@@ -1,6 +1,7 @@
 import React from "react";
 import "../globals.css";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { monoFont, serifFont, sansFont } from "../fonts";
 
@@ -23,6 +24,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 					<main>
 						<Header />
 						<div className="min-h-screen">{children}</div>
+						<Footer />
 					</main>
 				</ThemeProvider>
 			</body>
