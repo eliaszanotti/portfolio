@@ -1,9 +1,9 @@
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { Button } from "@/components/ui/button";
+import { SectionDescription } from "../section-description";
 import { DialogLink } from "./dialog-link";
 import { NavContainer } from "./nav-container";
-import { SectionDescription } from "../section-description";
 
 export function HomeSection() {
 	return (

@@ -1,6 +1,6 @@
-import { Item, ItemContent, ItemTitle, ItemMedia } from "@/components/ui/item";
-import type { Certification } from "@/data/certifications";
 import { Badge } from "@/components/ui/badge";
+import { Item, ItemContent, ItemMedia, ItemTitle } from "@/components/ui/item";
+import type { Certification } from "@/data/certifications";
 
 type CertificationCardProps = {
 	certification: Certification;

@@ -1,9 +1,9 @@
-import React from "react";
+import type React from "react";
 import "../globals.css";
-import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { monoFont, serifFont, sansFont } from "../fonts";
+import { monoFont, sansFont, serifFont } from "../fonts";
 
 export const metadata = {
 	description:

@@ -1,15 +1,15 @@
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
-import { SectionTitle } from "@/components/section-title";
 import { SectionDescription } from "@/components/section-description";
+import { SectionTitle } from "@/components/section-title";
 
 import {
 	Item,
 	ItemContent,
-	ItemTitle,
 	ItemDescription,
-	ItemMedia,
 	ItemGroup,
+	ItemMedia,
+	ItemTitle,
 } from "@/components/ui/item";
 import { aboutData } from "@/data/about";
 

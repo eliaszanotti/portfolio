@@ -1,11 +1,11 @@
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
-import { SectionTitle } from "@/components/section-title";
 import { SectionDescription } from "@/components/section-description";
-import { ExperienceCard } from "./experience-card";
-import { CertificationCard } from "./certification-card";
-import { experienceData } from "@/data/experience";
+import { SectionTitle } from "@/components/section-title";
 import { certificationsData } from "@/data/certifications";
+import { experienceData } from "@/data/experience";
+import { CertificationCard } from "./certification-card";
+import { ExperienceCard } from "./experience-card";
 
 export function ExperienceSection() {
 	return (

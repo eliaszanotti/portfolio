@@ -1,13 +1,13 @@
+import { Badge } from "@/components/ui/badge";
 import {
 	Item,
-	ItemContent,
-	ItemTitle,
-	ItemDescription,
 	ItemActions,
+	ItemContent,
+	ItemDescription,
 	ItemMedia,
+	ItemTitle,
 } from "@/components/ui/item";
 import type { Experience } from "@/data/experience";
-import { Badge } from "@/components/ui/badge";
 
 type ExperienceCardProps = {
 	experience: Experience;

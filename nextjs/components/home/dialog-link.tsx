@@ -1,3 +1,5 @@
+import { DialogContentInner } from "@/components/home/dialog-content-inner";
+import { Button } from "@/components/ui/button";
 import {
 	Dialog,
 	DialogClose,
@@ -8,8 +10,6 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { DialogContentInner } from "@/components/home/dialog-content-inner";
 
 type DialogLinkProps = {
 	children: React.ReactElement;

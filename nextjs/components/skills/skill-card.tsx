@@ -1,8 +1,8 @@
 import {
 	Item,
+	ItemActions,
 	ItemContent,
 	ItemTitle,
-	ItemActions,
 } from "@/components/ui/item";
 import type { Skill } from "@/data/skills";
 import { LevelDots } from "./level-dots";

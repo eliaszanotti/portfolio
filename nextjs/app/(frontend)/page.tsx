@@ -1,9 +1,9 @@
-import { HomeSection } from "@/components/home";
-import { SkillsSection } from "@/components/skills";
-import { ProjectsSection } from "@/components/projects";
-import { ExperienceSection } from "@/components/experience";
 import { AboutSection } from "@/components/about";
 import { ContactSection } from "@/components/contact";
+import { ExperienceSection } from "@/components/experience";
+import { HomeSection } from "@/components/home";
+import { ProjectsSection } from "@/components/projects";
+import { SkillsSection } from "@/components/skills";
 
 export default function HomePage() {
 	return (

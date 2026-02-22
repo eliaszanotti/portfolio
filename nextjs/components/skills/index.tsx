@@ -1,10 +1,10 @@
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
-import { SectionTitle } from "@/components/section-title";
 import { SectionDescription } from "@/components/section-description";
+import { SectionTitle } from "@/components/section-title";
+import { ItemGroup } from "@/components/ui/item";
 import { skillsData } from "@/data/skills";
 import { SkillCard } from "./skill-card";
-import { ItemGroup } from "@/components/ui/item";
 
 export function SkillsSection() {
 	return (

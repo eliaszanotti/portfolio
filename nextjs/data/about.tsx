@@ -1,4 +1,4 @@
-import { Coffee, Code, LucideIcon, User } from "lucide-react";
+import { Code, Coffee, type LucideIcon, User } from "lucide-react";
 
 export type About = {
 	title: string;

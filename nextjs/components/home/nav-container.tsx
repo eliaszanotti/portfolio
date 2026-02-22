@@ -1,6 +1,6 @@
-import { navLinks } from "@/data/nav-links";
 import { ButtonLink } from "@/components/home/button-link";
 import { DialogLink } from "@/components/home/dialog-link";
+import { navLinks } from "@/data/nav-links";
 
 export function NavContainer() {
 	return (

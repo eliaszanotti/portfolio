@@ -1,16 +1,16 @@
 "use client";
 
 import { Check, Copy } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Field, FieldLabel } from "@/components/ui/field";
 import {
 	InputGroup,
 	InputGroupAddon,
 	InputGroupButton,
 	InputGroupInput,
 } from "@/components/ui/input-group";
-import { Field, FieldLabel } from "@/components/ui/field";
-import { Button } from "@/components/ui/button";
 import { useClipboard } from "@/hooks/use-clipboard";
-import Link from "next/link";
 
 const EMAIL = "zanotti.elias@gmail.com";
 

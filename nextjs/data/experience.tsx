@@ -1,4 +1,4 @@
-import { Code2, Briefcase, LucideIcon } from "lucide-react";
+import { Briefcase, Code2, type LucideIcon } from "lucide-react";
 
 export type Experience = {
 	name: string;

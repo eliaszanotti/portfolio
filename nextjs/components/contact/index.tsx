@@ -1,9 +1,8 @@
+import { ContactCard } from "@/components/contact/contact-card";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
-import { SectionTitle } from "@/components/section-title";
 import { SectionDescription } from "@/components/section-description";
-import { ContactCard } from "@/components/contact/contact-card";
-import { DialogContentInner } from "@/components/home/dialog-content-inner";
+import { SectionTitle } from "@/components/section-title";
 import { contactData } from "@/data/contact";
 import { ContactEmailInput } from "./contact-email-input";
 import { ContactPhoneInput } from "./contact-phone-input";

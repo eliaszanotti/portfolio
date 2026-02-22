@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, LucideIcon } from "lucide-react";
+import { Github, Instagram, Linkedin, type LucideIcon } from "lucide-react";
 
 export type Contact = {
 	name: string;

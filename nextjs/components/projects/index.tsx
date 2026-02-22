@@ -1,10 +1,10 @@
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionTitle } from "@/components/section-title";
-import { ProjectCard } from "./project-card";
-import { ContactCard } from "./contact-card";
 import { projectsData } from "@/data/projects";
 import { SectionDescription } from "../section-description";
+import { ContactCard } from "./contact-card";
+import { ProjectCard } from "./project-card";
 
 export function ProjectsSection() {
 	return (

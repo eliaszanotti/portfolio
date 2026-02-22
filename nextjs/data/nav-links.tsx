@@ -1,13 +1,13 @@
-import { LucideIcon } from "lucide-react";
 import {
-	Mail,
 	Code,
 	FolderOpen,
-	GraduationCap,
-	Phone,
 	Github,
+	GraduationCap,
 	Instagram,
 	Linkedin,
+	type LucideIcon,
+	Mail,
+	Phone,
 } from "lucide-react";
 
 export type NavLink = {
