@@ -60,7 +60,10 @@ export function ContactEmailInput() {
 				>
 					Outlook
 				</Button>
-				<Button render={<Link href={`mailto:${EMAIL}`} className="w-full" />} nativeButton={false}>
+				<Button
+					render={<Link href={`mailto:${EMAIL}`} className="w-full" />}
+					nativeButton={false}
+				>
 					Mail
 				</Button>
 			</div>

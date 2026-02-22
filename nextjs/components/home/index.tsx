@@ -16,7 +16,9 @@ export function HomeSection() {
 					Welcome to my portfolio! I&apos;m a passionate web developer.
 				</SectionDescription>
 				<DialogLink>
-					<Button variant="default" nativeButton={true}>Contact Me!</Button>
+					<Button variant="default" nativeButton={true}>
+						Contact Me!
+					</Button>
 				</DialogLink>
 			</SubSection>
 
