@@ -42,6 +42,7 @@ export function ContactEmailInput() {
 							className="w-full"
 						/>
 					}
+					nativeButton={false}
 				>
 					Gmail
 				</Button>
@@ -55,10 +56,11 @@ export function ContactEmailInput() {
 							className="w-full"
 						/>
 					}
+					nativeButton={false}
 				>
 					Outlook
 				</Button>
-				<Button render={<Link href={`mailto:${EMAIL}`} className="w-full" />}>
+				<Button render={<Link href={`mailto:${EMAIL}`} className="w-full" />} nativeButton={false}>
 					Mail
 				</Button>
 			</div>

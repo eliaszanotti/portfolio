@@ -16,10 +16,10 @@ export function ThemeToggle() {
 	if (!mounted) {
 		return (
 			<ButtonGroup>
-				<Button variant="ghost" disabled>
+				<Button variant="ghost" nativeButton={true} disabled>
 					E
 				</Button>
-				<Button variant="ghost" disabled>
+				<Button variant="ghost" nativeButton={true} disabled>
 					Z
 				</Button>
 			</ButtonGroup>
@@ -32,6 +32,7 @@ export function ThemeToggle() {
 				variant={theme === "light" ? "default" : "ghost"}
 				onClick={() => setTheme("light")}
 				className="font-bold"
+				nativeButton={true}
 			>
 				E
 			</Button>
@@ -39,6 +40,7 @@ export function ThemeToggle() {
 				variant={theme === "dark" ? "default" : "ghost"}
 				onClick={() => setTheme("dark")}
 				className="font-bold"
+				nativeButton={true}
 			>
 				Z
 			</Button>

@@ -26,6 +26,7 @@ export function ContactCard({ contact }: ContactCardProps) {
 					<span>{contact.value}</span>
 				</Link>
 			}
+			nativeButton={false}
 		/>
 	);
 }

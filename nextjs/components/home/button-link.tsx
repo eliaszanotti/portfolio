@@ -20,20 +20,22 @@ export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 				left: link.position.left,
 				animation: `float ${4 + index * 0.5}s ease-in-out infinite`,
 			}}
-			nativeButton={false}
+			nativeButton={link.href ? false : true}
 			render={
 				link.href ? (
 					<Link href={link.href}>
 						<Icon className="size-6" />
 						<span className="font-semibold text-sm">{link.title}</span>
 					</Link>
-				) : (
-					<div>
-						<Icon className="size-6" />
-						<span className="font-semibold text-sm">{link.title}</span>
-					</div>
-				)
+				) : undefined
 			}
-		/>
+		>
+			{!link.href && (
+				<>
+					<Icon className="size-6" />
+					<span className="font-semibold text-sm">{link.title}</span>
+				</>
+			)}
+		</Button>
 	);
 }

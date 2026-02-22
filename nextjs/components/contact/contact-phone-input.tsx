@@ -36,6 +36,7 @@ export function ContactPhoneInput() {
 					variant="default"
 					className="w-full col-start-3"
 					render={<Link href={`tel:${PHONE}`} className="w-full" />}
+					nativeButton={false}
 				>
 					Call
 				</Button>

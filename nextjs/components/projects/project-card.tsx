@@ -43,6 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 								rel="noopener noreferrer"
 							/>
 						}
+						nativeButton={false}
 					>
 						<Github className="size-4" />
 						Code
@@ -57,6 +58,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 								rel="noopener noreferrer"
 							/>
 						}
+						nativeButton={false}
 					>
 						<ExternalLink className="size-4" />
 						Visit

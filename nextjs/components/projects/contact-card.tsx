@@ -21,7 +21,7 @@ export function ContactCard() {
 			<CardContent className="flex h-full items-end" />
 			<CardFooter className="flex justify-end bg-primary/10 border-primary/10">
 				<DialogLink>
-					<Button>Contact Me!</Button>
+					<Button nativeButton={true}>Contact Me!</Button>
 				</DialogLink>
 			</CardFooter>
 		</Card>
