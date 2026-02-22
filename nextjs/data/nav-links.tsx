@@ -4,10 +4,10 @@ import {
 	Code,
 	FolderOpen,
 	GraduationCap,
-	User,
 	Phone,
 	Github,
 	Instagram,
+	Linkedin,
 } from "lucide-react";
 
 export type NavLink = {
@@ -87,5 +87,13 @@ export const navLinks: NavLink[] = [
 		description: "Check my Github",
 		buttonSize: "size-32",
 		position: { top: "80%", left: "80%" },
+	},
+	{
+		title: "LinkedIn",
+		href: "https://www.linkedin.com/in/elias-zanotti-42-school",
+		icon: Linkedin,
+		description: "Connect on LinkedIn",
+		buttonSize: "size-32",
+		position: { top: "90%", left: "40%" },
 	},
 ];
