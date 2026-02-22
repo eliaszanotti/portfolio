@@ -22,12 +22,7 @@ export function ContactPhoneInput() {
 			<Field>
 				<FieldLabel htmlFor="phone">My Phone</FieldLabel>
 				<InputGroup>
-					<InputGroupInput
-						id="phone"
-						type="tel"
-						value={PHONE}
-						readOnly
-					/>
+					<InputGroupInput id="phone" type="tel" value={PHONE} readOnly />
 					<InputGroupAddon align="inline-end">
 						<InputGroupButton onClick={() => copy(PHONE)}>
 							{copied ? <Check /> : <Copy />}

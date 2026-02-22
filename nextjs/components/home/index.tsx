@@ -13,8 +13,7 @@ export function HomeSection() {
 					Elias <span className="text-primary">Zanotti</span>
 				</h1>
 				<SectionDescription>
-					Welcome to my portfolio! I&apos;m a passionate web
-					developer.
+					Welcome to my portfolio! I&apos;m a passionate web developer.
 				</SectionDescription>
 				<DialogLink>
 					<Button variant="default">Contact Me!</Button>

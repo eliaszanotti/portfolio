@@ -28,9 +28,7 @@ export function DialogLink({ children }: DialogLinkProps) {
 				</DialogHeader>
 				<DialogContentInner />
 				<DialogFooter>
-					<DialogClose
-						render={<Button variant="outline">Close</Button>}
-					/>
+					<DialogClose render={<Button variant="outline">Close</Button>} />
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>

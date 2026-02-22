@@ -35,9 +35,7 @@ export function AboutSection() {
 								</ItemMedia>
 								<ItemContent>
 									<ItemTitle>{item.title}</ItemTitle>
-									<ItemDescription>
-										{item.description}
-									</ItemDescription>
+									<ItemDescription>{item.description}</ItemDescription>
 								</ItemContent>
 							</Item>
 						);

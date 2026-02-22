@@ -18,10 +18,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
 
 	return (
 		<Item variant="outline">
-			<ItemMedia
-				variant="image"
-				className="size-12 rounded-full bg-primary/10"
-			>
+			<ItemMedia variant="image" className="size-12 rounded-full bg-primary/10">
 				<Icon className="text-primary" />
 			</ItemMedia>
 			<ItemContent>

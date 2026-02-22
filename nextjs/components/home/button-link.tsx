@@ -25,16 +25,12 @@ export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 				link.href ? (
 					<Link href={link.href}>
 						<Icon className="size-6" />
-						<span className="font-semibold text-sm">
-							{link.title}
-						</span>
+						<span className="font-semibold text-sm">{link.title}</span>
 					</Link>
 				) : (
 					<div>
 						<Icon className="size-6" />
-						<span className="font-semibold text-sm">
-							{link.title}
-						</span>
+						<span className="font-semibold text-sm">{link.title}</span>
 					</div>
 				)
 			}

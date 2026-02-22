@@ -17,10 +17,7 @@ export function ExperienceSection() {
 
 			<SubSection>
 				{experienceData.map((exp, index) => (
-					<ExperienceCard
-						key={`${exp.name}-${index}`}
-						experience={exp}
-					/>
+					<ExperienceCard key={`${exp.name}-${index}`} experience={exp} />
 				))}
 			</SubSection>
 
@@ -28,10 +25,7 @@ export function ExperienceSection() {
 				<h2 className="text-2xl font-bold w-full">Certifications</h2>
 				<div className="flex flex-col gap-3 w-full">
 					{certificationsData.map((cert) => (
-						<CertificationCard
-							key={cert.name}
-							certification={cert}
-						/>
+						<CertificationCard key={cert.name} certification={cert} />
 					))}
 				</div>
 			</SubSection>

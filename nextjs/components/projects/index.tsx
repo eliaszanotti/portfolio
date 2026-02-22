@@ -12,8 +12,8 @@ export function ProjectsSection() {
 			<SubSection>
 				<SectionTitle>Projects</SectionTitle>
 				<SectionDescription>
-					A selection of my best work, showcasing my skills and
-					experience in web
+					A selection of my best work, showcasing my skills and experience in
+					web
 				</SectionDescription>
 			</SubSection>
 

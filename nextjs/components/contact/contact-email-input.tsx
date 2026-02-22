@@ -22,12 +22,7 @@ export function ContactEmailInput() {
 			<Field>
 				<FieldLabel htmlFor="email">My Email</FieldLabel>
 				<InputGroup>
-					<InputGroupInput
-						id="email"
-						type="email"
-						value={EMAIL}
-						readOnly
-					/>
+					<InputGroupInput id="email" type="email" value={EMAIL} readOnly />
 					<InputGroupAddon align="inline-end">
 						<InputGroupButton onClick={() => copy(EMAIL)}>
 							{copied ? <Check /> : <Copy />}
@@ -63,11 +58,7 @@ export function ContactEmailInput() {
 				>
 					Outlook
 				</Button>
-				<Button
-					render={
-						<Link href={`mailto:${EMAIL}`} className="w-full" />
-					}
-				>
+				<Button render={<Link href={`mailto:${EMAIL}`} className="w-full" />}>
 					Mail
 				</Button>
 			</div>

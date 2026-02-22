@@ -19,13 +19,8 @@ export function SkillsSection() {
 			<SubSection>
 				<div className="grid grid-cols-3 gap-8 w-full">
 					{skillsData.map((category) => (
-						<div
-							key={category.title}
-							className="flex flex-col gap-4"
-						>
-							<h2 className="text-2xl font-semibold">
-								{category.title}
-							</h2>
+						<div key={category.title} className="flex flex-col gap-4">
+							<h2 className="text-2xl font-semibold">{category.title}</h2>
 							<ItemGroup>
 								{category.skills.map((skill) => (
 									<SkillCard key={skill.name} skill={skill} />
