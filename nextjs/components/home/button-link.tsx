@@ -20,7 +20,7 @@ export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 				left: link.position.left,
 				animation: `float ${4 + index * 0.5}s ease-in-out infinite`,
 			}}
-			nativeButton={link.href ? false : true}
+			nativeButton={!link.href}
 			render={
 				link.href ? (
 					<Link href={link.href}>
