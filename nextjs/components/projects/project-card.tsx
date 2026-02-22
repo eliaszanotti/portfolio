@@ -19,22 +19,17 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<Card className="flex flex-col">
+		<Card>
 			<CardHeader>
-				<CardTitle className="text-xl font-bold">
-					{project.title}
-				</CardTitle>
-				<CardDescription className="whitespace-pre-line text-base">
+				<CardTitle>{project.title}</CardTitle>
+				<CardDescription className="text-justify">
 					{project.description}
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="flex h-full items-end">
 				<div className="flex items-end flex-wrap gap-2">
 					{project.tags.map((tag) => (
-						<Badge
-							key={tag}
-							variant="secondary"
-						>
+						<Badge key={tag} variant="secondary">
 							{tag}
 						</Badge>
 					))}
