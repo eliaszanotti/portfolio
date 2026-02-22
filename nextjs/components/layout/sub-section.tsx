@@ -5,10 +5,7 @@ type SubSectionProps = {
 	children: React.ReactNode;
 };
 
-export function SubSection({
-	className,
-	children,
-}: SubSectionProps) {
+export function SubSection({ className, children }: SubSectionProps) {
 	return (
 		<section
 			className={cn(

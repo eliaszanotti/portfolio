@@ -25,8 +25,8 @@ export function ExperienceSection() {
 			</SubSection>
 
 			<SubSection>
-				<h2 className="text-2xl font-bold ">Certifications</h2>
-				<div className="flex flex-col gap-3">
+				<h2 className="text-2xl font-bold w-full">Certifications</h2>
+				<div className="flex flex-col gap-3 w-full">
 					{certificationsData.map((cert) => (
 						<CertificationCard
 							key={cert.name}

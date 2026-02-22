@@ -30,7 +30,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
 				<ItemDescription>{experience.description}</ItemDescription>
 				<ItemDescription>{experience.location}</ItemDescription>
 			</ItemContent>
-			<ItemActions className="h-full">
+			<ItemActions>
 				<Badge variant="secondary">{experience.years}</Badge>
 			</ItemActions>
 		</Item>

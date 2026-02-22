@@ -4,7 +4,7 @@ type SectionDescriptionProps = {
 
 export function SectionDescription({ children }: SectionDescriptionProps) {
 	return (
-		<p className="text-xl text-left text-muted-foreground max-w-prose">
+		<p className="text-lg text-left text-muted-foreground max-w-prose">
 			{children}
 		</p>
 	);

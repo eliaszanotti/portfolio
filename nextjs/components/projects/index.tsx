@@ -4,23 +4,26 @@ import { SectionTitle } from "@/components/section-title";
 import { ProjectCard } from "./project-card";
 import { ContactCard } from "./contact-card";
 import { projectsData } from "@/data/projects";
+import { SectionDescription } from "../section-description";
 
 export function ProjectsSection() {
 	return (
 		<Section id="projects">
 			<SubSection>
 				<SectionTitle>Projects</SectionTitle>
-				<p className="text-xl text-left text-muted-foreground">
+				<SectionDescription>
 					A selection of my best work, showcasing my skills and
 					experience in web
-				</p>
+				</SectionDescription>
 			</SubSection>
 
 			<SubSection>
-				{projectsData.map((project) => (
-					<ProjectCard key={project.title} project={project} />
-				))}
-				<ContactCard />
+				<div className="grid grid-cols-2 gap-8 w-full">
+					{projectsData.map((project) => (
+						<ProjectCard key={project.title} project={project} />
+					))}
+					<ContactCard />
+				</div>
 			</SubSection>
 		</Section>
 	);

@@ -11,22 +11,29 @@ export function SkillsSection() {
 		<Section id="skills">
 			<SubSection>
 				<SectionTitle>Skills & Stack</SectionTitle>
-				<SectionDescription>Technologies and tools I work with</SectionDescription>
+				<SectionDescription>
+					Technologies and tools I work with
+				</SectionDescription>
 			</SubSection>
 
 			<SubSection>
-				{skillsData.map((category) => (
-					<div key={category.title} className="flex flex-col gap-4">
-						<h2 className="text-2xl font-semibold">
-							{category.title}
-						</h2>
-						<ItemGroup>
-							{category.skills.map((skill) => (
-								<SkillCard key={skill.name} skill={skill} />
-							))}
-						</ItemGroup>
-					</div>
-				))}
+				<div className="grid grid-cols-3 gap-8 w-full">
+					{skillsData.map((category) => (
+						<div
+							key={category.title}
+							className="flex flex-col gap-4"
+						>
+							<h2 className="text-2xl font-semibold">
+								{category.title}
+							</h2>
+							<ItemGroup>
+								{category.skills.map((skill) => (
+									<SkillCard key={skill.name} skill={skill} />
+								))}
+							</ItemGroup>
+						</div>
+					))}
+				</div>
 			</SubSection>
 		</Section>
 	);
