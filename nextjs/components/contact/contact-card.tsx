@@ -9,27 +9,23 @@ type ContactCardProps = {
 
 export function ContactCard({ contact }: ContactCardProps) {
 	const Icon = contact.icon;
-	const isDefault = contact.variant === "default";
 
 	return (
 		<Button
-			variant={contact.variant}
-			className="h-48 flex-col gap-3 py-6 px-8 hover:bg-primary hover:text-primary-foreground transition-all"
+			variant="outline"
+			className="h-32"
 			render={
 				<Link
 					href={contact.href}
 					target="_blank"
 					rel="noopener noreferrer"
-				/>
+					className="flex flex-col gap-2"
+				>
+					<Icon className="size-8" />
+					<span className="font-semibold">{contact.name}</span>
+					<span>{contact.value}</span>
+				</Link>
 			}
-		>
-			<Icon className={`size-8 ${isDefault ? contact.color : contact.color}`} />
-			<div className="flex flex-col items-center gap-1">
-				<span className="font-semibold">{contact.name}</span>
-				<span className={`text-sm ${isDefault ? "text-primary-foreground/80" : "text-muted-foreground group-hover:text-primary-foreground/80"}`}>
-					{contact.value}
-				</span>
-			</div>
-		</Button>
+		/>
 	);
 }

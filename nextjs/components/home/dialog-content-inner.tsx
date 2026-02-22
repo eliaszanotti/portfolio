@@ -1,65 +1,12 @@
-"use client";
-
-import { Check, Copy } from "lucide-react";
-import { useState } from "react";
-import {
-	InputGroup,
-	InputGroupAddon,
-	InputGroupButton,
-	InputGroupInput,
-} from "@/components/ui/input-group";
-import { Field, FieldLabel, FieldSet } from "../ui/field";
+import { FieldSet } from "@/components/ui/field";
+import { ContactEmailInput } from "@/components/contact/contact-email-input";
+import { ContactPhoneInput } from "@/components/contact/contact-phone-input";
 
 export function DialogContentInner() {
-	const [copied, setCopied] = useState<"email" | "phone" | null>(null);
-
-	const copyToClipboard = async (text: string, type: "email" | "phone") => {
-		await navigator.clipboard.writeText(text);
-		setCopied(type);
-		setTimeout(() => setCopied(null), 2000);
-	};
-
-	const email = "zanotti.elias@gmail.com";
-	const phone = "+33 6 98 10 57 84";
-
 	return (
-		<FieldSet>
-			<Field>
-				<FieldLabel htmlFor="email">My Email</FieldLabel>
-				<InputGroup>
-					<InputGroupInput
-						id="email"
-						type="email"
-						value={email}
-						readOnly
-					/>
-					<InputGroupAddon align="inline-end">
-						<InputGroupButton
-							onClick={() => copyToClipboard(email, "email")}
-						>
-							{copied === "email" ? <Check /> : <Copy />}
-						</InputGroupButton>
-					</InputGroupAddon>
-				</InputGroup>
-			</Field>
-			<Field>
-				<FieldLabel htmlFor="phone">My Phone</FieldLabel>
-				<InputGroup>
-					<InputGroupInput
-						id="phone"
-						type="tel"
-						value={phone}
-						readOnly
-					/>
-					<InputGroupAddon align="inline-end">
-						<InputGroupButton
-							onClick={() => copyToClipboard(phone, "phone")}
-						>
-							{copied === "phone" ? <Check /> : <Copy />}
-						</InputGroupButton>
-					</InputGroupAddon>
-				</InputGroup>
-			</Field>
+		<FieldSet className="w-full">
+			<ContactEmailInput />
+			<ContactPhoneInput />
 		</FieldSet>
 	);
 }
