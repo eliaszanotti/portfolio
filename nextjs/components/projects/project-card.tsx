@@ -22,9 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 		<Card>
 			<CardHeader>
 				<CardTitle>{project.title}</CardTitle>
-				<CardDescription className="text-justify">
-					{project.description}
-				</CardDescription>
+				<CardDescription>{project.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="flex h-full items-end">
 				<div className="flex items-end flex-wrap gap-2">

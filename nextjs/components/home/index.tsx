@@ -8,7 +8,7 @@ import { SectionDescription } from "../section-description";
 export function HomeSection() {
 	return (
 		<Section id="home">
-			<SubSection className="flex flex-col gap-8 items-center text-center max-w-2xl">
+			<SubSection>
 				<h1 className="text-7xl font-black tracking-tight">
 					Elias <span className="text-primary">Zanotti</span>
 				</h1>

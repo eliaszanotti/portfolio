@@ -8,7 +8,7 @@ import { projectsData } from "@/data/projects";
 export function ProjectsSection() {
 	return (
 		<Section id="projects">
-			<SubSection className="space-y-8 px-8 max-w-prose mx-auto">
+			<SubSection>
 				<SectionTitle>Projects</SectionTitle>
 				<p className="text-xl text-left text-muted-foreground">
 					A selection of my best work, showcasing my skills and
@@ -16,7 +16,7 @@ export function ProjectsSection() {
 				</p>
 			</SubSection>
 
-			<SubSection className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-5xl mx-auto w-full">
+			<SubSection>
 				{projectsData.map((project) => (
 					<ProjectCard key={project.title} project={project} />
 				))}

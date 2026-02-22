@@ -9,12 +9,12 @@ import { ItemGroup } from "@/components/ui/item";
 export function SkillsSection() {
 	return (
 		<Section id="skills">
-			<SubSection className="space-y-8 max-w-4xl mx-auto text-center">
+			<SubSection>
 				<SectionTitle>Skills & Stack</SectionTitle>
 				<SectionDescription>Technologies and tools I work with</SectionDescription>
 			</SubSection>
 
-			<SubSection className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto w-full">
+			<SubSection>
 				{skillsData.map((category) => (
 					<div key={category.title} className="flex flex-col gap-4">
 						<h2 className="text-2xl font-semibold">

@@ -1,11 +1,22 @@
+import { cn } from "@/lib/utils";
+
 type SubSectionProps = {
 	className?: string;
 	children: React.ReactNode;
 };
 
 export function SubSection({
-	className = "flex flex-col gap-8 max-w-3xl mx-auto w-full",
+	className,
 	children,
 }: SubSectionProps) {
-	return <section className={className}>{children}</section>;
+	return (
+		<section
+			className={cn(
+				"flex flex-col items-center gap-8 max-w-3xl mx-auto w-full",
+				className,
+			)}
+		>
+			{children}
+		</section>
+	);
 }

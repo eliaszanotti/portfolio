@@ -10,7 +10,7 @@ import { certificationsData } from "@/data/certifications";
 export function ExperienceSection() {
 	return (
 		<Section id="experience">
-			<SubSection className="space-y-8 max-w-3xl mx-auto text-center">
+			<SubSection>
 				<SectionTitle>Experience</SectionTitle>
 				<SectionDescription>My professional journey</SectionDescription>
 			</SubSection>
