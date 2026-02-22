@@ -5,18 +5,20 @@ import type { NavLink } from "@/data/nav-links";
 
 type ButtonLinkProps = {
 	link: NavLink;
+	index?: number;
 };
 
-export function ButtonLink({ link }: ButtonLinkProps) {
+export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 	const Icon = link.icon;
 
 	return (
 		<Button
 			variant={link.buttonVariant ?? "outline"}
-			className={`${link.buttonSize} flex flex-col items-center justify-center gap-2 rounded-full absolute -translate-x-1/2 hover:cursor-pointer`}
+			className={`${link.buttonSize} flex flex-col items-center justify-center gap-2 rounded-full absolute hover:cursor-pointer  transition-transform`}
 			style={{
 				top: link.position.top,
 				left: link.position.left,
+				animation: `float ${4 + index * 0.5}s ease-in-out infinite`,
 			}}
 			nativeButton={false}
 			render={

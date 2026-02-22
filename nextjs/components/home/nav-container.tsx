@@ -5,15 +5,15 @@ import { DialogLink } from "@/components/home/dialog-link";
 export function NavContainer() {
 	return (
 		<div className="relative w-full max-w-3xl h-100">
-			{navLinks.map((item) => {
+			{navLinks.map((item, index) => {
 				if (item.isContactDialog) {
 					return (
 						<DialogLink key={item.title}>
-							<ButtonLink link={item} />
+							<ButtonLink link={item} index={index} />
 						</DialogLink>
 					);
 				}
-				return <ButtonLink key={item.href} link={item} />;
+				return <ButtonLink key={item.href} link={item} index={index} />;
 			})}
 		</div>
 	);
