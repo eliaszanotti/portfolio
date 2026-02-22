@@ -2,7 +2,7 @@ import React from "react";
 import "../globals.css";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { monoFont, serifFont } from "../fonts";
+import { monoFont, serifFont, sansFont } from "../fonts";
 
 export const metadata = {
 	description:
@@ -16,7 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	return (
 		<html
 			lang="en"
-			className={`font-mono ${serifFont.variable} ${monoFont.variable}`}
+			className={`font-mono ${serifFont.variable} ${monoFont.variable} ${}`}
 		>
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="dark">
