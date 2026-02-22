@@ -1,6 +1,7 @@
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionTitle } from "@/components/section-title";
+import { SectionDescription } from "@/components/section-description";
 import { ExperienceCard } from "./experience-card";
 import { CertificationCard } from "./certification-card";
 import { experienceData } from "@/data/experience";
@@ -11,9 +12,7 @@ export function ExperienceSection() {
 		<Section id="experience">
 			<SubSection className="space-y-8 max-w-3xl mx-auto text-center">
 				<SectionTitle>Experience</SectionTitle>
-				<p className="text-xl text-muted-foreground">
-					My professional journey
-				</p>
+				<SectionDescription>My professional journey</SectionDescription>
 			</SubSection>
 
 			<SubSection>

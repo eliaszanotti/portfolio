@@ -1,9 +1,4 @@
-import {
-	Item,
-	ItemContent,
-	ItemTitle,
-	ItemMedia,
-} from "@/components/ui/item";
+import { Item, ItemContent, ItemTitle, ItemMedia } from "@/components/ui/item";
 import type { Certification } from "@/data/certifications";
 import { Badge } from "@/components/ui/badge";
 
@@ -16,9 +11,15 @@ export function CertificationCard({ certification }: CertificationCardProps) {
 
 	return (
 		<Item variant="outline">
-			<ItemMedia variant="icon">
-				<Icon className="size-4 text-primary" />
+			<ItemMedia
+				variant="image"
+				className="size-12 rounded-full bg-primary/10"
+			>
+				<Icon className="text-primary" />
 			</ItemMedia>
+			{/* <ItemMedia variant="icon">
+				<Icon className="size-4 text-primary" />
+			</ItemMedia> */}
 			<ItemContent>
 				<ItemTitle>{certification.name}</ItemTitle>
 			</ItemContent>

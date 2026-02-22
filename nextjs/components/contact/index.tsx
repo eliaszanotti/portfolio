@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionTitle } from "@/components/section-title";
+import { SectionDescription } from "@/components/section-description";
 import { Button } from "@/components/ui/button";
 import { Mail, Github, Instagram, Linkedin } from "lucide-react";
 
@@ -42,9 +43,7 @@ export function ContactSection() {
         <Section id="contact">
             <SubSection className="space-y-8 px-8 max-w-2xl mx-auto text-center">
                 <SectionTitle>Get in Touch</SectionTitle>
-                <p className="text-xl text-muted-foreground">
-                    Feel free to reach out through any of these channels
-                </p>
+                <SectionDescription>Feel free to reach out through any of these channels</SectionDescription>
             </SubSection>
 
             <SubSection className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 max-w-2xl mx-auto w-full">

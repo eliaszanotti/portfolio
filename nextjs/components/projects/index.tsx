@@ -8,10 +8,11 @@ import { projectsData } from "@/data/projects";
 export function ProjectsSection() {
 	return (
 		<Section id="projects">
-			<SubSection className="space-y-8 px-8 max-w-5xl mx-auto text-center">
+			<SubSection className="space-y-8 px-8 max-w-prose mx-auto">
 				<SectionTitle>Projects</SectionTitle>
-				<p className="text-xl text-muted-foreground">
-					A selection of my recent work
+				<p className="text-xl text-left text-muted-foreground">
+					A selection of my best work, showcasing my skills and
+					experience in web
 				</p>
 			</SubSection>
 

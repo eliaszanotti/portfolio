@@ -1,6 +1,7 @@
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionTitle } from "@/components/section-title";
+import { SectionDescription } from "@/components/section-description";
 import { User } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,7 +12,7 @@ export function AboutSection() {
         <Section id="about">
             <SubSection className="space-y-8 px-8 max-w-3xl mx-auto text-center">
                 <SectionTitle>About Me</SectionTitle>
-                <p className="text-xl text-muted-foreground">Get to know me better</p>
+                <SectionDescription>Get to know me better</SectionDescription>
             </SubSection>
 
             <SubSection className="px-8 max-w-3xl mx-auto w-full">
@@ -25,7 +26,7 @@ export function AboutSection() {
                                 <div>
                                     <h2 className="text-xl font-semibold">Who I Am</h2>
                                     <p className="text-muted-foreground mt-2">
-                                        Hey! I'm Elias, a passionate full-stack developer based in France.
+                                        Hey! I&apos;m Elias, a passionate full-stack developer based in France.
                                         I love building modern web applications and solving complex problems
                                         with clean, efficient code.
                                     </p>
@@ -41,9 +42,9 @@ export function AboutSection() {
                                 </div>
                                 <Separator />
                                 <div>
-                                    <h2 className="text-xl font-semibold">When I'm Not Coding</h2>
+                                    <h2 className="text-xl font-semibold">When I&apos;m Not Coding</h2>
                                     <p className="text-muted-foreground mt-2">
-                                        When I'm away from my keyboard, you can find me exploring new technologies,
+                                        When I&apos;m away from my keyboard, you can find me exploring new technologies,
                                         contributing to open-source projects, or enjoying the outdoors. I believe
                                         in continuous learning and staying curious.
                                     </p>

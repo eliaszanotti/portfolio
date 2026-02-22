@@ -3,6 +3,7 @@ import { SubSection } from "@/components/layout/sub-section";
 import { Button } from "@/components/ui/button";
 import { DialogLink } from "./dialog-link";
 import { NavContainer } from "./nav-container";
+import { SectionDescription } from "../section-description";
 
 export function HomeSection() {
 	return (
@@ -11,10 +12,10 @@ export function HomeSection() {
 				<h1 className="text-7xl font-black tracking-tight">
 					Elias <span className="text-primary">Zanotti</span>
 				</h1>
-				<p className="text-xl text-muted-foreground max-w-md">
-					Passionate full-stack developer crafting modern web
-					experiences
-				</p>
+				<SectionDescription>
+					Welcome to my portfolio! I&apos;m a passionate web
+					developer.
+				</SectionDescription>
 				<DialogLink>
 					<Button variant="default">Contact Me!</Button>
 				</DialogLink>
