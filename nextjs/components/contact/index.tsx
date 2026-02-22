@@ -1,42 +1,9 @@
-import Link from "next/link";
-
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionTitle } from "@/components/section-title";
 import { SectionDescription } from "@/components/section-description";
-import { Button } from "@/components/ui/button";
-import { Mail, Github, Instagram, Linkedin } from "lucide-react";
-
-const contactChannels = [
-	{
-		name: "Email",
-		value: "elias.zanotti@example.com",
-		icon: Mail,
-		href: "mailto:elias.zanotti@example.com",
-		color: "text-red-500",
-	},
-	{
-		name: "GitHub",
-		value: "@eliaszanotti",
-		icon: Github,
-		href: "https://github.com/eliaszanotti",
-		color: "text-gray-900 dark:text-white",
-	},
-	{
-		name: "Instagram",
-		value: "@eliaszanottiweb",
-		icon: Instagram,
-		href: "https://www.instagram.com/eliaszanottiweb",
-		color: "text-pink-500",
-	},
-	{
-		name: "LinkedIn",
-		value: "Elias Zanotti",
-		icon: Linkedin,
-		href: "https://linkedin.com/in/eliaszanotti",
-		color: "text-blue-600",
-	},
-];
+import { ContactCard } from "@/components/contact/contact-card";
+import { contactData } from "@/data/contact";
 
 export function ContactSection() {
 	return (
@@ -49,33 +16,9 @@ export function ContactSection() {
 			</SubSection>
 
 			<SubSection>
-				{contactChannels.map((channel) => {
-					const Icon = channel.icon;
-					return (
-						<Button
-							key={channel.name}
-							variant="outline"
-							className="h-auto flex-col gap-3 py-6 px-8 hover:bg-primary hover:text-primary-foreground transition-all"
-							render={
-								<Link
-									href={channel.href}
-									target="_blank"
-									rel="noopener noreferrer"
-								/>
-							}
-						>
-							<Icon className={`size-8 ${channel.color}`} />
-							<div className="flex flex-col items-center gap-1">
-								<span className="font-semibold">
-									{channel.name}
-								</span>
-								<span className="text-sm text-muted-foreground group-hover:text-primary-foreground/80">
-									{channel.value}
-								</span>
-							</div>
-						</Button>
-					);
-				})}
+				{contactData.map((contact) => (
+					<ContactCard key={contact.name} contact={contact} />
+				))}
 			</SubSection>
 		</Section>
 	);
