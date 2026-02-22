@@ -24,6 +24,6 @@ export const contactData: Contact[] = [
 		name: "LinkedIn",
 		value: "Elias Zanotti",
 		icon: Linkedin,
-		href: "https://linkedin.com/in/eliaszanotti",
+		href: "https://www.linkedin.com/in/elias-zanotti-42-school",
 	},
 ];
