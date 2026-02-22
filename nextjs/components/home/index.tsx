@@ -9,7 +9,7 @@ export function HomeSection() {
 	return (
 		<Section id="home">
 			<SubSection>
-				<h1 className="text-7xl font-black tracking-tight">
+				<h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight">
 					Elias <span className="text-primary">Zanotti</span>
 				</h1>
 				<SectionDescription>

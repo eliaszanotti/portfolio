@@ -7,7 +7,7 @@ import { SkillsSection } from "@/components/skills";
 
 export default function HomePage() {
 	return (
-		<div className="container mx-auto space-y-16">
+		<div className="container mx-auto space-y-16 p-4 overflow-hidden">
 			<HomeSection />
 			<SkillsSection />
 			<ProjectsSection />

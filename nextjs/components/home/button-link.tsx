@@ -14,7 +14,7 @@ export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 	return (
 		<Button
 			variant={link.buttonVariant ?? "outline"}
-			className={`${link.buttonSize} flex flex-col items-center justify-center gap-2 rounded-full absolute hover:cursor-pointer  transition-transform`}
+			className={`${link.buttonSize} scale-90 -translate-x-1/20  md:scale-100 md:translate-x-0 flex flex-col items-center justify-center gap-2 rounded-full absolute hover:cursor-pointer transition-transform`}
 			style={{
 				top: link.position.top,
 				left: link.position.left,
