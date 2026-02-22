@@ -18,7 +18,7 @@ type DialogLinkProps = {
 export function DialogLink({ children }: DialogLinkProps) {
 	return (
 		<Dialog>
-			<DialogTrigger render={children} />
+			<DialogTrigger className="hover:cursor-pointer" render={children} />
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Contact Me</DialogTitle>

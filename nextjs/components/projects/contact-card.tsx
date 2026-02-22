@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 export function ContactCard() {
 	return (
-		<Card>
+		<Card className="bg-primary/10 ring-primary/30">
 			<CardHeader>
 				<CardTitle>Your next project</CardTitle>
 				<CardDescription>
@@ -19,7 +19,7 @@ export function ContactCard() {
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="flex h-full items-end" />
-			<CardFooter className="flex justify-end">
+			<CardFooter className="flex justify-end bg-primary/10 border-primary/10">
 				<DialogLink>
 					<Button>Contact Me!</Button>
 				</DialogLink>
