@@ -4,7 +4,6 @@ export type Certification = {
 };
 
 export const certificationsData: Certification[] = [
-	{ name: "AWS Certified Developer", year: "2023" },
-	{ name: "React Advanced Patterns", year: "2023" },
-	{ name: "TypeScript Masterclass", year: "2022" },
+	{ name: "Common core 42", year: "2024" },
+	{ name: "Baccalaureate", year: "2022" },
 ];
