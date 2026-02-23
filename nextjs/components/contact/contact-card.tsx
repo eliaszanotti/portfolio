@@ -23,7 +23,6 @@ export function ContactCard({ contact }: ContactCardProps) {
 				>
 					<Icon className="size-8" />
 					<span className="font-semibold">{contact.name}</span>
-					<span>{contact.value}</span>
 				</Link>
 			}
 			nativeButton={false}
