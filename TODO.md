@@ -1,2 +1,4 @@
 - Ajouter un scroll smooth
 - Ajouter le responsive
+- Ajouter une icon
+- Voir le SEO
