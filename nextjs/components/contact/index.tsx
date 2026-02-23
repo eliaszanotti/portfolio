@@ -18,7 +18,7 @@ export function ContactSection() {
 			</SubSection>
 
 			<SubSection>
-				<div className="grid grid-cols-2 gap-8 w-full">
+				<div className="grid md:grid-cols-2 gap-8 w-full">
 					<ContactEmailInput />
 					<ContactPhoneInput />
 				</div>
