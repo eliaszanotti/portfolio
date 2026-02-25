@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { revalidateTag } from "next/cache";
 import { nanoIDField } from "./utils/nano-id-field";
 
 export const NavLinks: CollectionConfig = {
@@ -6,6 +7,13 @@ export const NavLinks: CollectionConfig = {
 	admin: {
 		useAsTitle: "title",
 		defaultColumns: ["title", "icon", "buttonSize"],
+	},
+	hooks: {
+		afterChange: [
+			() => {
+				revalidateTag("nav-links", "max");
+			},
+		],
 	},
 	fields: [
 		nanoIDField,

@@ -6,9 +6,9 @@ import { ButtonContent, type ButtonLinkProps, getButtonProps } from "./button-li
 
 export function ButtonLinkClient({ link, index = 0 }: ButtonLinkProps) {
 	const handleClick = (e: React.MouseEvent) => {
-		if (link.id) {
+		if (link.anchor) {
 			e.preventDefault();
-			const target = document.getElementById(link.id);
+			const target = document.getElementById(link.anchor);
 			if (target) {
 				target.scrollIntoView({ behavior: "smooth" });
 			}

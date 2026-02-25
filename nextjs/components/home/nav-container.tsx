@@ -1,9 +1,11 @@
 import { ButtonLinkClient } from "@/components/home/button-link-client";
 import { DialogLink } from "@/components/home/dialog-link";
-import { navLinks } from "@/data/nav-links";
+import { getCachedNavLinks } from "@/data/get-nav-links";
 import { ButtonLink } from "./button-link";
 
-export function NavContainer() {
+export async function NavContainer() {
+	const navLinks = await getCachedNavLinks();
+
 	return (
 		<div className="relative w-full max-w-3xl h-100">
 			{navLinks.map((item, index) => {

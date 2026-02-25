@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import type { NavLink } from "@/data/nav-links";
+import type { NavLink } from "@/payload-types";
 import { iconMap } from "@/lib/icons";
 
 export type ButtonLinkProps = {
@@ -12,8 +12,8 @@ export function getButtonProps(link: NavLink, index: number) {
 		variant: link.buttonVariant ?? "outline",
 		className: `${link.buttonSize} scale-90 -translate-x-1/20  md:scale-100 md:translate-x-0 flex flex-col items-center justify-center gap-2 rounded-full absolute hover:cursor-pointer transition-transform`,
 		style: {
-			top: link.position.top,
-			left: link.position.left,
+			top: link.positionTop ?? "50%",
+			left: link.positionLeft ?? "50%",
 			animation: `float ${4 + index * 0.5}s ease-in-out infinite`,
 		},
 	};
