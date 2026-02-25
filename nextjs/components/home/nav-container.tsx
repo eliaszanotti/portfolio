@@ -13,7 +13,7 @@ export function NavContainer() {
 						</DialogLink>
 					);
 				}
-				return <ButtonLink key={item.href} link={item} index={index} />;
+				return <ButtonLink key={item.title} link={item} index={index} />;
 			})}
 		</div>
 	);
