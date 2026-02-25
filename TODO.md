@@ -1,4 +1,2 @@
-- Ajouter le francais
-- Ajouter un scroll smooth
-- Ajouter une icon
+- Ajouter une favicon
 - Voir le SEO
