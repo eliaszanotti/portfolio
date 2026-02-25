@@ -11,12 +11,12 @@ export async function NavContainer() {
 			{navLinks.map((item, index) => {
 				if (item.isContactDialog) {
 					return (
-						<DialogLink key={item.title}>
+						<DialogLink key={item.id}>
 							<ButtonLink link={item} index={index} />
 						</DialogLink>
 					);
 				}
-				return <ButtonLinkClient key={item.title} link={item} index={index} />;
+				return <ButtonLinkClient key={item.id} link={item} index={index} />;
 			})}
 		</div>
 	);
