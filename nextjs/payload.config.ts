@@ -7,6 +7,7 @@ import sharp from "sharp";
 import { Media } from "./collections/Media";
 import { NavLinks } from "./collections/NavLinks";
 import { Users } from "./collections/Users";
+import { defaultLocale } from "@/lib/i18n/routing";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -31,4 +32,9 @@ export default buildConfig({
 	}),
 	sharp,
 	plugins: [],
+	localization: {
+		locales: ["fr", "en"],
+		defaultLocale,
+		fallback: true,
+	},
 });
