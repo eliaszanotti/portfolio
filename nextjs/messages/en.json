@@ -1,0 +1,97 @@
+{
+	"header": {
+		"name": "Elias Zanotti",
+		"role": "Full-stack developer"
+	},
+	"home": {
+		"greeting": "Welcome to my portfolio! I'm a passionate web developer.",
+		"contact": "Contact Me!"
+	},
+	"about": {
+		"title": "About Me",
+		"description": "Get to know me better"
+	},
+	"skills": {
+		"title": "Skills & Stack",
+		"description": "Technologies and tools I work with"
+	},
+	"projects": {
+		"title": "Projects",
+		"description": "A selection of my best work, showcasing my skills and experience in web",
+		"contactCard": {
+			"title": "Your next project",
+			"description": "Have a project in mind? Let's discuss it together!",
+			"button": "Contact Me!"
+		},
+		"card": {
+			"code": "Code",
+			"visit": "Visit"
+		}
+	},
+	"experience": {
+		"title": "Experience",
+		"description": "My professional journey",
+		"certifications": "Certifications"
+	},
+	"contact": {
+		"title": "Get in Touch",
+		"description": "Feel free to reach out through any of these channels",
+		"email": {
+			"label": "My Email",
+			"button": "Send me an email",
+			"gmail": "Gmail",
+			"outlook": "Outlook",
+			"mail": "Mail"
+		},
+		"phone": {
+			"label": "My Phone",
+			"button": "Call"
+		}
+	},
+	"dialog": {
+		"title": "Contact Me",
+		"description": "Feel free to reach out to me via email or phone.",
+		"close": "Close"
+	},
+	"nav": {
+		"skills": {
+			"title": "Skills",
+			"description": "My tech stack"
+		},
+		"school": {
+			"title": "School",
+			"description": "My education"
+		},
+		"about": {
+			"title": "About",
+			"description": "More about me"
+		},
+		"phone": {
+			"title": "Phone",
+			"description": "Call me"
+		},
+		"email": {
+			"title": "Email",
+			"description": "Send me an email"
+		},
+		"projects": {
+			"title": "Projects",
+			"description": "My work"
+		},
+		"instagram": {
+			"title": "Instagram",
+			"description": "Follow me on Instagram"
+		},
+		"github": {
+			"title": "Github",
+			"description": "Check my Github"
+		},
+		"linkedin": {
+			"title": "LinkedIn",
+			"description": "Connect on LinkedIn"
+		}
+	},
+	"footer": {
+		"copyright": "© {year} Elias Zanotti. All rights reserved."
+	}
+}

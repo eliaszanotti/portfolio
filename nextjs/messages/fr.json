@@ -1,0 +1,97 @@
+{
+	"header": {
+		"name": "Elias Zanotti",
+		"role": "Développeur Full-stack"
+	},
+	"home": {
+		"greeting": "Bienvenue sur mon portfolio ! Je suis un développeur web passionné.",
+		"contact": "Contactez-moi !"
+	},
+	"about": {
+		"title": "À propos",
+		"description": "Apprenez à mieux me connaître"
+	},
+	"skills": {
+		"title": "Compétences & Stack",
+		"description": "Technologies et outils avec lesquels je travaille"
+	},
+	"projects": {
+		"title": "Projets",
+		"description": "Une sélection de mes meilleurs travaux, présentant mes compétences et mon expérience dans le web",
+		"contactCard": {
+			"title": "Votre prochain projet",
+			"description": "Vous avez un projet en tête ? Discutons-en ensemble !",
+			"button": "Contactez-moi !"
+		},
+		"card": {
+			"code": "Code",
+			"visit": "Visiter"
+		}
+	},
+	"experience": {
+		"title": "Expérience",
+		"description": "Mon parcours professionnel",
+		"certifications": "Certifications"
+	},
+	"contact": {
+		"title": "Contact",
+		"description": "N'hésitez pas à me contacter par l'un de ces canaux",
+		"email": {
+			"label": "Mon Email",
+			"button": "Envoyez-moi un email",
+			"gmail": "Gmail",
+			"outlook": "Outlook",
+			"mail": "Mail"
+		},
+		"phone": {
+			"label": "Mon Téléphone",
+			"button": "Appeler"
+		}
+	},
+	"dialog": {
+		"title": "Contactez-moi",
+		"description": "N'hésitez pas à me contacter par email ou téléphone.",
+		"close": "Fermer"
+	},
+	"nav": {
+		"skills": {
+			"title": "Compétences",
+			"description": "Ma stack technique"
+		},
+		"school": {
+			"title": "Études",
+			"description": "Mon éducation"
+		},
+		"about": {
+			"title": "À propos",
+			"description": "En savoir plus sur moi"
+		},
+		"phone": {
+			"title": "Téléphone",
+			"description": "Appelez-moi"
+		},
+		"email": {
+			"title": "Email",
+			"description": "Envoyez-moi un email"
+		},
+		"projects": {
+			"title": "Projets",
+			"description": "Mes travaux"
+		},
+		"instagram": {
+			"title": "Instagram",
+			"description": "Suivez-moi sur Instagram"
+		},
+		"github": {
+			"title": "Github",
+			"description": "Vérifiez mon Github"
+		},
+		"linkedin": {
+			"title": "LinkedIn",
+			"description": "Connectez-vous sur LinkedIn"
+		}
+	},
+	"footer": {
+		"copyright": "© {year} Elias Zanotti. Tous droits réservés."
+	}
+}
