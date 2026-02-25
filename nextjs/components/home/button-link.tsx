@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { iconMap } from "@/lib/icons";
-import type { NavLink } from "@/data/nav-links";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import type { NavLink } from "@/data/nav-links";
+import { iconMap } from "@/lib/icons";
 
 type ButtonLinkProps = {
 	link: NavLink;

@@ -1,14 +1,14 @@
-import type { ReactNode } from "react";
-import type { Locale } from "@/lib/i18n/routing";
+import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
+import type { Locale } from "@/lib/i18n/routing";
 import { locales } from "@/lib/i18n/routing";
 import "@/app/globals.css";
+import { monoFont, sansFont, serifFont } from "@/app/fonts";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { monoFont, sansFont, serifFont } from "@/app/fonts";
 
 type Props = {
 	children: ReactNode;

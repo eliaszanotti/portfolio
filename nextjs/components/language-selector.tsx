@@ -1,10 +1,10 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "@/lib/i18n/navigation";
-import { locales, type Locale } from "@/lib/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import { usePathname, useRouter } from "@/lib/i18n/navigation";
+import { type Locale, locales } from "@/lib/i18n/routing";
 
 const localeFlags: Record<Locale, string> = {
 	en: "🇬🇧",
