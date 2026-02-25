@@ -10,20 +10,28 @@ type ButtonLinkProps = {
 	index?: number;
 };
 
-export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
+function ButtonContent({ link }: { link: NavLink }) {
 	const Icon = iconMap[link.icon];
+	return (
+		<>
+			<Icon className="size-6" />
+			<span className="font-semibold text-sm">{link.title}</span>
+		</>
+	);
+}
 
+export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 	const handleClick = (e: React.MouseEvent) => {
-		if (link.href?.startsWith("#")) {
+		if (link.id) {
 			e.preventDefault();
-			const target = document.querySelector(link.href);
+			const target = document.getElementById(link.id);
 			if (target) {
 				target.scrollIntoView({ behavior: "smooth" });
 			}
 		}
 	};
 
-	const isAnchor = link.href?.startsWith("#");
+	const isAnchor = !!link.id;
 
 	return (
 		<Button
@@ -39,18 +47,12 @@ export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 			render={
 				link.href && !isAnchor ? (
 					<Link href={link.href}>
-						<Icon className="size-6" />
-						<span className="font-semibold text-sm">{link.title}</span>
+						<ButtonContent link={link} />
 					</Link>
 				) : undefined
 			}
 		>
-			{(!link.href || isAnchor) && (
-				<>
-					<Icon className="size-6" />
-					<span className="font-semibold text-sm">{link.title}</span>
-				</>
-			)}
+			{(!link.href || isAnchor) && <ButtonContent link={link} />}
 		</Button>
 	);
 }

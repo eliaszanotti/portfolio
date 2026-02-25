@@ -1,6 +1,7 @@
 export type NavLink = {
 	title: string;
 	href?: string;
+	id?: string;
 	icon: string;
 	buttonSize: string;
 	buttonVariant?: "default" | "outline" | "ghost" | "secondary";
@@ -11,21 +12,21 @@ export type NavLink = {
 export const navLinks: NavLink[] = [
 	{
 		title: "Skills",
-		href: "#skills",
+		id: "skills",
 		icon: "Code",
 		buttonSize: "size-48",
 		position: { top: "20%", left: "20%" },
 	},
 	{
-		title: "School",
-		href: "#experience",
+		title: "Experience",
+		id: "experience",
 		icon: "GraduationCap",
 		buttonSize: "size-40",
 		position: { top: "40%", left: "80%" },
 	},
 	{
 		title: "About",
-		href: "#about",
+		id: "about",
 		icon: "Mail",
 		buttonSize: "size-44",
 		position: { top: "60%", left: "60%" },
@@ -48,7 +49,7 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		title: "Projects",
-		href: "#projects",
+		id: "projects",
 		icon: "FolderOpen",
 		buttonSize: "size-70",
 		position: { top: "0%", left: "50%" },
