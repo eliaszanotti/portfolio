@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { nanoIDField } from "./utils/nano-id-field";
 
 export const NavLinks: CollectionConfig = {
 	slug: "nav-links",
@@ -7,6 +8,7 @@ export const NavLinks: CollectionConfig = {
 		defaultColumns: ["title", "icon", "buttonSize"],
 	},
 	fields: [
+		nanoIDField,
 		{
 			name: "title",
 			type: "text",
@@ -21,7 +23,7 @@ export const NavLinks: CollectionConfig = {
 			},
 		},
 		{
-			name: "id",
+			name: "anchor",
 			type: "text",
 			admin: {
 				description: "Ancre interne (optionnel, ex: skills)",

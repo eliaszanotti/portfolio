@@ -165,6 +165,7 @@ export interface Media {
  * via the `definition` "nav-links".
  */
 export interface NavLink {
+  id: string;
   title: string;
   /**
    * Lien externe (optionnel)
@@ -173,7 +174,7 @@ export interface NavLink {
   /**
    * Ancre interne (optionnel, ex: skills)
    */
-  id: string;
+  anchor?: string | null;
   /**
    * Nom de l'icône Lucide (ex: Code, GraduationCap)
    */
@@ -318,9 +319,10 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "nav-links_select".
  */
 export interface NavLinksSelect<T extends boolean = true> {
+  id?: T;
   title?: T;
   href?: T;
-  id?: T;
+  anchor?: T;
   icon?: T;
   buttonSize?: T;
   buttonVariant?: T;
