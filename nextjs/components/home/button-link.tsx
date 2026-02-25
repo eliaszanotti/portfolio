@@ -1,7 +1,9 @@
-import Link from "next/link";
+"use client";
 
 import { Button } from "@/components/ui/button";
+import { iconMap } from "@/lib/icons";
 import type { NavLink } from "@/data/nav-links";
+import Link from "next/link";
 
 type ButtonLinkProps = {
 	link: NavLink;
@@ -9,7 +11,19 @@ type ButtonLinkProps = {
 };
 
 export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
-	const Icon = link.icon;
+	const Icon = iconMap[link.icon];
+
+	const handleClick = (e: React.MouseEvent) => {
+		if (link.href?.startsWith("#")) {
+			e.preventDefault();
+			const target = document.querySelector(link.href);
+			if (target) {
+				target.scrollIntoView({ behavior: "smooth" });
+			}
+		}
+	};
+
+	const isAnchor = link.href?.startsWith("#");
 
 	return (
 		<Button
@@ -20,9 +34,10 @@ export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 				left: link.position.left,
 				animation: `float ${4 + index * 0.5}s ease-in-out infinite`,
 			}}
-			nativeButton={!link.href}
+			nativeButton={!link.href || isAnchor}
+			onClick={isAnchor ? handleClick : undefined}
 			render={
-				link.href ? (
+				link.href && !isAnchor ? (
 					<Link href={link.href}>
 						<Icon className="size-6" />
 						<span className="font-semibold text-sm">{link.title}</span>
@@ -30,7 +45,7 @@ export function ButtonLink({ link, index = 0 }: ButtonLinkProps) {
 				) : undefined
 			}
 		>
-			{!link.href && (
+			{(!link.href || isAnchor) && (
 				<>
 					<Icon className="size-6" />
 					<span className="font-semibold text-sm">{link.title}</span>

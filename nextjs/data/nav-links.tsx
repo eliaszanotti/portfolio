@@ -1,20 +1,7 @@
-import {
-	Code,
-	FolderOpen,
-	Github,
-	GraduationCap,
-	Instagram,
-	Linkedin,
-	type LucideIcon,
-	Mail,
-	Phone,
-} from "lucide-react";
-
 export type NavLink = {
 	title: string;
 	href?: string;
-	icon: LucideIcon;
-	description: string;
+	icon: string;
 	buttonSize: string;
 	buttonVariant?: "default" | "outline" | "ghost" | "secondary";
 	position: Partial<Record<"top" | "left", string>>;
@@ -25,31 +12,27 @@ export const navLinks: NavLink[] = [
 	{
 		title: "Skills",
 		href: "#skills",
-		icon: Code,
-		description: "My tech stack",
+		icon: "Code",
 		buttonSize: "size-48",
 		position: { top: "20%", left: "20%" },
 	},
 	{
 		title: "School",
-		href: "#school",
-		icon: GraduationCap,
-		description: "My education",
+		href: "#experience",
+		icon: "GraduationCap",
 		buttonSize: "size-40",
 		position: { top: "40%", left: "80%" },
 	},
 	{
 		title: "About",
 		href: "#about",
-		icon: Mail,
-		description: "More about me",
+		icon: "Mail",
 		buttonSize: "size-44",
 		position: { top: "60%", left: "60%" },
 	},
 	{
 		title: "Phone",
-		icon: Phone,
-		description: "Call me",
+		icon: "Phone",
 		buttonSize: "size-36",
 		position: { top: "70%", left: "10%" },
 		buttonVariant: "default",
@@ -57,8 +40,7 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		title: "Email",
-		icon: Mail,
-		description: "Send me an email",
+		icon: "Mail",
 		buttonSize: "size-36",
 		position: { top: "10%", left: "90%" },
 		buttonVariant: "default",
@@ -67,32 +49,28 @@ export const navLinks: NavLink[] = [
 	{
 		title: "Projects",
 		href: "#projects",
-		icon: FolderOpen,
-		description: "My work",
+		icon: "FolderOpen",
 		buttonSize: "size-70",
 		position: { top: "0%", left: "50%" },
 	},
 	{
 		title: "Instagram",
 		href: "https://www.instagram.com/eliaszanottiweb",
-		icon: Instagram,
-		description: "Follow me on Instagram",
+		icon: "Instagram",
 		buttonSize: "size-32",
 		position: { top: "65%", left: "30%" },
 	},
 	{
 		title: "Github",
 		href: "https://github.com/eliaszanotti",
-		icon: Github,
-		description: "Check my Github",
+		icon: "Github",
 		buttonSize: "size-32",
 		position: { top: "80%", left: "80%" },
 	},
 	{
-		title: "LinkedIn",
+		title: "Linkedin",
 		href: "https://www.linkedin.com/in/elias-zanotti-42-school",
-		icon: Linkedin,
-		description: "Connect on LinkedIn",
+		icon: "Linkedin",
 		buttonSize: "size-32",
 		position: { top: "90%", left: "40%" },
 	},
