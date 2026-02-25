@@ -9,7 +9,6 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { monoFont, sansFont, serifFont } from "@/app/fonts";
-import { LenisProvider } from "@/components/lenis-provider";
 
 type Props = {
 	children: ReactNode;
@@ -48,15 +47,13 @@ export default async function LocaleLayout(props: Props) {
 		>
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="dark">
-					<LenisProvider>
-						<NextIntlClientProvider messages={messages}>
-							<main>
-								<Header />
-								<div className="min-h-screen">{children}</div>
-								<Footer />
-							</main>
-						</NextIntlClientProvider>
-					</LenisProvider>
+					<NextIntlClientProvider messages={messages}>
+						<main>
+							<Header />
+							<div className="min-h-screen">{children}</div>
+							<Footer />
+						</main>
+					</NextIntlClientProvider>
 				</ThemeProvider>
 			</body>
 		</html>
