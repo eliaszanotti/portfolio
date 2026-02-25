@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionTitle } from "@/components/section-title";
@@ -6,15 +7,14 @@ import { SectionDescription } from "../section-description";
 import { ContactCard } from "./contact-card";
 import { ProjectCard } from "./project-card";
 
-export function ProjectsSection() {
+export async function ProjectsSection() {
+	const t = await getTranslations("projects");
+
 	return (
 		<Section id="projects">
 			<SubSection>
-				<SectionTitle>Projects</SectionTitle>
-				<SectionDescription>
-					A selection of my best work, showcasing my skills and experience in
-					web
-				</SectionDescription>
+				<SectionTitle>{t("title")}</SectionTitle>
+				<SectionDescription>{t("description")}</SectionDescription>
 			</SubSection>
 
 			<SubSection>

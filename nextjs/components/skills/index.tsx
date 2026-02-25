@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionDescription } from "@/components/section-description";
@@ -6,14 +7,14 @@ import { ItemGroup } from "@/components/ui/item";
 import { skillsData } from "@/data/skills";
 import { SkillCard } from "./skill-card";
 
-export function SkillsSection() {
+export async function SkillsSection() {
+	const t = await getTranslations("skills");
+
 	return (
 		<Section id="skills">
 			<SubSection>
-				<SectionTitle>Skills & Stack</SectionTitle>
-				<SectionDescription>
-					Technologies and tools I work with
-				</SectionDescription>
+				<SectionTitle>{t("title")}</SectionTitle>
+				<SectionDescription>{t("description")}</SectionDescription>
 			</SubSection>
 
 			<SubSection>

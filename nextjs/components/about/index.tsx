@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionDescription } from "@/components/section-description";
@@ -13,12 +14,14 @@ import {
 } from "@/components/ui/item";
 import { aboutData } from "@/data/about";
 
-export function AboutSection() {
+export async function AboutSection() {
+	const t = await getTranslations("about");
+
 	return (
 		<Section id="about">
 			<SubSection>
-				<SectionTitle>About Me</SectionTitle>
-				<SectionDescription>Get to know me better</SectionDescription>
+				<SectionTitle>{t("title")}</SectionTitle>
+				<SectionDescription>{t("description")}</SectionDescription>
 			</SubSection>
 
 			<SubSection>

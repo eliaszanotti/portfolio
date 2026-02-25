@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Check, Copy } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -16,11 +17,12 @@ const EMAIL = "zanotti.elias@gmail.com";
 
 export function ContactEmailInput() {
 	const { copied, copy } = useClipboard();
+	const t = useTranslations("contact.email");
 
 	return (
 		<div className="space-y-4">
 			<Field>
-				<FieldLabel htmlFor="email">My Email</FieldLabel>
+				<FieldLabel htmlFor="email">{t("label")}</FieldLabel>
 				<InputGroup>
 					<InputGroupInput id="email" type="email" value={EMAIL} readOnly />
 					<InputGroupAddon align="inline-end">
@@ -44,7 +46,7 @@ export function ContactEmailInput() {
 					}
 					nativeButton={false}
 				>
-					Gmail
+					{t("gmail")}
 				</Button>
 				<Button
 					variant="outline"
@@ -58,13 +60,13 @@ export function ContactEmailInput() {
 					}
 					nativeButton={false}
 				>
-					Outlook
+					{t("outlook")}
 				</Button>
 				<Button
 					render={<Link href={`mailto:${EMAIL}`} className="w-full" />}
 					nativeButton={false}
 				>
-					Mail
+					{t("mail")}
 				</Button>
 			</div>
 		</div>

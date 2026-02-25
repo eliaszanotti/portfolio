@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -16,7 +17,9 @@ type ProjectCardProps = {
 	project: Project;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export async function ProjectCard({ project }: ProjectCardProps) {
+	const t = await getTranslations("projects.card");
+
 	return (
 		<Card>
 			<CardHeader>
@@ -46,7 +49,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 						nativeButton={false}
 					>
 						<Github className="size-4" />
-						Code
+						{t("code")}
 					</Button>
 				)}
 				{project.demo && (
@@ -61,7 +64,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 						nativeButton={false}
 					>
 						<ExternalLink className="size-4" />
-						Visit
+						{t("visit")}
 					</Button>
 				)}
 			</CardFooter>

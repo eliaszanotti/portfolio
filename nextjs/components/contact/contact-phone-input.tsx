@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Check, Copy } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -16,11 +17,12 @@ const PHONE = "+33 6 98 10 57 84";
 
 export function ContactPhoneInput() {
 	const { copied, copy } = useClipboard();
+	const t = useTranslations("contact.phone");
 
 	return (
 		<div className="space-y-4">
 			<Field>
-				<FieldLabel htmlFor="phone">My Phone</FieldLabel>
+				<FieldLabel htmlFor="phone">{t("label")}</FieldLabel>
 				<InputGroup>
 					<InputGroupInput id="phone" type="tel" value={PHONE} readOnly />
 					<InputGroupAddon align="inline-end">
@@ -38,7 +40,7 @@ export function ContactPhoneInput() {
 					render={<Link href={`tel:${PHONE}`} className="w-full" />}
 					nativeButton={false}
 				>
-					Call
+					{t("button")}
 				</Button>
 			</div>
 		</div>

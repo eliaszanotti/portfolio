@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { ContactCard } from "@/components/contact/contact-card";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
@@ -7,14 +8,14 @@ import { contactData } from "@/data/contact";
 import { ContactEmailInput } from "./contact-email-input";
 import { ContactPhoneInput } from "./contact-phone-input";
 
-export function ContactSection() {
+export async function ContactSection() {
+	const t = await getTranslations("contact");
+
 	return (
 		<Section id="contact">
 			<SubSection>
-				<SectionTitle>Get in Touch</SectionTitle>
-				<SectionDescription>
-					Feel free to reach out through any of these channels
-				</SectionDescription>
+				<SectionTitle>{t("title")}</SectionTitle>
+				<SectionDescription>{t("description")}</SectionDescription>
 			</SubSection>
 
 			<SubSection>

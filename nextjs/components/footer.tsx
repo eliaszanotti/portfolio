@@ -1,9 +1,12 @@
-export default function Footer() {
+import { getTranslations } from "next-intl/server";
+
+export default async function Footer() {
+	const t = await getTranslations("footer");
+	const year = new Date().getFullYear();
+
 	return (
 		<footer className="py-6 text-center text-sm text-muted-foreground">
-			<p>
-				&copy; {new Date().getFullYear()} Elias Zanotti. All rights reserved.
-			</p>
+			<p>{t("copyright", { year })}</p>
 		</footer>
 	);
 }
