@@ -1,6 +1,7 @@
-import { ButtonLink } from "@/components/home/button-link";
+import { ButtonLinkClient } from "@/components/home/button-link-client";
 import { DialogLink } from "@/components/home/dialog-link";
 import { navLinks } from "@/data/nav-links";
+import { ButtonLink } from "./button-link";
 
 export function NavContainer() {
 	return (
@@ -13,7 +14,7 @@ export function NavContainer() {
 						</DialogLink>
 					);
 				}
-				return <ButtonLink key={item.title} link={item} index={index} />;
+				return <ButtonLinkClient key={item.title} link={item} index={index} />;
 			})}
 		</div>
 	);
