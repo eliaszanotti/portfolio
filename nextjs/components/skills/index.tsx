@@ -14,9 +14,6 @@ export async function SkillsSection() {
 	const locale = (await getLocale()) as Locale;
 	const categories = await getCachedSkillCategories(locale);
 
-	console.log("Fetched categories:", categories); // Debug log to check the fetched categories
-	console.log("Categories:", categories[0].skills); // Debug log to check the structure of categories and skills
-
 	return (
 		<Section id="skills">
 			<SubSection>
