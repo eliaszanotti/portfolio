@@ -4,8 +4,15 @@ import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload";
 import sharp from "sharp";
+import { About } from "./collections/About";
+import { Certifications } from "./collections/Certifications";
+import { Contact } from "./collections/Contact";
+import { Experience } from "./collections/Experience";
 import { Media } from "./collections/Media";
 import { NavLinks } from "./collections/NavLinks";
+import { Projects } from "./collections/Projects";
+import { SkillCategories } from "./collections/SkillCategories";
+import { Skills } from "./collections/Skills";
 import { Users } from "./collections/Users";
 import { defaultLocale } from "@/lib/i18n/routing";
 
@@ -19,7 +26,18 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media, NavLinks],
+	collections: [
+		Users,
+		Media,
+		NavLinks,
+		About,
+		Certifications,
+		Contact,
+		Experience,
+		Projects,
+		SkillCategories,
+		Skills,
+	],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
