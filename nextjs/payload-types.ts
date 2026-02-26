@@ -70,6 +70,13 @@ export interface Config {
     users: User;
     media: Media;
     'nav-links': NavLink;
+    about: About;
+    certifications: Certification;
+    contact: Contact;
+    experience: Experience;
+    projects: Project;
+    'skill-categories': SkillCategory;
+    skills: Skill;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -80,6 +87,13 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'nav-links': NavLinksSelect<false> | NavLinksSelect<true>;
+    about: AboutSelect<false> | AboutSelect<true>;
+    certifications: CertificationsSelect<false> | CertificationsSelect<true>;
+    contact: ContactSelect<false> | ContactSelect<true>;
+    experience: ExperienceSelect<false> | ExperienceSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    'skill-categories': SkillCategoriesSelect<false> | SkillCategoriesSelect<true>;
+    skills: SkillsSelect<false> | SkillsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -198,6 +212,140 @@ export interface NavLink {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: string;
+  title: string;
+  description: string;
+  /**
+   * Nom de l'icône Lucide (ex: User, Code, Coffee)
+   */
+  icon: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certifications".
+ */
+export interface Certification {
+  id: string;
+  name: string;
+  year: string;
+  /**
+   * Nom de l'icône Lucide (ex: Award, GraduationCap)
+   */
+  icon: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: string;
+  /**
+   * Nom du contact (ex: GitHub, Instagram)
+   */
+  name: string;
+  /**
+   * Nom de l'icône Lucide (ex: Github, Instagram, Linkedin)
+   */
+  icon: string;
+  /**
+   * URL externe (ex: https://github.com/username)
+   */
+  href: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "experience".
+ */
+export interface Experience {
+  id: string;
+  /**
+   * Nom court (ex: 42 School)
+   */
+  name: string;
+  /**
+   * Nom complet (ex: 42 Lyon)
+   */
+  fullName: string;
+  /**
+   * Description de l'expérience
+   */
+  description: string;
+  /**
+   * Nom de l'icône Lucide (ex: Code2, Briefcase)
+   */
+  icon: string;
+  /**
+   * Lieu de l'expérience
+   */
+  location: string;
+  /**
+   * Années (ex: 2020-2023)
+   */
+  years: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  tags?:
+    | {
+        tag: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Lien vers le dépôt GitHub (optionnel)
+   */
+  github?: string | null;
+  /**
+   * Lien vers la démo en ligne (optionnel)
+   */
+  demo?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skill-categories".
+ */
+export interface SkillCategory {
+  id: string;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills".
+ */
+export interface Skill {
+  id: string;
+  name: string;
+  level: 0 | 1 | 2 | 3;
+  /**
+   * Catégorie de la compétence
+   */
+  category: string | SkillCategory;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -231,6 +379,34 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'nav-links';
         value: string | NavLink;
+      } | null)
+    | ({
+        relationTo: 'about';
+        value: string | About;
+      } | null)
+    | ({
+        relationTo: 'certifications';
+        value: string | Certification;
+      } | null)
+    | ({
+        relationTo: 'contact';
+        value: string | Contact;
+      } | null)
+    | ({
+        relationTo: 'experience';
+        value: string | Experience;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: string | Project;
+      } | null)
+    | ({
+        relationTo: 'skill-categories';
+        value: string | SkillCategory;
+      } | null)
+    | ({
+        relationTo: 'skills';
+        value: string | Skill;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -329,6 +505,98 @@ export interface NavLinksSelect<T extends boolean = true> {
   positionTop?: T;
   positionLeft?: T;
   isContactDialog?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about_select".
+ */
+export interface AboutSelect<T extends boolean = true> {
+  id?: T;
+  title?: T;
+  description?: T;
+  icon?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certifications_select".
+ */
+export interface CertificationsSelect<T extends boolean = true> {
+  id?: T;
+  name?: T;
+  year?: T;
+  icon?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_select".
+ */
+export interface ContactSelect<T extends boolean = true> {
+  id?: T;
+  name?: T;
+  icon?: T;
+  href?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "experience_select".
+ */
+export interface ExperienceSelect<T extends boolean = true> {
+  id?: T;
+  name?: T;
+  fullName?: T;
+  description?: T;
+  icon?: T;
+  location?: T;
+  years?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  id?: T;
+  title?: T;
+  description?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  github?: T;
+  demo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skill-categories_select".
+ */
+export interface SkillCategoriesSelect<T extends boolean = true> {
+  id?: T;
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills_select".
+ */
+export interface SkillsSelect<T extends boolean = true> {
+  id?: T;
+  name?: T;
+  level?: T;
+  category?: T;
   updatedAt?: T;
   createdAt?: T;
 }

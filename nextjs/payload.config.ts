@@ -6,7 +6,6 @@ import { buildConfig } from "payload";
 import sharp from "sharp";
 import { About } from "./collections/About";
 import { Certifications } from "./collections/Certifications";
-import { Contact } from "./collections/Contact";
 import { Experience } from "./collections/Experience";
 import { Media } from "./collections/Media";
 import { NavLinks } from "./collections/NavLinks";
@@ -32,7 +31,6 @@ export default buildConfig({
 		NavLinks,
 		About,
 		Certifications,
-		Contact,
 		Experience,
 		Projects,
 		SkillCategories,
