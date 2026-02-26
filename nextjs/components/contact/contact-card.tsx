@@ -1,14 +1,15 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import type { Contact } from "@/data/contact";
+import type { NavLink } from "@/payload-types";
+import { iconMap } from "@/lib/icons";
 
 type ContactCardProps = {
-	contact: Contact;
+	contact: NavLink;
 };
 
 export function ContactCard({ contact }: ContactCardProps) {
-	const Icon = contact.icon;
+	const Icon = iconMap[contact.icon];
 
 	return (
 		<Button
@@ -16,13 +17,13 @@ export function ContactCard({ contact }: ContactCardProps) {
 			className="h-32"
 			render={
 				<Link
-					href={contact.href}
+					href={contact.href || "#"}
 					target="_blank"
 					rel="noopener noreferrer"
 					className="flex flex-col gap-2"
 				>
 					<Icon className="size-8" />
-					<span className="font-semibold">{contact.name}</span>
+					<span className="font-semibold">{contact.title}</span>
 				</Link>
 			}
 			nativeButton={false}

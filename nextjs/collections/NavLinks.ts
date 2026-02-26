@@ -87,5 +87,11 @@ export const NavLinks: CollectionConfig = {
 			defaultValue: false,
 			label: "Ouvre le dialog de contact",
 		},
+		{
+			name: "isContactLink",
+			type: "checkbox",
+			defaultValue: false,
+			label: "Est un lien de contact",
+		},
 	],
 };

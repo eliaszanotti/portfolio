@@ -1,5 +1,9 @@
 import {
+	Award,
+	Briefcase,
+	Coffee,
 	Code,
+	Code2,
 	FolderOpen,
 	Github,
 	GraduationCap,
@@ -8,10 +12,15 @@ import {
 	type LucideIcon,
 	Mail,
 	Phone,
+	User,
 } from "lucide-react";
 
 export const iconMap: Record<string, LucideIcon> = {
+	Award,
+	Briefcase,
+	Coffee,
 	Code,
+	Code2,
 	FolderOpen,
 	Github,
 	GraduationCap,
@@ -19,4 +28,5 @@ export const iconMap: Record<string, LucideIcon> = {
 	Linkedin,
 	Mail,
 	Phone,
+	User,
 };

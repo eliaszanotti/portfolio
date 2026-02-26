@@ -7,14 +7,15 @@ import {
 	ItemMedia,
 	ItemTitle,
 } from "@/components/ui/item";
-import type { Experience } from "@/data/experience";
+import type { Experience } from "@/payload-types";
+import { iconMap } from "@/lib/icons";
 
 type ExperienceCardProps = {
 	experience: Experience;
 };
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
-	const Icon = experience.icon;
+	const Icon = iconMap[experience.icon];
 
 	return (
 		<Item variant="outline">

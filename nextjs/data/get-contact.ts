@@ -12,7 +12,7 @@ async function getContact(locale: Locale): Promise<NavLink[]> {
         depth: 0,
         locale,
         where: {
-            isContactDialog: {
+            isContactLink: {
                 equals: true,
             },
         },

@@ -1,15 +1,18 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { ContactCard } from "@/components/contact/contact-card";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionDescription } from "@/components/section-description";
 import { SectionTitle } from "@/components/section-title";
-import { contactData } from "@/data/contact";
+import { getCachedContact } from "@/data/get-contact";
 import { ContactEmailInput } from "./contact-email-input";
 import { ContactPhoneInput } from "./contact-phone-input";
+import type { Locale } from "@/lib/i18n/routing";
 
 export async function ContactSection() {
 	const t = await getTranslations("contact");
+	const locale = (await getLocale()) as Locale;
+	const contactData = await getCachedContact(locale);
 
 	return (
 		<Section id="contact">
@@ -28,7 +31,7 @@ export async function ContactSection() {
 			<SubSection>
 				<div className="grid grid-cols-3 gap-8 w-full">
 					{contactData.map((contact) => (
-						<ContactCard key={contact.name} contact={contact} />
+						<ContactCard key={contact.id} contact={contact} />
 					))}
 				</div>
 			</SubSection>

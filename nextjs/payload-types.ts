@@ -72,7 +72,6 @@ export interface Config {
     'nav-links': NavLink;
     about: About;
     certifications: Certification;
-    contact: Contact;
     experience: Experience;
     projects: Project;
     'skill-categories': SkillCategory;
@@ -89,7 +88,6 @@ export interface Config {
     'nav-links': NavLinksSelect<false> | NavLinksSelect<true>;
     about: AboutSelect<false> | AboutSelect<true>;
     certifications: CertificationsSelect<false> | CertificationsSelect<true>;
-    contact: ContactSelect<false> | ContactSelect<true>;
     experience: ExperienceSelect<false> | ExperienceSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'skill-categories': SkillCategoriesSelect<false> | SkillCategoriesSelect<true>;
@@ -207,6 +205,7 @@ export interface NavLink {
    */
   positionLeft?: string | null;
   isContactDialog?: boolean | null;
+  isContactLink?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -237,27 +236,6 @@ export interface Certification {
    * Nom de l'icône Lucide (ex: Award, GraduationCap)
    */
   icon: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact".
- */
-export interface Contact {
-  id: string;
-  /**
-   * Nom du contact (ex: GitHub, Instagram)
-   */
-  name: string;
-  /**
-   * Nom de l'icône Lucide (ex: Github, Instagram, Linkedin)
-   */
-  icon: string;
-  /**
-   * URL externe (ex: https://github.com/username)
-   */
-  href: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -302,12 +280,10 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  tags?:
-    | {
-        tag: string;
-        id?: string | null;
-      }[]
-    | null;
+  /**
+   * Tags séparés par des virgules (ex: Next.js, Zod, Nuqs)
+   */
+  tags?: string | null;
   /**
    * Lien vers le dépôt GitHub (optionnel)
    */
@@ -336,7 +312,7 @@ export interface SkillCategory {
 export interface Skill {
   id: string;
   name: string;
-  level: 0 | 1 | 2 | 3;
+  level: '0' | '1' | '2' | '3';
   /**
    * Catégorie de la compétence
    */
@@ -387,10 +363,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'certifications';
         value: string | Certification;
-      } | null)
-    | ({
-        relationTo: 'contact';
-        value: string | Contact;
       } | null)
     | ({
         relationTo: 'experience';
@@ -505,6 +477,7 @@ export interface NavLinksSelect<T extends boolean = true> {
   positionTop?: T;
   positionLeft?: T;
   isContactDialog?: T;
+  isContactLink?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -534,18 +507,6 @@ export interface CertificationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact_select".
- */
-export interface ContactSelect<T extends boolean = true> {
-  id?: T;
-  name?: T;
-  icon?: T;
-  href?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "experience_select".
  */
 export interface ExperienceSelect<T extends boolean = true> {
@@ -567,12 +528,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   id?: T;
   title?: T;
   description?: T;
-  tags?:
-    | T
-    | {
-        tag?: T;
-        id?: T;
-      };
+  tags?: T;
   github?: T;
   demo?: T;
   updatedAt?: T;

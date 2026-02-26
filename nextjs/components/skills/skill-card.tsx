@@ -4,7 +4,7 @@ import {
 	ItemContent,
 	ItemTitle,
 } from "@/components/ui/item";
-import type { Skill } from "@/data/skills";
+import type { Skill } from "@/payload-types";
 import { LevelDots } from "./level-dots";
 
 type SkillCardProps = {
