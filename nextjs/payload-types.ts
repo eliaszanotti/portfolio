@@ -81,7 +81,11 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    'skill-categories': {
+      skills: 'skills';
+    };
+  };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
@@ -317,6 +321,11 @@ export interface Skill {
 export interface SkillCategory {
   id: string;
   title: string;
+  skills?: {
+    docs?: (string | Skill)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -541,6 +550,7 @@ export interface ProjectsSelect<T extends boolean = true> {
 export interface SkillCategoriesSelect<T extends boolean = true> {
   id?: T;
   title?: T;
+  skills?: T;
   updatedAt?: T;
   createdAt?: T;
 }
