@@ -27,12 +27,12 @@ export const Skills: CollectionConfig = {
             name: "level",
             type: "select",
             required: true,
-            defaultValue: 1,
+            defaultValue: "1",
             options: [
-                { label: "Débutant (0)", value: 0 },
-                { label: "Intermédiaire (1)", value: 1 },
-                { label: "Avancé (2)", value: 2 },
-                { label: "Expert (3)", value: 3 },
+                { label: "Débutant (0)", value: "0" },
+                { label: "Intermédiaire (1)", value: "1" },
+                { label: "Avancé (2)", value: "2" },
+                { label: "Expert (3)", value: "3" },
             ],
         },
         {
