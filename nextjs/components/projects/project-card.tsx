@@ -11,7 +11,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/payload-types";
 
 type ProjectCardProps = {
 	project: Project;
@@ -28,11 +28,14 @@ export async function ProjectCard({ project }: ProjectCardProps) {
 			</CardHeader>
 			<CardContent className="flex h-full items-end">
 				<div className="flex items-end flex-wrap gap-2">
-					{project.tags.map((tag) => (
-						<Badge key={tag} variant="secondary">
-							{tag}
-						</Badge>
-					))}
+					{project.tags?.map((tag) => {
+						const tagName = typeof tag === "string" ? tag : tag.name;
+						return (
+							<Badge key={tagName} variant="secondary">
+								{tagName}
+							</Badge>
+						);
+					})}
 				</div>
 			</CardContent>
 			<CardFooter className="flex justify-end gap-2">

@@ -9,7 +9,7 @@ async function getProjects(locale: Locale): Promise<Project[]> {
 
     const { docs } = await payload.find({
         collection: "projects",
-        depth: 0,
+        depth: 1,
         locale,
     });
 

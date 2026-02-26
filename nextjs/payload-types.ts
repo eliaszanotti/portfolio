@@ -281,9 +281,9 @@ export interface Project {
   title: string;
   description: string;
   /**
-   * Tags séparés par des virgules (ex: Next.js, Zod, Nuqs)
+   * Compétences associées au projet
    */
-  tags?: string | null;
+  tags?: (string | Skill)[] | null;
   /**
    * Lien vers le dépôt GitHub (optionnel)
    */
@@ -292,16 +292,6 @@ export interface Project {
    * Lien vers la démo en ligne (optionnel)
    */
   demo?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "skill-categories".
- */
-export interface SkillCategory {
-  id: string;
-  title: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -317,6 +307,16 @@ export interface Skill {
    * Catégorie de la compétence
    */
   category: string | SkillCategory;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skill-categories".
+ */
+export interface SkillCategory {
+  id: string;
+  title: string;
   updatedAt: string;
   createdAt: string;
 }

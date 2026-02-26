@@ -31,15 +31,12 @@ export const Projects: CollectionConfig = {
         },
         {
             name: "tags",
-            type: "array",
-            localized: true,
-            fields: [
-                {
-                    name: "tag",
-                    type: "text",
-                    required: true,
-                },
-            ],
+            type: "relationship",
+            relationTo: "skills",
+            hasMany: true,
+            admin: {
+                description: "Compétences associées au projet",
+            },
         },
         {
             name: "github",
