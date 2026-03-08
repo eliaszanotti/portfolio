@@ -5,6 +5,7 @@ import { generatePageMetadata, RootPage } from "@payloadcms/next/views";
 import type { Metadata } from "next";
 import config from "payload.config";
 import { importMap } from "../importMap";
+import { Suspense } from "react";
 
 type Args = {
 	params: Promise<{
@@ -21,7 +22,10 @@ export const generateMetadata = ({
 }: Args): Promise<Metadata> =>
 	generatePageMetadata({ config, params, searchParams });
 
-const Page = ({ params, searchParams }: Args) =>
-	RootPage({ config, params, searchParams, importMap });
+const Page = ({ params, searchParams }: Args) => (
+	<Suspense fallback={<div>Loading...</div>}>
+		{RootPage({ config, params, searchParams, importMap })}
+	</Suspense>
+);
 
 export default Page;
