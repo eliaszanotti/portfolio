@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { SectionDescription } from "../section-description";
 import { DialogLink } from "./dialog-link";
 import { NavContainer } from "./nav-container";
+import { Suspense } from "react";
+import { NavContainerSkeleton } from "./nav-container-skeleton";
 
 export async function HomeSection() {
 	const t = await getTranslations("home");
@@ -23,7 +25,9 @@ export async function HomeSection() {
 				</DialogLink>
 			</SubSection>
 
-			<NavContainer />
+			<Suspense fallback={<NavContainerSkeleton />}>
+				<NavContainer />
+			</Suspense>
 		</Section>
 	);
 }
