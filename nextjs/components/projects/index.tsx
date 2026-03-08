@@ -2,7 +2,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionTitle } from "@/components/section-title";
-import { getCachedProjects } from "@/data/get-projects";
+import { getProjects } from "@/data/get-projects";
 import { SectionDescription } from "../section-description";
 import { ContactCard } from "./contact-card";
 import { ProjectCard } from "./project-card";
@@ -11,7 +11,7 @@ import type { Locale } from "@/lib/i18n/routing";
 export async function ProjectsSection() {
 	const t = await getTranslations("projects");
 	const locale = (await getLocale()) as Locale;
-	const projectsData = await getCachedProjects(locale);
+	const projectsData = await getProjects(locale);
 
 	return (
 		<Section id="projects">

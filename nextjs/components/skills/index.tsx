@@ -4,7 +4,7 @@ import { SubSection } from "@/components/layout/sub-section";
 import { SectionDescription } from "@/components/section-description";
 import { SectionTitle } from "@/components/section-title";
 import { ItemGroup } from "@/components/ui/item";
-import { getCachedSkillCategories } from "@/data/get-skill-categories";
+import { getSkillCategories } from "@/data/get-skill-categories";
 import { SkillCard } from "./skill-card";
 import type { Locale } from "@/lib/i18n/routing";
 import type { Skill } from "@/payload-types";
@@ -12,7 +12,7 @@ import type { Skill } from "@/payload-types";
 export async function SkillsSection() {
 	const t = await getTranslations("skills");
 	const locale = (await getLocale()) as Locale;
-	const categories = await getCachedSkillCategories(locale);
+	const categories = await getSkillCategories(locale);
 
 	return (
 		<Section id="skills">

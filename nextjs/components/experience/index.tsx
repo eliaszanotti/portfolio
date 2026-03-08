@@ -3,8 +3,8 @@ import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionDescription } from "@/components/section-description";
 import { SectionTitle } from "@/components/section-title";
-import { getCachedCertifications } from "@/data/get-certifications";
-import { getCachedExperience } from "@/data/get-experience";
+import { getCertifications } from "@/data/get-certifications";
+import { getExperience } from "@/data/get-experience";
 import { CertificationCard } from "./certification-card";
 import { ExperienceCard } from "./experience-card";
 import type { Locale } from "@/lib/i18n/routing";
@@ -13,8 +13,8 @@ export async function ExperienceSection() {
 	const t = await getTranslations("experience");
 	const locale = (await getLocale()) as Locale;
 	const [experienceData, certificationsData] = await Promise.all([
-		getCachedExperience(locale),
-		getCachedCertifications(locale),
+		getExperience(locale),
+		getCertifications(locale),
 	]);
 
 	return (
