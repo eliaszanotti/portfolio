@@ -1,29 +1,27 @@
-import { unstable_cache } from "next/cache";
-import { getPayload } from "payload";
-import config from "@/payload.config";
+import { getPayloadClient } from "@/lib/payload";
 import type { SkillCategory } from "@/payload-types";
+import { cacheTag, cacheLife } from "next/cache";
 import type { Locale } from "@/lib/i18n/routing";
 
-async function getSkillCategories(locale: Locale): Promise<SkillCategory[]> {
-	const payload = await getPayload({ config });
+export async function getSkillCategories(locale: Locale): Promise<SkillCategory[]> {
+    "use cache";
+    cacheLife("hours");
+    cacheTag("skill-categories");
+    cacheTag("skills");
 
-	const { docs: categories } = await payload.find({
-		collection: "skill-categories",
-		depth: 1,
-		sort: "title",
-		joins: {
-			skills: {
-				sort: "-level",
-			},
-		},
-		locale,
-	});
+    const payload = await getPayloadClient();
 
-	return categories;
+    const { docs: categories } = await payload.find({
+        collection: "skill-categories",
+        depth: 1,
+        sort: "title",
+        joins: {
+            skills: {
+                sort: "-level",
+            },
+        },
+        locale,
+    });
+
+    return categories;
 }
-
-export const getCachedSkillCategories = unstable_cache(
-	async (locale: Locale) => getSkillCategories(locale),
-	["skill-categories"],
-	{ revalidate: 3600, tags: ["skill-categories", "skills"] },
-);

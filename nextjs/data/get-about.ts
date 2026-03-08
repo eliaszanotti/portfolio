@@ -1,11 +1,14 @@
-import { unstable_cache } from "next/cache";
-import { getPayload } from "payload";
-import config from "@/payload.config";
+import { getPayloadClient } from "@/lib/payload";
 import type { About } from "@/payload-types";
+import { cacheTag, cacheLife } from "next/cache";
 import type { Locale } from "@/lib/i18n/routing";
 
-async function getAbout(locale: Locale): Promise<About[]> {
-    const payload = await getPayload({ config });
+export async function getAbout(locale: Locale): Promise<About[]> {
+    "use cache";
+    cacheLife("hours");
+    cacheTag("about");
+
+    const payload = await getPayloadClient();
 
     const { docs } = await payload.find({
         collection: "about",
@@ -15,9 +18,3 @@ async function getAbout(locale: Locale): Promise<About[]> {
 
     return docs;
 }
-
-export const getCachedAbout = unstable_cache(
-    async (locale: Locale) => getAbout(locale),
-    ["about"],
-    { revalidate: 3600, tags: ["about"] },
-);

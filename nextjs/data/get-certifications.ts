@@ -1,11 +1,14 @@
-import { unstable_cache } from "next/cache";
-import { getPayload } from "payload";
-import config from "@/payload.config";
+import { getPayloadClient } from "@/lib/payload";
 import type { Certification } from "@/payload-types";
+import { cacheTag, cacheLife } from "next/cache";
 import type { Locale } from "@/lib/i18n/routing";
 
-async function getCertifications(locale: Locale): Promise<Certification[]> {
-    const payload = await getPayload({ config });
+export async function getCertifications(locale: Locale): Promise<Certification[]> {
+    "use cache";
+    cacheLife("hours");
+    cacheTag("certifications");
+
+    const payload = await getPayloadClient();
 
     const { docs } = await payload.find({
         collection: "certifications",
@@ -15,9 +18,3 @@ async function getCertifications(locale: Locale): Promise<Certification[]> {
 
     return docs;
 }
-
-export const getCachedCertifications = unstable_cache(
-    async (locale: Locale) => getCertifications(locale),
-    ["certifications"],
-    { revalidate: 3600, tags: ["certifications"] },
-);

@@ -1,11 +1,14 @@
-import { unstable_cache } from "next/cache";
-import { getPayload } from "payload";
-import config from "@/payload.config";
+import { getPayloadClient } from "@/lib/payload";
 import type { Project } from "@/payload-types";
+import { cacheTag, cacheLife } from "next/cache";
 import type { Locale } from "@/lib/i18n/routing";
 
-async function getProjects(locale: Locale): Promise<Project[]> {
-    const payload = await getPayload({ config });
+export async function getProjects(locale: Locale): Promise<Project[]> {
+    "use cache";
+    cacheLife("hours");
+    cacheTag("projects");
+
+    const payload = await getPayloadClient();
 
     const { docs } = await payload.find({
         collection: "projects",
@@ -15,9 +18,3 @@ async function getProjects(locale: Locale): Promise<Project[]> {
 
     return docs;
 }
-
-export const getCachedProjects = unstable_cache(
-    async (locale: Locale) => getProjects(locale),
-    ["projects"],
-    { revalidate: 3600, tags: ["projects"] },
-);
