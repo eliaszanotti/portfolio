@@ -3,25 +3,14 @@ import { Section } from "@/components/layout/section";
 import { SubSection } from "@/components/layout/sub-section";
 import { SectionDescription } from "@/components/section-description";
 import { SectionTitle } from "@/components/section-title";
-import { getAbout } from "@/data/get-about";
-import { iconMap } from "@/lib/icons";
 import { Suspense } from "react";
 import { AboutSkeleton } from "./about-skeleton";
-
-import {
-	Item,
-	ItemContent,
-	ItemDescription,
-	ItemGroup,
-	ItemMedia,
-	ItemTitle,
-} from "@/components/ui/item";
+import { AboutContent } from "./about-content";
 import type { Locale } from "@/lib/i18n/routing";
 
 export async function AboutSection() {
 	const t = await getTranslations("about");
 	const locale = (await getLocale()) as Locale;
-	const aboutData = await getAbout(locale);
 
 	return (
 		<Section id="about">
@@ -32,25 +21,7 @@ export async function AboutSection() {
 
 			<SubSection>
 				<Suspense fallback={<AboutSkeleton />}>
-					<ItemGroup>
-						{aboutData.map((item) => {
-							const Icon = iconMap[item.icon];
-							return (
-								<Item key={item.id} variant="outline">
-									<ItemMedia
-										variant="image"
-										className="size-12 rounded-full bg-primary/10"
-									>
-										<Icon className="text-primary" />
-									</ItemMedia>
-									<ItemContent>
-										<ItemTitle>{item.title}</ItemTitle>
-										<ItemDescription>{item.description}</ItemDescription>
-									</ItemContent>
-								</Item>
-							);
-						})}
-					</ItemGroup>
+					<AboutContent locale={locale} />
 				</Suspense>
 			</SubSection>
 		</Section>
