@@ -19,10 +19,9 @@ type Props = {
 
 type LocaleContentProps = {
 	children: ReactNode;
-	locale: string;
 };
 
-async function LocaleContent({ children, locale }: LocaleContentProps) {
+async function LocaleContent({ children }: LocaleContentProps) {
 	const messages = await getMessages();
 
 	return (
@@ -67,7 +66,7 @@ export default async function LocaleLayout(props: Props) {
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="dark">
 					<Suspense fallback={<Loading />}>
-						<LocaleContent locale={locale}>{children}</LocaleContent>
+						<LocaleContent>{children}</LocaleContent>
 					</Suspense>
 				</ThemeProvider>
 			</body>
