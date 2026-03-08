@@ -9,11 +9,32 @@ import { monoFont, sansFont, serifFont } from "@/app/fonts";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Suspense } from "react";
+import Loading from "../loading";
 
 type Props = {
 	children: ReactNode;
 	params: Promise<{ locale: string }>;
 };
+
+type LocaleContentProps = {
+	children: ReactNode;
+	locale: string;
+};
+
+async function LocaleContent({ children, locale }: LocaleContentProps) {
+	const messages = await getMessages();
+
+	return (
+		<NextIntlClientProvider messages={messages}>
+			<main>
+				<Header />
+				<div className="min-h-screen">{children}</div>
+				<Footer />
+			</main>
+		</NextIntlClientProvider>
+	);
+}
 
 export function generateStaticParams() {
 	return locales.map((locale) => ({ locale }));
@@ -37,8 +58,6 @@ export default async function LocaleLayout(props: Props) {
 		notFound();
 	}
 
-	const messages = await getMessages();
-
 	return (
 		<html
 			lang={locale}
@@ -47,13 +66,9 @@ export default async function LocaleLayout(props: Props) {
 		>
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="dark">
-					<NextIntlClientProvider messages={messages}>
-						<main>
-							<Header />
-							<div className="min-h-screen">{children}</div>
-							<Footer />
-						</main>
-					</NextIntlClientProvider>
+					<Suspense fallback={<Loading />}>
+						<LocaleContent locale={locale}>{children}</LocaleContent>
+					</Suspense>
 				</ThemeProvider>
 			</body>
 		</html>
