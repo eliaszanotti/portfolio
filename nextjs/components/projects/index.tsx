@@ -6,6 +6,8 @@ import { getProjects } from "@/data/get-projects";
 import { SectionDescription } from "../section-description";
 import { ContactCard } from "./contact-card";
 import { ProjectCard } from "./project-card";
+import { Suspense } from "react";
+import { ProjectsSkeleton } from "./projects-skeleton";
 import type { Locale } from "@/lib/i18n/routing";
 
 export async function ProjectsSection() {
@@ -20,14 +22,16 @@ export async function ProjectsSection() {
 				<SectionDescription>{t("description")}</SectionDescription>
 			</SubSection>
 
-			<SubSection>
-				<div className="grid grid-cols-2 gap-8 w-full">
-					{projectsData.map((project) => (
-						<ProjectCard key={project.id} project={project} />
-					))}
-					<ContactCard />
-				</div>
-			</SubSection>
+			<Suspense fallback={<ProjectsSkeleton />}>
+				<SubSection>
+					<div className="grid grid-cols-2 gap-8 w-full">
+						{projectsData.map((project) => (
+							<ProjectCard key={project.id} project={project} />
+						))}
+						<ContactCard />
+					</div>
+				</SubSection>
+			</Suspense>
 		</Section>
 	);
 }

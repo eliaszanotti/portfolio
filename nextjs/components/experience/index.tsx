@@ -7,6 +7,8 @@ import { getCertifications } from "@/data/get-certifications";
 import { getExperience } from "@/data/get-experience";
 import { CertificationCard } from "./certification-card";
 import { ExperienceCard } from "./experience-card";
+import { Suspense } from "react";
+import { ExperienceSkeleton } from "./experience-skeleton";
 import type { Locale } from "@/lib/i18n/routing";
 
 export async function ExperienceSection() {
@@ -24,20 +26,22 @@ export async function ExperienceSection() {
 				<SectionDescription>{t("description")}</SectionDescription>
 			</SubSection>
 
-			<SubSection>
-				{experienceData.map((exp) => (
-					<ExperienceCard key={exp.id} experience={exp} />
-				))}
-			</SubSection>
-
-			<SubSection>
-				<h2 className="text-2xl font-bold w-full">{t("certifications")}</h2>
-				<div className="flex flex-col gap-3 w-full">
-					{certificationsData.map((cert) => (
-						<CertificationCard key={cert.id} certification={cert} />
+			<Suspense fallback={<ExperienceSkeleton />}>
+				<SubSection>
+					{experienceData.map((exp) => (
+						<ExperienceCard key={exp.id} experience={exp} />
 					))}
-				</div>
-			</SubSection>
+				</SubSection>
+
+				<SubSection>
+					<h2 className="text-2xl font-bold w-full">{t("certifications")}</h2>
+					<div className="flex flex-col gap-3 w-full">
+						{certificationsData.map((cert) => (
+							<CertificationCard key={cert.id} certification={cert} />
+						))}
+					</div>
+				</SubSection>
+			</Suspense>
 		</Section>
 	);
 }

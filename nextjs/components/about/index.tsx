@@ -5,6 +5,8 @@ import { SectionDescription } from "@/components/section-description";
 import { SectionTitle } from "@/components/section-title";
 import { getAbout } from "@/data/get-about";
 import { iconMap } from "@/lib/icons";
+import { Suspense } from "react";
+import { AboutSkeleton } from "./about-skeleton";
 
 import {
 	Item,
@@ -29,25 +31,27 @@ export async function AboutSection() {
 			</SubSection>
 
 			<SubSection>
-				<ItemGroup>
-					{aboutData.map((item) => {
-						const Icon = iconMap[item.icon];
-						return (
-							<Item key={item.id} variant="outline">
-								<ItemMedia
-									variant="image"
-									className="size-12 rounded-full bg-primary/10"
-								>
-									<Icon className="text-primary" />
-								</ItemMedia>
-								<ItemContent>
-									<ItemTitle>{item.title}</ItemTitle>
-									<ItemDescription>{item.description}</ItemDescription>
-								</ItemContent>
-							</Item>
-						);
-					})}
-				</ItemGroup>
+				<Suspense fallback={<AboutSkeleton />}>
+					<ItemGroup>
+						{aboutData.map((item) => {
+							const Icon = iconMap[item.icon];
+							return (
+								<Item key={item.id} variant="outline">
+									<ItemMedia
+										variant="image"
+										className="size-12 rounded-full bg-primary/10"
+									>
+										<Icon className="text-primary" />
+									</ItemMedia>
+									<ItemContent>
+										<ItemTitle>{item.title}</ItemTitle>
+										<ItemDescription>{item.description}</ItemDescription>
+									</ItemContent>
+								</Item>
+							);
+						})}
+					</ItemGroup>
+				</Suspense>
 			</SubSection>
 		</Section>
 	);

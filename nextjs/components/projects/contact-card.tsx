@@ -9,8 +9,18 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+import { Suspense } from "react";
+import { ContactCardSkeleton } from "./contact-card-skeleton";
 
-export async function ContactCard() {
+export function ContactCard() {
+	return (
+		<Suspense fallback={<ContactCardSkeleton />}>
+			<ContactCardContent />
+		</Suspense>
+	);
+}
+
+async function ContactCardContent() {
 	const t = await getTranslations("projects.contactCard");
 
 	return (

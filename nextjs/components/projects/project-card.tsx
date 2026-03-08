@@ -11,6 +11,8 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+import { Suspense } from "react";
+import { ProjectCardSkeleton } from "./project-card-skeleton";
 import type { Project } from "@/payload-types";
 
 type ProjectCardProps = {
@@ -18,6 +20,14 @@ type ProjectCardProps = {
 };
 
 export async function ProjectCard({ project }: ProjectCardProps) {
+	return (
+		<Suspense fallback={<ProjectCardSkeleton />}>
+			<ProjectCardContent project={project} />
+		</Suspense>
+	);
+}
+
+async function ProjectCardContent({ project }: ProjectCardProps) {
 	const t = await getTranslations("projects.card");
 
 	return (

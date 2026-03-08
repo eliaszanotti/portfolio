@@ -7,6 +7,8 @@ import { SectionTitle } from "@/components/section-title";
 import { getContact } from "@/data/get-contact";
 import { ContactEmailInput } from "./contact-email-input";
 import { ContactPhoneInput } from "./contact-phone-input";
+import { Suspense } from "react";
+import { ContactSkeleton } from "./contact-skeleton";
 import type { Locale } from "@/lib/i18n/routing";
 
 export async function ContactSection() {
@@ -28,13 +30,15 @@ export async function ContactSection() {
 				</div>
 			</SubSection>
 
-			<SubSection>
-				<div className="grid grid-cols-3 gap-8 w-full">
-					{contactData.map((contact) => (
-						<ContactCard key={contact.id} contact={contact} />
-					))}
-				</div>
-			</SubSection>
+			<Suspense fallback={<ContactSkeleton />}>
+				<SubSection>
+					<div className="grid grid-cols-3 gap-8 w-full">
+						{contactData.map((contact) => (
+							<ContactCard key={contact.id} contact={contact} />
+						))}
+					</div>
+				</SubSection>
+			</Suspense>
 		</Section>
 	);
 }
