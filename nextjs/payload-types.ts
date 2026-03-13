@@ -196,9 +196,9 @@ export interface NavLink {
    */
   icon: string;
   /**
-   * Taille du bouton (ex: size-48, size-40)
+   * Taille du bouton en pixels (ex: 192)
    */
-  buttonSize: string;
+  buttonSize: number;
   buttonVariant?: ('default' | 'outline' | 'ghost' | 'secondary') | null;
   /**
    * Position top en % (ex: 20%)

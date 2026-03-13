@@ -47,11 +47,11 @@ export const NavLinks: CollectionConfig = {
 		},
 		{
 			name: "buttonSize",
-			type: "text",
+			type: "number",
 			required: true,
-			defaultValue: "size-48",
+			defaultValue: 192,
 			admin: {
-				description: "Taille du bouton (ex: size-48, size-40)",
+				description: "Taille du bouton en pixels (ex: 192)",
 			},
 		},
 		{
