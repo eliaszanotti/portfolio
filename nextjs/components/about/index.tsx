@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import { AboutSkeleton } from "./about-skeleton";
 import { AboutContent } from "./about-content";
 import type { Locale } from "@/lib/i18n/routing";
+import Image from "next/image";
 
 export async function AboutSection() {
 	const t = await getTranslations("about");
@@ -14,9 +15,18 @@ export async function AboutSection() {
 
 	return (
 		<Section id="about">
-			<SubSection>
-				<SectionTitle>{t("title")}</SectionTitle>
-				<SectionDescription>{t("description")}</SectionDescription>
+			<SubSection className="flex items-center gap-8">
+				<div className="flex-1">
+					<SectionTitle>{t("title")}</SectionTitle>
+					<SectionDescription>{t("description")}</SectionDescription>
+				</div>
+				<Image
+					src="/profile-picture.png"
+					alt="Profile"
+					width={200}
+					height={200}
+					className="rounded-full grayscale"
+				/>
 			</SubSection>
 
 			<SubSection>
