@@ -12,7 +12,7 @@ export function getButtonProps(link: NavLink, index: number) {
 
 	return {
 		variant: link.buttonVariant ?? "outline",
-		className: `scale-90 -translate-x-1/20 md:scale-100 md:translate-x-0 flex flex-col items-center justify-center gap-2 rounded-full absolute hover:cursor-pointer transition-transform`,
+		className: `scale-60 -translate-x-1/5  sm:scale-80 sm:-translate-x-1/10 md:scale-100 md:translate-x-0 flex flex-col items-center justify-center gap-2 rounded-full absolute hover:cursor-pointer transition-transform`,
 		style: {
 			top: link.positionTop ?? "50%",
 			left: link.positionLeft ?? "50%",
